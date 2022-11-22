@@ -52,15 +52,15 @@ button {
 
 @font-face {
   font-family: supreme;
-  src: url("../../fonts/SUPREME-REGULAR.OTF");
+  src: url("../../sources/fonts/SUPREME-REGULAR.OTF");
 }
 @font-face {
   font-family: deserta;
-  src: url("../../fonts/DESERTA.OTF");
+  src: url("../../sources/fonts/DESERTA.OTF");
 }
 @font-face {
   font-family: anurati;
-  src: url("../../fonts/ANURATI-REGULAR.OTF");
+  src: url("../../sources/fonts/ANURATI-REGULAR.OTF");
 }
 .textBody {
   color: #C5C5C5;
