@@ -1,5 +1,7 @@
+
 * {
   box-sizing: border-box;
+
 button {
   width: 19px;
   height: 19px;
@@ -7,7 +9,23 @@ button {
   border: 1px solid #01E6B6;
 }
 
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.form__label {
+  color: #C5C5C5;
+}
+.form__input {
+  border: 2px solid #01E6B6;
+  width: 250px;
+}
+.form__input:focus {
+  border: 2px solid #C5C5C5;
+
 .textBody {
   color: #C5C5C5;
   font-size: 14px;
+
 }/*# sourceMappingURL=main.css.map */
