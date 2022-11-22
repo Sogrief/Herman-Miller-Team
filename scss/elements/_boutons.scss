@@ -4,6 +4,15 @@ button {
     color: $mainColor;
     border: 1px solid $mainColor;
 
+    &.-bouton
+    {
+        border: 1px solid red;
+    }
+
+    &.-checkBox
+    {
+        border: 1px solid yellow;
+    }
 }
 
 .check{
