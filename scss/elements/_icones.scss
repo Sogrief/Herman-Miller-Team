@@ -1,16 +1,20 @@
-.menu__list
+.menu
 {
-    list-style: none;
-    display:flex;
-    align-items: center;
+    &__list
+    {
+        list-style: none;
+        display:flex;
+        align-items: center;
+    }
 
-    .menu__item
+    &__item
     {
         margin:0px pxToRem(15);
+    }
 
-        .menu__icone
-        {
-            width:pxToRem(35);
-        }
+    &__icone
+    {
+        height:pxToRem(20);
     }
 }
+
