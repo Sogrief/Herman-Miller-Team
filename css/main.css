@@ -5,6 +5,18 @@ button {
   border: 1px solid #01E6B6;
 }
 
+.check input[type=checkbox] {
+  display: none;
+}
+.check label {
+  border: 2px solid #C5C5C5;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  display: flex;
+}
+
 .menu__list {
   list-style: none;
 }
