@@ -6,11 +6,45 @@ button {
 .bouton
 {
     width:auto;
-    padding:pxToRem(12) pxToRem(16);
+    padding:pxToRem(5) pxToRem(30);
 
     &:hover
     {
         color:white;
+    }
+
+    &.-suivant
+    {
+        &::after
+        {
+            border-style: solid;
+            border-width: 0.12em 0.12em 0 0;
+            content: '';
+            display: inline-block;
+            height: pxToRem(6);
+            left: pxToRem(3);
+            position: relative;
+            transform: rotate(45deg);
+            vertical-align: center;
+            width: pxToRem(6);
+        }
+    }
+
+    &.-precedent
+    {
+        &::before
+        {
+            border-style: solid;
+            border-width: 0.12em 0.12em 0 0;
+            content: '';
+            display: inline-block;
+            height: pxToRem(6);
+            right: pxToRem(3);
+            position: relative;
+            transform: rotate(-135deg);
+            vertical-align: center;
+            width: pxToRem(6);
+        }
     }
 }
 
