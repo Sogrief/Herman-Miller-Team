@@ -72,11 +72,11 @@ button {
   display: flex;
   align-items: center;
 }
-.menu__item {
+.menu__list .menu__item {
   margin: 0px 1.0714285714rem;
 }
-.menu__icone {
-  height: 1.4285714286rem;
+.menu__list .menu__item .menu__icone {
+  width: 2.5rem;
 }
 
 .form {
