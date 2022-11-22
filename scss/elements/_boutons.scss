@@ -1,13 +1,12 @@
 button {
-    width: 19px;
-    height: 19px;
     color: $mainColor;
     border: 1px solid $mainColor;
 }
 
 .bouton
 {
-    width:200px;
+    width:auto;
+    padding:pxToRem(12) pxToRem(16);
 }
 
 .check{

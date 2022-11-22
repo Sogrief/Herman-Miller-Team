@@ -1,12 +1,11 @@
 button {
-  width: 19px;
-  height: 19px;
   color: #01E6B6;
   border: 1px solid #01E6B6;
 }
 
 .bouton {
-  width: 200px;
+  width: auto;
+  padding: 0.8571428571rem 1.1428571429rem;
 }
 
 .check input[type=checkbox] {
