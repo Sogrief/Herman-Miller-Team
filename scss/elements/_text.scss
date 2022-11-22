@@ -19,14 +19,15 @@
 
 .labelForm{
     color: $bodyText;
-    font-size: 12;
-    font-family: $textFontFamily;l
+    font-size : pxTorem(12);
+    font-family: $textFontFamily;
 }
 
 .title{
     @include title();
     &.-big{
-        font-size: pxToRem(35);
+        // font-size: pxToRem(14);
+        font-size : pxTorem(35);
     }
     &.-little{
         font-size : pxTorem(20);
