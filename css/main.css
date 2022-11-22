@@ -19,9 +19,14 @@ button {
 
 .menu__list {
   list-style: none;
+  display: flex;
+  align-items: center;
 }
-.menu__list .menu__icone {
-  width: 50px;
+.menu__list .menu__item {
+  margin: 0px 1.0714285714rem;
+}
+.menu__list .menu__item .menu__icone {
+  width: 2.5rem;
 }
 
 .form {
