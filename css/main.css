@@ -40,24 +40,29 @@ button {
 }
 .textBody {
   color: #C5C5C5;
-  font-size: 14px;
+  font-size: 1rem;
   font-family: supreme;
 }
 
 .labelForm {
   color: #C5C5C5;
-  font-size: 12px;
+  font-size: pxTorem(12);
   font-family: supreme;
 }
 
 .title {
   color: white;
-  font-size: 25px;
   font-family: deserta;
+  font-size: pxTorem(25);
 }
 .title.-big {
-  font-size: 35px;
+  font-size: pxTorem(35);
 }
 .title.-little {
-  font-size: 20px;
+  font-size: pxTorem(20);
+}
+
+* {
+  box-sizing: border-box;
+  background-color: #2b2b2b;
 }/*# sourceMappingURL=main.css.map */

@@ -13,22 +13,23 @@
 
 .textBody{
     color : $bodyText;
-    font-size: 14px;
+    font-size: pxToRem(14);
     font-family: $textFontFamily;
 }
 
 .labelForm{
     color: $bodyText;
-    font-size: 12px;
+    font-size : pxTorem(12);
     font-family: $textFontFamily;
 }
 
 .title{
     @include title();
     &.-big{
-        font-size: 35px;
+        // font-size: pxToRem(14);
+        font-size : pxTorem(35);
     }
     &.-little{
-        font-size : 20px;
+        font-size : pxTorem(20);
     }
 }
