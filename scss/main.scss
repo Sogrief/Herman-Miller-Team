@@ -1,9 +1,15 @@
 //foundations
 @import './foundations/variables';
+@import "./foundations/mixins";
 
 //elements
-@import './elements/boutons.scss';
+
+@import './elements/boutons';
+
+@import './elements/form';
+
 @import './elements/text';
+
 
 
 

@@ -1,5 +1,34 @@
+@font-face {
+    font-family: supreme;
+    src: url('../../fonts/SUPREME-REGULAR.OTF');
+ }
+@font-face {
+    font-family: deserta;
+    src: url('../../fonts/DESERTA.OTF');
+ }
+@font-face {
+    font-family: anurati;
+    src: url('../../fonts/ANURATI-REGULAR.OTF');
+ }
+
 .textBody{
     color : $bodyText;
     font-size: 14px;
     font-family: $textFontFamily;
+}
+
+.labelForm{
+    color: $bodyText;
+    font-size: 12;
+    font-family: $textFontFamily;l
+}
+
+.title{
+    @include title();
+    &.-big{
+        font-size: 35px;
+    }
+    &.-little{
+        font-size : 20px;
+    }
 }

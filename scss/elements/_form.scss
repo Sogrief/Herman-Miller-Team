@@ -1,0 +1,14 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    &__label{
+        color: $bodyText;
+    }
+    &__input{
+        border: 2px solid $mainColor;
+        width: 250px;
+        &:focus{
+            border: 2px solid $bodyText;
+        }
+    }
+}
