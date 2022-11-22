@@ -7,6 +7,9 @@ button {
   width: auto;
   padding: 0.8571428571rem 1.1428571429rem;
 }
+.bouton:hover {
+  color: white;
+}
 
 .check input[type=checkbox] {
   display: none;
