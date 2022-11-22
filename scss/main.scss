@@ -3,12 +3,11 @@
 @import "./foundations/mixins";
 
 //elements
-
-@import './elements/boutons';
-
+@import './elements/boutons.scss';
+@import './elements/icones.scss';
 @import './elements/form';
-
 @import './elements/text';
+
 
 
 
