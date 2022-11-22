@@ -1,9 +1,16 @@
 .menu__list
 {
     list-style: none;
-    
-    .menu__icone
+    display:flex;
+    align-items: center;
+
+    .menu__item
     {
-        width:50px;
+        margin:0px pxToRem(15);
+
+        .menu__icone
+        {
+            width:pxToRem(35);
+        }
     }
 }
