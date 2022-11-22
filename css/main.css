@@ -9,6 +9,40 @@ button {
   border: 1px solid #01E6B6;
 }
 
+@font-face {
+  font-family: supreme;
+  src: url("../../fonts/SUPREME-REGULAR.OTF");
+}
+@font-face {
+  font-family: deserta;
+  src: url("../../fonts/DESERTA.OTF");
+}
+@font-face {
+  font-family: anurati;
+  src: url("../../fonts/ANURATI-REGULAR.OTF");
+}
+.textBody {
+  color: #C5C5C5;
+  font-size: 14px;
+  font-family: supreme;
+}
+
+.labelForm {
+  color: #C5C5C5;
+  font-size: 12;
+  font-family: supreme;
+}
+
+.title {
+  color: white;
+  font-size: 25px;
+  font-family: deserta;
+}
+.title.-big {
+  font-size: 35px;
+}
+.title.-little {
+  font-size: 20px;
 
 .form {
   display: flex;
@@ -27,5 +61,6 @@ button {
 .textBody {
   color: #C5C5C5;
   font-size: 14px;
+
 
 }/*# sourceMappingURL=main.css.map */
