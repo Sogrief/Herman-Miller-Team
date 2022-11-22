@@ -5,6 +5,13 @@ button {
   border: 1px solid #01E6B6;
 }
 
+.menu__list {
+  list-style: none;
+}
+.menu__list .menu__icone {
+  width: 50px;
+}
+
 .form {
   display: flex;
   flex-direction: column;
