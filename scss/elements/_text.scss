@@ -34,9 +34,19 @@
     }
     &.-menu{
         font-style: pxTorem(16);
-        padding : 30px;
+        text-transform: uppercase;
+        padding-right : 22px;
     }
     &.-icone{
-        padding : 30px 15px;
+        padding-right: 20px;
     }
+}
+
+.liens{
+    &:hover{
+        color : $mainColor;
+        text-decoration: underline;
+    }
+
+    
 }
