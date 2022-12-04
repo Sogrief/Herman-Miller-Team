@@ -107,6 +107,10 @@ button {
 }
 .title.-menu {
   font-style: pxTorem(16);
+  padding: 30px;
+}
+.title.-icone {
+  padding: 30px 15px;
 }
 
 .header {
