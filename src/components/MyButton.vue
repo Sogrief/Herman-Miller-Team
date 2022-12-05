@@ -25,19 +25,18 @@ export default {
 
 <style lang="scss" scoped>
 @import "./../scss/foundations/variables";
-$bg: $primaryColor;
-$color: white;
+
 .button {
   padding: 1rem;
   display: inline-block;
-  background-color: $bg;
-  color: $color;
+  background-color: black;
+  color: white;
   text-decoration: none;
   border: 1px solid;
   border-radius: 5px;
   &:hover {
-    background-color: $color;
-    color: $bg;
+    background-color: black;
+    color: white;
   }
 }
 </style>
