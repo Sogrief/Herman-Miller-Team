@@ -12,21 +12,36 @@ export default {
   },
 };
 </script>
-
 <template>
   <h1 :class="className">{{ label }}</h1>
+<h2 :class="className">{{ label }}</h2> 
 </template>
 
 <style lang="scss" scoped>
-@import "./../scss/foundations/variables";
 .title {
+
   font-family: $textFontFamily;
   font-size: 2rem;
   &.-tiny {
     font-size: 1rem;
   }
+
+  @include title();
+
   &.-big {
-    font-size: 3rem;
+    // font-size: pxToRem(14);
+    font-size: pxToRem(35);
+  }
+  &.-little {
+    font-size: pxToRem(20);
+  }
+  &.-menu {
+    font-size: pxToRem(16);
+    text-transform: uppercase;
+    padding-right: 22px;
+  }
+  &.-icone {
+    padding-right: 20px;
   }
 }
 </style>
