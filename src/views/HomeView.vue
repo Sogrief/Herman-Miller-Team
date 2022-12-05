@@ -9,6 +9,7 @@ export default {
   components: {
     MyButton,
     MyTitle,
+    MyInput,
     MyHeader,
     MyText,
   },
@@ -22,11 +23,8 @@ export default {
     <MyTitle size="big" label="grand titre h1" />
     <MyTitle size="tiny" type="h2" label="petit titre h2" />
     <MyButton label="Cliquez ici" href="/lien" />
+    <MyButton label="Validez le formulaire" type="secundary" />
 
-    <MyHeader />
-    <MyTitle size="-little" label="test" />
-    <MyText size="-body" label="blabla" />
-    <MyText size="-liens" label="blabla" />
-   
+    <MyInput for="nom" label="oui oui french baguette, oui le croissant" type="text" />
   </main>
 </template>
