@@ -12,14 +12,12 @@ export default {
   },
 };
 </script>
-
 <template>
   <h1 :class="className">{{ label }}</h1>
-  <!-- <h2 :class="className">{{ label }}</h2> -->
+<h2 :class="className">{{ label }}</h2> 
 </template>
 
 <style lang="scss" scoped>
-
 .title {
   @include title();
   &.-big {
