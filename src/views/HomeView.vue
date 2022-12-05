@@ -16,12 +16,9 @@ export default {
 <template>
   <main>
     <MyHeader />
-    <MyTitle />
+    <MyTitle size="-little" label="test" />
     <MyText size="-body" label="blabla" />
     <MyText size="-liens" label="blabla" />
-    <MyTitle size="big" label="grand titre h1" />
-    <MyTitle size="tiny" type="h2" label="petit titre h2" />
-    <MyButton label="Cliquez ici" href="/lien" />
-    <MyButton label="Validez le formulaire" type="secundary" />
+
   </main>
 </template>
