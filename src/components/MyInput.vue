@@ -1,4 +1,6 @@
 <script>
+import MyText from "./../components/MyText.vue";
+
 export default{
   props: 
   {
@@ -16,10 +18,14 @@ export default{
 </template>
   
 <style lang="scss" scoped>
+    label
+    {
+      @include title;
+    }
     input
     {
-        border:2px solid $mainColor;
-        padding:pxToRem(5);
+      border:2px solid $mainColor;
+      padding:pxToRem(5);
     }
 </style>
   
