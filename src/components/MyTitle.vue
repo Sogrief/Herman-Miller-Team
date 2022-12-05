@@ -18,15 +18,23 @@ export default{
 </template>
 
 <style lang="scss" scoped>
-@import "./../scss/foundations/variables";
-.title {
-  font-family: $textFont;
-  font-size: 2rem;
-  &.-tiny {
-    font-size: 1rem;
+@import "../scss/foundations/variables";
+.title{
+    @include title();
+    &.-big{
+        // font-size: pxToRem(14);
+        font-size : pxTorem(35);
+    }
+    &.-little{
+        font-size : pxTorem(20);
+    }
+    &.-menu{
+        font-style: pxTorem(16);
+        text-transform: uppercase;
+        padding-right : 22px;
+    }
+    &.-icone{
+        padding-right: 20px;
+    }
   }
-  &.-big {
-    font-size: 3rem;
-  }
-}
 </style>
