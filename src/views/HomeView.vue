@@ -15,10 +15,16 @@ export default {
 
 <template>
   <main>
+
+    <MyTitle />
+    <MyTitle size="big" label="grand titre h1" />
+    <MyTitle size="tiny" type="h2" label="petit titre h2" />
+    <MyButton label="Cliquez ici" href="/lien" />
+
     <MyHeader />
     <MyTitle size="-little" label="test" />
     <MyText size="-body" label="blabla" />
     <MyText size="-liens" label="blabla" />
-
+   
   </main>
 </template>

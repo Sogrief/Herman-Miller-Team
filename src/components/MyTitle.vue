@@ -19,7 +19,15 @@ export default {
 
 <style lang="scss" scoped>
 .title {
+
+  font-family: $textFontFamily;
+  font-size: 2rem;
+  &.-tiny {
+    font-size: 1rem;
+  }
+
   @include title();
+
   &.-big {
     // font-size: pxToRem(14);
     font-size: pxToRem(35);
