@@ -15,6 +15,5 @@ export default {
     <MyTitle size="big" label="grand titre h1" />
     <MyTitle size="tiny" type="h2" label="petit titre h2" />
     <MyButton label="Cliquez ici" href="/lien" />
-    <MyButton label="Validez le formulaire" type="secundary" />
   </main>
 </template>

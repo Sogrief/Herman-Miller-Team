@@ -1,5 +1,5 @@
 <script>
-export default{
+export default {
   data() {
     return {
       className: `title ${this.size}`,
@@ -20,7 +20,7 @@ export default{
 <style lang="scss" scoped>
 @import "./../scss/foundations/variables";
 .title {
-  font-family: $textFont;
+  font-family: $textFontFamily;
   font-size: 2rem;
   &.-tiny {
     font-size: 1rem;
