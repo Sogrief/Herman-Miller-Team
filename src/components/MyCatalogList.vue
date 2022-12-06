@@ -42,7 +42,7 @@ export default{
             v-for="produit in produits"
             :key="produit.id"
             :srcImage="produit.srcImage"
-            :nomItem="produit.nomItem"
+            :nomProduit="produit.nomProduit"
             :prix="produit.prix"
         />
     </div>

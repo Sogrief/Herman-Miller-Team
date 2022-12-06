@@ -6,7 +6,6 @@ import MyText from "./../components/MyText.vue";
 import MyInfoCard from "./../components/MyInfoCard.vue";
 import MyCheckbox from "./../components/MyCheckbox.vue";
 import MyInput from "./../components/MyInput.vue";
-import MyCatalogItem from "../components/MyCatalogItem.vue";
 import MyCatalogList from "../components/MyCatalogList.vue";
 
 export default {
@@ -16,9 +15,9 @@ export default {
     MyInput,
     MyHeader,
     MyText,
-    MyCatalogItem,
     MyInfoCard,
     MyCheckbox,
+    MyCatalogList,
   },
 };
 </script>
@@ -43,6 +42,7 @@ export default {
     <MyText size="-body" label="blabla" />
     <MyText size="-liens" label="blabla" />
     <MyInfoCard />
+    <MyCatalogList />
 
   </main>
 </template>

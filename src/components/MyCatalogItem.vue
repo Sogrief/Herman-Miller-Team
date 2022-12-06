@@ -1,7 +1,7 @@
 <script>
 export default {
   props: {
-    nomProduit: String,
+    nomProduit:String,
     prix:String,
     srcImage: String,
   },
