@@ -25,8 +25,9 @@ export default {
 <template>
   <main>
     <MyTitle />
-    <MyTitle size="big" label="grand titre h1" />
-    <MyTitle size="tiny" type="h2" label="petit titre h2" />
+    <MyTitle size="-big" label="grand titre h1" />
+    <MyTitle size="-default" type="h2" label="petit titre h2" />
+    <MyButton type="precedent" label="suivant" />
     <MyButton type="quantite" label="+" />
     <MyButton type="precedent" label="+" />
     <MyButton type="suivant" label="+" />
