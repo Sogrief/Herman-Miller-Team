@@ -6,6 +6,7 @@ import MyText from "./../components/MyText.vue";
 import MyInfoCard from "./../components/MyInfoCard.vue";
 import MyCheckbox from "./../components/MyCheckbox.vue";
 import MyInput from "./../components/MyInput.vue";
+import MyFooter from "./../components/MyFooter.vue";
 
 export default {
   components: {
@@ -16,6 +17,7 @@ export default {
     MyText,
     MyInfoCard,
     MyCheckbox,
+    MyFooter,
   },
 };
 </script>
@@ -31,6 +33,6 @@ export default {
     <MyTitle size="-little" label="test" />
     <MyText type="lien" label="blabla" size="body" />
     <MyInfoCard />
-
+    <MyFooter />
   </main>
 </template>
