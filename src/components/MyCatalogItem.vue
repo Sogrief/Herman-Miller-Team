@@ -7,6 +7,7 @@ export default {
   },
 };
 </script>
+
 <template>
   <div class="card">
     <div class="card__image">
@@ -18,5 +19,11 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
+  .card
+  {
+    &__title
+    {
+      @include title();
+    }
+  }
 </style>

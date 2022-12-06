@@ -38,7 +38,7 @@ export default{
 <template>
 
     <div class="catalog">
-        <catalogCard
+        <MyCatalogItem
             v-for="produit in produits"
             :key="produit.id"
             :srcImage="produit.srcImage"
