@@ -16,3 +16,9 @@
     vertical-align: center;
     width: pxToRem(6);
 }
+
+@mixin bodyText {
+    color: $bodyText;
+    font-family: $textFontFamily;
+    font-size: 14px;
+}
