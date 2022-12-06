@@ -3,9 +3,11 @@ export default {
   data() {
     return {
       className: `title ${this.size}`,
+      
     };
   },
-  props: {
+  props: 
+  {
     size: String,
     type: String,
     label: String,
