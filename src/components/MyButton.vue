@@ -49,6 +49,7 @@ export default {
     height: 20px;
     background: transparent;
     color: $mainColor;
+    padding: 0;
     border: 1px solid $mainColor;
     &:hover {
       background: $mainColor;
