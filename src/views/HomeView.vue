@@ -6,7 +6,8 @@ import MyText from "./../components/MyText.vue";
 import MyInfoCard from "./../components/MyInfoCard.vue";
 import MyCheckbox from "./../components/MyCheckbox.vue";
 import MyInput from "./../components/MyInput.vue";
-import MyCatalogItem from "./../components/MyCatalogItem.vue";
+import MyCatalogItem from "../components/MyCatalogItem.vue";
+import MyCatalogList from "../components/MyCatalogList.vue";
 
 export default {
   components: {
