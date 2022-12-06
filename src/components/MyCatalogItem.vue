@@ -15,9 +15,7 @@ export default {
 
 <template>
   <div class="card">
-    <div class="card__image">
-      <img :src="srcImage"/>
-    </div>
+    <img :src="srcImage"/>
     <p class="card__title">{{ nomProduit }}</p>
     <p class="card__prix">{{ prix }}</p>
     <MyText size="-body" />
@@ -30,15 +28,18 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width:pxToRem(332);
     height:pxToRem(544);
+    //border:1px solid $mainColor;
+    border: 1px solid;
+    border-image:url('../../assets/images/encarts.png') 2;
 
-    &__image
+    
+    img
     {
-      img
-      {
-        height:pxToRem(300);
-      }
+      //box-shadow: 0px 0px 179px -81px rgba(155, 155, 155, 0.71);
+      height:pxToRem(300);
     }
     
     &__title
