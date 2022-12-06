@@ -98,8 +98,8 @@ export default{
         width:90vw;
         display:flex;
         flex-wrap: wrap;
-        justify-content: center;//centre les produits à l'intérieur du catalogue
-        width:auto;//centre le catalogue lui même
+        justify-content: space-around;//centre les produits à l'intérieur du catalogue
+        margin:auto;
     }
 
 </style>
