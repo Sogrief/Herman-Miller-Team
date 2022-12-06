@@ -22,8 +22,10 @@ export default{
     {
       @include title;
     }
+
     input
     {
+      display:block;
       border:2px solid $mainColor;
       padding:pxToRem(5);
     }

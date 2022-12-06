@@ -24,7 +24,9 @@ export default {
     <MyTitle size="tiny" type="h2" label="petit titre h2" />
     <MyButton label="Cliquez ici" href="/lien" />
     <MyButton label="Validez le formulaire" type="secundary" />
-
-    <MyInput for="nom" label="oui oui french baguette, oui le croissant" type="text" />
+    
+    <form>
+      <MyInput for="nom" label="oui oui french baguette, oui le croissant" type="text" />
+    </form>
   </main>
 </template>
