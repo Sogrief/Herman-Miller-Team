@@ -2,19 +2,25 @@
 export default {
   data() {
     return {
-      className: `text ${this.size}`,
+      className: `${this.type} -${this.size}`,
     };
   },
   props: {
     size: String,
     type: String,
     label: String,
+    href: String,
   },
 };
 </script>
 
 <template>
-  <p :class="className" :size="size">{{ label }}</p>
+  <p v-if="type === 'text'" :class="className" :size="size">
+    {{ label }}
+  </p>
+  <a v-else :href="href" :class="className" :size="size">
+    {{ label }}
+  </a>
 </template>
 
 <style lang="scss" scoped>
@@ -32,24 +38,31 @@ export default {
 }
 
 .text {
-  &.-body {
-    color: $bodyText;
-    font-size: pxToRem(14);
-    font-family: $textFontFamily;
-  }
   &.-labelForm {
     color: $bodyText;
     font-size: pxToRem(12);
     font-family: $textFontFamily;
   }
-  &.-liens {
+}
+.lien {
+  &.-body {
+    font-size: pxToRem(14);
+    font-family: $textFontFamily;
     color: $bodyText;
+  }
+  &.-menu {
+    font-size: pxToRem(16);
+    font-family: $titleFontFamily;
+    color: white;
+  }
+  &.-footer {
     font-size: pxToRem(12);
     font-family: $textFontFamily;
-    &:hover {
-      color: $mainColor;
-      text-decoration: underline;
-    }
+    color: $bodyText;
+  }
+  &:hover {
+    color: $mainColor;
+    text-decoration: underline;
   }
 }
 </style>
