@@ -25,12 +25,11 @@ export default {
     <MyTitle />
     <MyTitle size="big" label="grand titre h1" />
     <MyTitle size="tiny" type="h2" label="petit titre h2" />
-    <MyButton type="precedent" label="suivant" />
+    <MyButton type="quantite" label="+" />
     <MyHeader />
     <MyCheckbox />
     <MyTitle size="-little" label="test" />
-    <MyText size="-body" label="blabla" />
-    <MyText size="-liens" label="blabla" />
+    <MyText type="lien" label="blabla" size="body" />
     <MyInfoCard />
 
   </main>
