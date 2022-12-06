@@ -15,32 +15,24 @@ export default {
 };
 </script>
 <template>
-  <h1 :class="className">{{ label }}</h1>
-<h2 :class="className">{{ label }}</h2> 
+  <h1 v-if="type === 'h1' " :class="className">{{ label }}</h1>
+  <h2 v-else-if="type === 'h2' " :class="className">{{ label }}</h2>
+
 </template>
 
 <style lang="scss" scoped>
 .title {
-
-  font-family: $textFontFamily;
-  font-size: 2rem;
-  &.-tiny {
-    font-size: 1rem;
-  }
-
   @include title();
-
   &.-enormous {
     // font-size: pxToRem(14);
-    font-size: pxToRem(85);
+    font-size: pxToRem(80);
   }
   &.-big {
     // font-size: pxToRem(14);
-    font-size: pxToRem(35);
+    font-size: pxToRem(30);
   }
   &.-default {
-    // font-size: pxToRem(14);
-    font-size: pxToRem(25);
+    font-size: pxToRem(20);
   }
   &.-footer {
     font-size: pxToRem(16);

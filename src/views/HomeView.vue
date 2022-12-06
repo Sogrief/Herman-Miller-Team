@@ -7,6 +7,7 @@ import MyInfoCard from "./../components/MyInfoCard.vue";
 import MyCheckbox from "./../components/MyCheckbox.vue";
 import MyInput from "./../components/MyInput.vue";
 import MyCatalogList from "../components/MyCatalogList.vue";
+import MyFooter from "./../components/MyFooter.vue";
 
 export default {
   components: {
@@ -18,6 +19,7 @@ export default {
     MyInfoCard,
     MyCheckbox,
     MyCatalogList,
+    MyFooter,
   },
 };
 </script>
@@ -34,15 +36,20 @@ export default {
       <MyInput for="nom" label="oui oui french baguette, oui le croissant" type="text" />
     </form>
 
-    <MyCatalogItem src="../../assets/images/produit 1.png" nomItem="embody" />
+    <MyTitle size="-big" label="grand titre h1" />
+    <MyTitle size="-default" type="h2" label="petit titre h2" />
     <MyButton type="precedent" label="suivant" />
+    <MyButton type="quantite" label="+" />
+    <MyButton type="precedent" label="+" />
+    <MyButton type="suivant" label="+" />
+    <MyButton label="+" />
     <MyHeader />
     <MyCheckbox />
     <MyTitle size="-little" label="test" />
-    <MyText size="-body" label="blabla" />
-    <MyText size="-liens" label="blabla" />
+    <MyText type="lien" label="blabla" size="body" />
     <MyInfoCard />
     <MyCatalogList />
 
+    <MyFooter />
   </main>
 </template>
