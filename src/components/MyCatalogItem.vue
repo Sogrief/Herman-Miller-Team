@@ -31,7 +31,9 @@ export default {
     justify-content: center;
     width:pxToRem(332);
     height:pxToRem(544);
-    border:1px solid $mainColor;
+    //border:1px solid $mainColor;
+    border: 1px solid;
+    border-image:url('../../assets/images/encarts.png') 2;
 
     
     img
