@@ -37,7 +37,6 @@ export default {
 <style lang="scss" scoped>
 @import "./../scss/foundations/variables";
 
-
 //bouton classique
 .button {
   color: $mainColor;
@@ -137,20 +136,19 @@ button.quantité {
       opacity: 0;
       border-style: dashed;
     }
-    
-    .button {
-  padding: 1rem;
-  display: inline-block;
-  background-color: black;
-  color: white;
-  text-decoration: none;
-  border: 1px solid;
-  border-radius: 5px;
-  &:hover {
+  }
+  .button {
+    padding: 1rem;
+    display: inline-block;
     background-color: black;
     color: white;
-
+    text-decoration: none;
+    border: 1px solid;
+    border-radius: 5px;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
   }
 }
-
 </style>
