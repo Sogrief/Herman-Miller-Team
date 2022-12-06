@@ -95,7 +95,10 @@ export default{
 
     .catalog
     {
+        width:90vw;
         display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
 </style>

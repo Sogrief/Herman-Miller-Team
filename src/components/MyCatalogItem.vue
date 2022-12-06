@@ -20,20 +20,31 @@ export default {
     </div>
     <p class="card__title">{{ nomProduit }}</p>
     <p class="card__prix">{{ prix }}</p>
-    <MyText size="-body" label="blabla" />
+    <MyText size="-body" />
   </div>
 </template>
 
 <style lang="scss" scoped>
   .card
   {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    width:pxToRem(332);
+    height:pxToRem(544);
+
+    &__image
+    {
+      img
+      {
+        height:pxToRem(300);
+      }
+    }
     
     &__title
     {
       @include title();
+      margin-top:pxToRem(50);
     }
 
     &__prix
