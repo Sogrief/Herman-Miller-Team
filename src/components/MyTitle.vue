@@ -30,16 +30,23 @@ export default {
 
   @include title();
 
+  &.-enormous {
+    // font-size: pxToRem(14);
+    font-size: pxToRem(85);
+  }
   &.-big {
     // font-size: pxToRem(14);
     font-size: pxToRem(35);
   }
-  &.-little {
-    font-size: pxToRem(20);
+  &.-default {
+    // font-size: pxToRem(14);
+    font-size: pxToRem(25);
+  }
+  &.-footer {
+    font-size: pxToRem(16);
   }
   &.-menu {
     font-size: pxToRem(16);
-    text-transform: uppercase;
     padding-right: 22px;
   }
   &.-icone {

@@ -1,6 +1,8 @@
 @mixin title {
     color : white;
     font-family: $titleFontFamily;
+    text-transform: uppercase;
+
 }
 
 @mixin button {
