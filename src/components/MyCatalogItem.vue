@@ -21,6 +21,10 @@ export default {
 <style lang="scss" scoped>
   .card
   {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    
     &__title
     {
       @include title();
