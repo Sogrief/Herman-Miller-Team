@@ -26,6 +26,9 @@ export default {
     <MyTitle size="big" label="grand titre h1" />
     <MyTitle size="tiny" type="h2" label="petit titre h2" />
     <MyButton type="quantite" label="+" />
+    <MyButton type="precedent" label="+" />
+    <MyButton type="suivant" label="+" />
+    <MyButton label="+" />
     <MyHeader />
     <MyCheckbox />
     <MyTitle size="-little" label="test" />
