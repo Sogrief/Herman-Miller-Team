@@ -1,8 +1,11 @@
 *{
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
     background-color: $backgroundColor;
+}
+
+body{
+    margin: 0 80px;
+    padding: 0;
 }
 
 a
