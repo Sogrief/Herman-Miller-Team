@@ -6,8 +6,8 @@ import MyText from "./../components/MyText.vue";
 import MyInfoCard from "./../components/MyInfoCard.vue";
 import MyCheckbox from "./../components/MyCheckbox.vue";
 import MyInput from "./../components/MyInput.vue";
-import MyCatalogList from "../components/MyCatalogList.vue";
 import MyFooter from "./../components/MyFooter.vue";
+import DefaultLayout from "./../layout/DefaultLayout.vue";
 
 export default {
   components: {
@@ -18,27 +18,17 @@ export default {
     MyText,
     MyInfoCard,
     MyCheckbox,
-    MyCatalogList,
     MyFooter,
+    DefaultLayout,
   },
 };
 </script>
 
 <template>
-  <main>
+  <!-- <main>
     <MyTitle />
     <MyTitle size="big" label="grand titre h1" />
     <MyTitle size="tiny" type="h2" label="petit titre h2" />
-    <MyButton label="Cliquez ici" href="/lien" />
-    <MyButton label="Validez le formulaire" type="secundary" />
-    
-    <form>
-      <MyInput for="nom" label="oui oui french baguette, oui le croissant" type="text" />
-    </form>
-
-    <MyTitle size="-big" label="grand titre h1" />
-    <MyTitle size="-default" type="h2" label="petit titre h2" />
-    <MyButton type="precedent" label="suivant" />
     <MyButton type="quantite" label="+" />
     <MyButton type="precedent" label="+" />
     <MyButton type="suivant" label="+" />
@@ -48,8 +38,17 @@ export default {
     <MyTitle size="-little" label="test" />
     <MyText type="lien" label="blabla" size="body" />
     <MyInfoCard />
-    <MyCatalogList />
+    <MyFooter /> -->
 
-    <MyFooter />
-  </main>
+  <DefaultLayout>
+    <template v-slot:header>
+      <MyHeader />
+    </template>
+    <MyTitle size="-enormous" label="Aeron" type="h1" />
+    <MyButton label="Découvrir" />
+    <template v-slot:footer>
+      <MyFooter />
+    </template>
+  </DefaultLayout>
+  <!-- </main> -->
 </template>

@@ -45,6 +45,7 @@ export default {
   }
 }
 .lien {
+  cursor: pointer;
   &.-body {
     font-size: pxToRem(14);
     font-family: $textFontFamily;
