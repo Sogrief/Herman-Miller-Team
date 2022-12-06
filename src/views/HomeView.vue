@@ -6,6 +6,7 @@ import MyText from "./../components/MyText.vue";
 import MyInfoCard from "./../components/MyInfoCard.vue";
 import MyCheckbox from "./../components/MyCheckbox.vue";
 import MyInput from "./../components/MyInput.vue";
+import MyCatalogItem from "./../components/MyCatalogItem.vue";
 
 export default {
   components: {
@@ -14,6 +15,7 @@ export default {
     MyInput,
     MyHeader,
     MyText,
+    MyCatalogItem,
     MyInfoCard,
     MyCheckbox,
   },
@@ -25,6 +27,14 @@ export default {
     <MyTitle />
     <MyTitle size="big" label="grand titre h1" />
     <MyTitle size="tiny" type="h2" label="petit titre h2" />
+    <MyButton label="Cliquez ici" href="/lien" />
+    <MyButton label="Validez le formulaire" type="secundary" />
+    
+    <form>
+      <MyInput for="nom" label="oui oui french baguette, oui le croissant" type="text" />
+    </form>
+
+    <MyCatalogItem src="../../assets/images/produit 1.png" nomItem="embody" />
     <MyButton type="precedent" label="suivant" />
     <MyHeader />
     <MyCheckbox />
