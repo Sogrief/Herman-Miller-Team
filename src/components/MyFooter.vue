@@ -1,8 +1,12 @@
-<script></script>
+<script>
+import MyTitle from "./../components/MyTitle.vue";
+import MyText from "./../components/MyText.vue";
+</script>
 <template>
   <footer>
     <div class="footer">
-      <div class="column">
+      <div class="column1">
+        <p class="logo">HERMAN MILLER</p>
         <p>
           Recevez en avant-première les offres spéciales Herman Miller Gaming et
           les nouveaux lancements de produits par courrier électronique.
@@ -13,7 +17,7 @@
         <button>S'abonner</button>
       </div>
 
-      <div class="column">
+      <div class="column2">
         <div class="column-2">
           <p class="title-menu">SERVICE CLIENT</p>
           <a href="#">Garantie</a>
@@ -68,27 +72,54 @@
 
 <style lang="scss" scoped>
 div.footer {
-  width: 1200px;
-  height: 323px;
-  float: left;
+  display: flex;
+  margin: 46px;
+  gap: 100px;
 }
-div.column {
-  float: left;
-  width: 400px;
-
-  a {
-    display: flex;
-    flex-direction: column;
-  }
+.column1 {
+  width: 360px;
+}
+.column2 {
+  display: flex;
+  gap: 45px;
 }
 
 div.column-2 {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
 }
+
 .footer-legal {
-  display: inline;
+  display: flex;
+  margin: 45px;
+
   ul {
     list-style-type: none;
+    display: flex;
+    gap: 20px;
   }
+}
+
+p {
+  color: #c5c5c5;
+  font-family: $textFontFamily;
+}
+
+a {
+  color: #c5c5c5;
+  font-family: $textFontFamily;
+}
+
+.title-menu {
+  font-size: 16px;
+  color: white;
+  font-family: $titleFontFamily;
+}
+
+.logo {
+  font-family: $logoFontFamily;
+  color: white;
+  font-size: 25px;
+  letter-spacing: 2.6px;
 }
 </style>
