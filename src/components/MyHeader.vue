@@ -102,6 +102,7 @@ export default {
     list-style: none;
     justify-content: space-between;
     align-items: center;
+    gap: 22px;
   }
 }
 </style>
