@@ -4,10 +4,13 @@ import MyTitle from "./../components/MyTitle.vue";
 import MyHeader from "./../components/MyHeader.vue";
 import MyText from "./../components/MyText.vue";
 import MyCheckbox from "./../components/MyCheckbox.vue";
+import MyInput from "./../components/MyInput.vue";
+
 export default {
   components: {
     MyButton,
     MyTitle,
+    MyInput,
     MyHeader,
     MyText,
     MyCheckbox,
@@ -26,5 +29,6 @@ export default {
     <MyTitle size="-little" label="test" />
     <MyText size="-body" label="blabla" />
     <MyText size="-liens" label="blabla" />
+
   </main>
 </template>
