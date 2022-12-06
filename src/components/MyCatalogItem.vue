@@ -1,10 +1,15 @@
 <script>
+import MyText from "../components/MyText.vue";
+
 export default {
-  props: {
-    nomProduit:String,
-    prix:String,
-    srcImage: String,
-  },
+    props: {
+        nomProduit: String,
+        prix: String,
+        srcImage: String,
+    },
+    components: { 
+      MyText, 
+    },
 };
 </script>
 
@@ -15,6 +20,7 @@ export default {
     </div>
     <p class="card__title">{{ nomProduit }}</p>
     <p class="card__prix">{{ prix }}</p>
+    <MyText size="-body" label="blabla" />
   </div>
 </template>
 
@@ -28,6 +34,11 @@ export default {
     &__title
     {
       @include title();
+    }
+
+    &__prix
+    {
+      @include bodyText();
     }
   }
 </style>
