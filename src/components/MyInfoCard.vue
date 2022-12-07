@@ -35,22 +35,30 @@ export default {
 </script>
 
 <template>
-  <div class="list">
-    <MyInfo
-      v-for="information in informations"
-      :key="information.id"
-      :class="title - big"
-      :title="information.title"
-      :srcImage="information.srcImage"
-      :label="information.label"
-    />
+  <div class="bg-perspective">
+    <div class="list grid">
+      <MyInfo
+        v-for="information in informations"
+        :key="information.id"
+        :class="title - big"
+        :title="information.title"
+        :srcImage="information.srcImage"
+        :label="information.label"
+      />
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .list {
+  height: 600px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
+}
+
+.bg-perspective {
+  background-size: cover;
+  background-image: url(../../assets/images/perspective_grille.svg);
 }
 </style>

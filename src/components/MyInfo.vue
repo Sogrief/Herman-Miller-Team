@@ -12,7 +12,7 @@ export default {
 };
 </script>
 <template>
-  <div class="infoCard">
+  <div class=" infoCard">
     <div class="infoCard__image">
       <img :src="srcImage" :alt="title" />
     </div>
