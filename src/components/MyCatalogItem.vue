@@ -40,7 +40,8 @@ export default {
     img
     {
       //box-shadow: 0px 0px 179px -81px rgba(155, 155, 155, 0.71);
-      filter:drop-shadow(0px 0px 10px white);
+      filter:drop-shadow(0px 0px 50px $bodyText);
+      background-color: none;
       height:pxToRem(300);
     }
     
