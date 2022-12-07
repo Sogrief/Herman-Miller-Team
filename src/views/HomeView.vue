@@ -8,6 +8,7 @@ import MyCheckbox from "./../components/MyCheckbox.vue";
 import MyInput from "./../components/MyInput.vue";
 import MyFooter from "./../components/MyFooter.vue";
 import DefaultLayout from "./../layout/DefaultLayout.vue";
+import MyCatalogList from "./../components/MyCatalogList.vue";
 
 export default {
   components: {
@@ -20,12 +21,13 @@ export default {
     MyCheckbox,
     MyFooter,
     DefaultLayout,
+    MyCatalogList,
   },
 };
 </script>
 
 <template>
-  <!-- <main>
+  <main>
     <MyTitle />
     <MyTitle size="big" label="grand titre h1" />
     <MyTitle size="tiny" type="h2" label="petit titre h2" />
@@ -38,7 +40,7 @@ export default {
     <MyTitle size="-little" label="test" />
     <MyText type="lien" label="blabla" size="body" />
     <MyInfoCard />
-    <MyFooter /> -->
+    <MyFooter /> 
 
   <DefaultLayout>
     <template v-slot:header>
@@ -50,5 +52,7 @@ export default {
       <MyFooter />
     </template>
   </DefaultLayout>
-  <!-- </main> -->
+
+  <MyCatalogList />
+  </main>
 </template>
