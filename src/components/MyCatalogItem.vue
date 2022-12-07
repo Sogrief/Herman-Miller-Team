@@ -16,7 +16,7 @@ export default {
 <template>
   <div class="card">
     <img :src="srcImage"/>
-    <p class="card__title">{{ nomProduit }}</p>
+    <h2 class="card__title">{{ nomProduit }}</h2>
     <p class="card__prix">{{ prix }}</p>
     <MyText size="-body" />
   </div>
