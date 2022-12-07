@@ -1,15 +1,18 @@
 *{
     box-sizing: border-box;
-    background-color: $backgroundColor;
+
 }
 
 body{
-    margin: 0 80px;
     padding: 0;
+    background-color: $backgroundColor;
 }
 
-a
-{
+a{
     text-decoration: none;
     color: inherit;
+}
+
+.grid{
+    margin: 0 80px;
 }
