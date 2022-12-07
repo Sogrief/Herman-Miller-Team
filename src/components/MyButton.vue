@@ -24,6 +24,7 @@ export default {
 //bouton classique
 .button {
   color: $mainColor;
+  background-color: $backgroundColor;
   border: 1px solid $mainColor;
   width: auto;
   padding: pxToRem(5) pxToRem(30);
