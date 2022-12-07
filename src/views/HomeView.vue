@@ -10,6 +10,8 @@ import MyFooter from "./../components/MyFooter.vue";
 import DefaultLayout from "./../layout/DefaultLayout.vue";
 import MyCatalogList from "./../components/MyCatalogList.vue";
 
+import MyImageTest from "./../components/MyImageTest.vue";
+
 export default {
   components: {
     MyButton,
@@ -22,6 +24,8 @@ export default {
     MyFooter,
     DefaultLayout,
     MyCatalogList,
+    
+    MyImageTest,
   },
 };
 </script>
@@ -54,5 +58,8 @@ export default {
   </DefaultLayout>
 
   <MyCatalogList />
+
+ 
   </main>
+  <MyImageTest />
 </template>

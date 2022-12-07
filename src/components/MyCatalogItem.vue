@@ -15,7 +15,9 @@ export default {
 
 <template>
   <div class="card">
+    
     <img :src="srcImage"/>
+   
     <h2 class="card__title">{{ nomProduit }}</h2>
     <p class="card__prix">{{ prix }}</p>
     <MyText size="-body" />
@@ -35,11 +37,10 @@ export default {
     border: 1px solid;
     border-image:url('../../assets/images/encarts.png') 2;
 
-    
     img
     {
       //box-shadow: 0px 0px 179px -81px rgba(155, 155, 155, 0.71);
-      filter:drop-shadow(0px 0px 100px white);
+      filter:drop-shadow(0px 0px 10px white);
       height:pxToRem(300);
     }
     
