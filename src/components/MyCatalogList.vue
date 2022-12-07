@@ -100,6 +100,7 @@ export default{
         flex-wrap: wrap;
         justify-content: space-around;//centre les produits à l'intérieur du catalogue
         margin:auto;
+        row-gap: pxToRem(100);//espace chaque ligne de produits entre eux
     }
 
 </style>
