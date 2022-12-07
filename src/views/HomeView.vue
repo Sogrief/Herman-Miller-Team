@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-  <!-- <main>
+  <main>
     <MyTitle />
     <MyTitle size="big" label="grand titre h1" />
     <MyTitle size="tiny" type="h2" label="petit titre h2" />
@@ -38,17 +38,17 @@ export default {
     <MyTitle size="-little" label="test" />
     <MyText type="lien" label="blabla" size="body" />
     <MyInfoCard />
-    <MyFooter /> -->
+    <MyFooter />
 
-  <DefaultLayout>
-    <template v-slot:header>
-      <MyHeader />
-    </template>
-    <MyTitle size="-enormous" label="Aeron" type="h1" />
-    <MyButton label="Découvrir" />
-    <template v-slot:footer>
-      <MyFooter />
-    </template>
-  </DefaultLayout>
-  <!-- </main> -->
+    <DefaultLayout>
+      <template v-slot:header>
+        <MyHeader />
+      </template>
+      <MyTitle size="-enormous" label="Aeron" type="h1" />
+      <MyButton label="Découvrir" />
+      <template v-slot:footer>
+        <MyFooter />
+      </template>
+    </DefaultLayout>
+  </main>
 </template>

@@ -35,7 +35,8 @@ export default {
 </script>
 
 <template>
-    <div class="list bg-perspective">
+  <div class="bg-perspective">
+    <div class="list grid">
       <MyInfo
         v-for="information in informations"
         :key="information.id"
@@ -45,15 +46,19 @@ export default {
         :label="information.label"
       />
     </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 .list {
+  height: 600px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
-.bg-perspective{
-    background-image: url(../../assets/images/perspective_grille.svg);
+.bg-perspective {
+  background-size: cover;
+  background-image: url(../../assets/images/perspective_grille.svg);
 }
 </style>
