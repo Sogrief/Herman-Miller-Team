@@ -1,6 +1,11 @@
 <script>
 import MyTitle from "./../components/MyTitle.vue";
 import MyText from "./../components/MyText.vue";
+export default {
+  components: {
+    MyTitle,
+  },
+}
 </script>
 <template>
   <footer>
@@ -52,7 +57,7 @@ import MyText from "./../components/MyText.vue";
 
       <div class="column2">
         <div class="column-2">
-          <p class="title-menu">SERVICE CLIENT</p>
+          <MyTitle size="-footer" label="SERVICE CLIENT" type="h2" />
           <a href="#">Garantie</a>
           <a href="#">Retour et remboursement</a>
           <a href="#">FAQ</a>
@@ -60,7 +65,7 @@ import MyText from "./../components/MyText.vue";
         </div>
 
         <div class="column-2">
-          <p class="title-menu">NAVIGATION</p>
+          <MyTitle size="-footer" label="NAVIGATION" type="h2" />
           <a href="#">Accueil</a>
           <a href="#">Catalogue</a>
           <a href="#">Conseils</a>
@@ -68,7 +73,7 @@ import MyText from "./../components/MyText.vue";
         </div>
 
         <div class="column-2">
-          <p class="title-menu">ENTREPRISE</p>
+          <MyTitle size="-footer" label="ENTREPRISE" type="h2" />
           <a href="#">À propos</a>
           <a href="#">Contact</a>
         </div>
@@ -76,7 +81,7 @@ import MyText from "./../components/MyText.vue";
 
       <div class="column3">
         <div class="content">
-          <p class="title-menu">Rejoignez-nous !</p>
+          <MyTitle size="-footer" label="REJOIGNEZ-NOUS" type="h2" />
           <a href="https://www.facebook.com/hermanmillergaming/"
             ><svg
               width="32"
