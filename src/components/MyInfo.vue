@@ -29,7 +29,6 @@ export default {
 <style lang="scss" scoped>
 .infoCard {
   @include bodyText();
-
   &__title {
     line-height: auto;
     max-width: 226px;

@@ -30,7 +30,7 @@ export default {
         },
       ],
     };
-  },
+  }
 };
 </script>
 
@@ -50,6 +50,7 @@ export default {
 <style lang="scss" scoped>
 .list {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
 }
 </style>
