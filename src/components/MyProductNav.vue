@@ -1,4 +1,11 @@
-<script></script>
+<script>
+import MyTitle from "./MyTitle.vue";
+export default {
+  components: {
+    MyTitle,
+  },
+};
+</script>
 
 <template>
   <div class="pointforts">
@@ -253,6 +260,7 @@
 
   <div class="technique">
     <h2>Spécifications</h2>
+    <img src="../../assets/images/volet technique.png" alt="" />
     <ul>
       <li>Hauteur totale : 1035 mm</li>
       <li>Largeur : 679 mm</li>
@@ -274,34 +282,49 @@
     <p>Le siège Sayl est recyclable jusqu’à 91 % en fin de vie.</p>
     <a href="">Entretenir votre chaise</a>
     <h2>Materiaux</h2>
-    <img src="../../assets/images/fibre.png" alt="" />
-    <h3>Fibres élastomères</h3>
-    <p>Dossier à suspension intelligent facilitant les mouvements</p>
-    <img src="../../assets/images/tissus.png" alt="" />
-    <h3>Tissus medley</h3>
-    <p>
-      100% polyester, testé pour sa résistance à l’usure, la robustesse de ses
-      coutures, sa résistance aux UV, la persistance de sa couleur (rétention de
-      la couleur par résistance au frottement) et ses propriétés ignifuges
-    </p>
-    <img src="../../assets/images/finition.png" alt="" />
-    <h3>Finition noire</h3>
-    <p>
-      Piètement : Aluminium moulé avec revêtement texturé Structure : Nylon
-      chargé de verre
-    </p>
-    <img src="../../assets/images/coussin.png" alt="" />
-    <h3>Coussin préformé</h3>
-    <p>Mousse moulée habillée d’un tissu Medley</p>
-    <img src="../../assets/images/mousse.png" alt="" />
-    <h3>Mousse moulée par injection</h3>
-    <p>Mousse d'uréthane autoadhésive sur un insert ABS</p>
-    <img src="../../assets/images/roulette.png" alt="" />
-    <h3>Roulettes doubles</h3>
-    <p>
-      Roulettes doubles de 63,5 mm de diamètre en nylon noir avec bande en
-      polyuréthane souple
-    </p>
+    <div class="materiaux">
+      <div class="materiaux-card">
+        <img src="../../assets/images/fibre.png" alt="" />
+        <h3>Fibres élastomères</h3>
+        <p>Dossier à suspension intelligent facilitant les mouvements</p>
+      </div>
+      <div class="materiaux-card">
+        <img src="../../assets/images/tissus.png" alt="" />
+        <h3>Tissus medley</h3>
+        <p>
+          100% polyester, testé pour sa résistance à l’usure, la robustesse de
+          ses coutures, sa résistance aux UV, la persistance de sa couleur
+          (rétention de la couleur par résistance au frottement) et ses
+          propriétés ignifuges
+        </p>
+      </div>
+      <div class="materiaux-card">
+        <img src="../../assets/images/finition.png" alt="" />
+        <h3>Finition noire</h3>
+        <p>
+          Piètement : Aluminium moulé avec revêtement texturé Structure : Nylon
+          chargé de verre
+        </p>
+      </div>
+      <div class="materiaux-card">
+        <img src="../../assets/images/coussin.png" alt="" />
+        <h3>Coussin préformé</h3>
+        <p>Mousse moulée habillée d’un tissu Medley</p>
+      </div>
+      <div class="materiaux-card">
+        <img src="../../assets/images/mousse.png" alt="" />
+        <h3>Mousse moulée par injection</h3>
+        <p>Mousse d'uréthane autoadhésive sur un insert ABS</p>
+      </div>
+      <div class="materiaux-card">
+        <img src="../../assets/images/roulette.png" alt="" />
+        <h3>Roulettes doubles</h3>
+        <p>
+          Roulettes doubles de 63,5 mm de diamètre en nylon noir avec bande en
+          polyuréthane souple
+        </p>
+      </div>
+    </div>
   </div>
 
   <a href="">Des questions sur nos produits</a>
@@ -323,10 +346,26 @@ p {
     display: flex;
     align-items: center;
     gap: 40px;
-    p{
+    p {
       max-width: 270px;
     }
+  }
+}
 
+.materiaux {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 125px;
+  margin-top: 50px;
+  &-card {
+    img {
+      width: 182px;
+      height: 182px;
+    }
+    p{
+        max-width: 182px;
+    }
   }
 }
 </style>
