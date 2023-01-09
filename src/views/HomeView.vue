@@ -5,7 +5,6 @@ import MyHeader from "@/components/MyHeader.vue";
 import MyText from "@/components/MyText.vue";
 import MyInfoCard from "@/components/MyInfoCard.vue";
 import MyCheckbox from "@/components/MyCheckbox.vue";
-import MyInput from "@/components/MyInput.vue";
 import MyFooter from "@/components/MyFooter.vue";
 import DefaultLayout from "@/layout/DefaultLayout.vue";
 
