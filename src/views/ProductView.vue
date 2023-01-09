@@ -13,6 +13,7 @@ export default {
   components: {
     MyButton,
     MyTitle,
+    MyInput,
     MyHeader,
     MyText,
     MyInfoCard,
@@ -37,6 +38,7 @@ export default {
     <MyTitle size="-little" label="test" />
     <MyText type="lien" label="blabla" size="body" />
     <MyInfoCard />
+    <MyFooter />
 
     <DefaultLayout>
       <template v-slot:header>
