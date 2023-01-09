@@ -13,6 +13,7 @@ export default {
   components: {
     MyButton,
     MyTitle,
+    MyInput,
     MyHeader,
     MyText,
     MyInfoCard,
