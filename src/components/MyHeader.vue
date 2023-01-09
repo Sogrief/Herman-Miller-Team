@@ -10,7 +10,7 @@ export default {
         {
           id: 1,
           label: "Produits",
-          link: "lien1",
+          link: "/products",
         },
         {
           id: 2,
@@ -20,7 +20,7 @@ export default {
         {
           id: 3,
           label: "A Propos",
-          link: "lien3",
+          link: "/about",
         },
         {
           id: 4,
@@ -122,5 +122,4 @@ export default {
     width: 20px;
   }
 }
-
 </style>
