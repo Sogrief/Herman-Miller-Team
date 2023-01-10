@@ -1,8 +1,10 @@
 <script>
 import MyTitle from "./MyTitle.vue";
+import MyText from "./MyText.vue";
 export default {
   components: {
     MyTitle,
+    MyText,
   },
 };
 </script>
@@ -218,14 +220,14 @@ export default {
   </div>
 
   <div class="ergonomie">
-    <h2>Bascule Harmonic</h2>
+    <MyTitle type="h2" class="-default" label="Bascule Harmonic" />
     <img src="" alt="" />
     <p>
       La bascule Harmonic du siège Sayl soutient votre corps et assure un
       mouvement naturel et équilibré à chaque changement de posture, en plein
       jeux vidéo comme entre les manches.
     </p>
-    <h2>Angle d'inclinaison avant</h2>
+    <MyTitle type="h2" class="-default" label="Angle d'inclinaison avant" />
     <img src="" alt="" />
     <p>
       Parce que vous adoptez une position plus active quand vous jouez que
@@ -234,13 +236,13 @@ export default {
       posturales, soutenant votre colonne vertébrale lorsque vous vous penchez
       pour jouer.
     </p>
-    <h2>Coussin préformé</h2>
+    <MyTitle type="h2" class="-default" label="Coussin préformé" />
     <img src="" alt="" />
     <p>
       Les coussins préformés associent mousse et moulage par injection pour vous
       offrir un confort naturel, même lors de longues sessions de jeux vidéo.
     </p>
-    <h2>Dossier à suspension 3D intelligent</h2>
+    <MyTitle type="h2" class="-default" label="Dossier à suspension 3D intelligent" />
     <img src="" alt="" />
     <p>
       La technologie 3D Intelligent du dossier sans cadre de Sayl exploite des
@@ -248,7 +250,7 @@ export default {
       points où un soutien est nécessaire, et une tension minimale aux endroits
       devant permettre le plus vaste éventail de mouvements.
     </p>
-    <h2>Support posturefit de la colonne vertebrale</h2>
+    <MyTitle type="h2" class="-default" label="Support posturefit de la colonne vertebrale" />
     <img src="" alt="" />
     <p>
       La structure du dossier à suspension 3D Intelligent du siège Sayl offre un
@@ -259,29 +261,35 @@ export default {
   </div>
 
   <div class="technique">
-    <h2>Spécifications</h2>
-    <img src="../../assets/images/volet technique.png" alt="" />
-    <ul>
-      <li>Hauteur totale : 1035 mm</li>
-      <li>Largeur : 679 mm</li>
-      <li>Profondeur : 406-457 mm</li>
-      <li>Hauteur du siège : 419-559 mm</li>
-      <li>Poids maximum garanti : 159 kg</li>
-    </ul>
-    <h2>Description du produit</h2>
-    <ul>
-      <li>Une palette expressive</li>
-      <li>Accoudoirs entièrement réglables</li>
-      <li>Support PostureFit de la colonne vertébrale</li>
-      <li>Profondeur d’assise réglable</li>
-      <li>Limiteur de bascule et angle d’inclinaison vers l’avant</li>
-      <li>Roulettes sols durs / moquettes</li>
-      <li>Ne nécessite aucun assemblage</li>
-    </ul>
-    <h2>Caractéristiques environnementales</h2>
-    <p>Le siège Sayl est recyclable jusqu’à 91 % en fin de vie.</p>
-    <a href="">Entretenir votre chaise</a>
-    <h2>Materiaux</h2>
+    <div class="specification">
+      <MyTitle type="h2" class="-default" label="Spécifications" />
+      <img src="../../assets/images/volet technique.png" alt="" />
+      <ul>
+        <li>Hauteur totale : 1035 mm</li>
+        <li>Largeur : 679 mm</li>
+        <li>Profondeur : 406-457 mm</li>
+        <li>Hauteur du siège : 419-559 mm</li>
+        <li>Poids maximum garanti : 159 kg</li>
+      </ul>
+      <MyTitle type="h2" class="-default" label="Description du produit" />
+      <ul>
+        <li>Une palette expressive</li>
+        <li>Accoudoirs entièrement réglables</li>
+        <li>Support PostureFit de la colonne vertébrale</li>
+        <li>Profondeur d’assise réglable</li>
+        <li>Limiteur de bascule et angle d’inclinaison vers l’avant</li>
+        <li>Roulettes sols durs / moquettes</li>
+        <li>Ne nécessite aucun assemblage</li>
+      </ul>
+      <MyTitle
+        type="h2"
+        class="-default"
+        label="Caractéristiques environnementales"
+      />
+      <p>Le siège Sayl est recyclable jusqu’à 91 % en fin de vie.</p>
+      <MyText class="lien -menu" href="" label="Entretenir votre chaise" />
+    </div>
+    <MyTitle type="h2" class="-default" label="Matériaux" />
     <div class="materiaux">
       <div class="materiaux-card">
         <img src="../../assets/images/fibre.png" alt="" />
@@ -291,11 +299,11 @@ export default {
       <div class="materiaux-card">
         <img src="../../assets/images/tissus.png" alt="" />
         <h3>Tissus medley</h3>
+        <MyText type="h3" class="titre" label="Tissus medley" />
         <p>
           100% polyester, testé pour sa résistance à l’usure, la robustesse de
-          ses coutures, sa résistance aux UV, la persistance de sa couleur
-          (rétention de la couleur par résistance au frottement) et ses
-          propriétés ignifuges
+          ses coutures, sa résistance aux UV, la persistance de sa couleur et
+          ses propriétés ignifuges
         </p>
       </div>
       <div class="materiaux-card">
@@ -327,9 +335,9 @@ export default {
     </div>
   </div>
 
-  <a href="">Des questions sur nos produits</a>
+  <MyText class="lien -menu" href="" label="Des questions sur nos produits ?" />
   <img src="../../assets/images/question.png" alt="" />
-  <h2>Complétez votre set-up</h2>
+  <MyTitle type="h2" class="-default" label="Complétez votre set-up" />
 </template>
 
 <style lang="scss" scoped>
@@ -341,7 +349,7 @@ p {
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 35px;
   margin-top: 120px;
-  margin-left: 150px;
+  margin-left: 130px;
   &-card {
     display: flex;
     align-items: center;
@@ -356,15 +364,16 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-gap: 125px;
   margin-top: 50px;
+  grid-gap: 0;
+  margin-left: 13vw;
   &-card {
     img {
       width: 182px;
       height: 182px;
     }
-    p{
-        max-width: 182px;
+    p {
+      max-width: 182px;
     }
   }
 }

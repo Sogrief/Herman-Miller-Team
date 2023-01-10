@@ -18,7 +18,8 @@ export default {
   <p v-if="type === 'text'" :class="className" :size="size">
     {{ label }}
   </p>
-  <a v-else :href="href" :class="className" :size="size">
+  <h3 v-else-if="type === 'h3'" :class="className" :size="size">{{ label }}</h3>
+  <a v-else:href="href" :class="className" :size="size">
     {{ label }}
   </a>
 </template>
@@ -43,6 +44,9 @@ export default {
     font-size: pxToRem(12);
     font-family: $textFontFamily;
   }
+}
+.titre{
+  
 }
 .lien {
   cursor: pointer;
