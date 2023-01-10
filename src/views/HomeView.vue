@@ -1,4 +1,5 @@
 <script>
+import {client} from '@/outils/axios.js';
 import MyButton from "@/components/MyButton.vue";
 import MyTitle from "@/components/MyTitle.vue";
 import MyHeader from "@/components/MyHeader.vue";
@@ -19,12 +20,25 @@ export default {
     MyFooter,
     DefaultLayout,
   },
+
+// On récupère les produits de Woocommerce avec le lien récupérer dans Postman
+  async mounted() {
+    const response =  await client.get('http://localhost/herman/wp-json/wc/v3/products')
+    this.products = response.data
+  },
+
+  
+  data () {
+    return{
+      products : []
+    }
+  },
 };
 </script>
 
 <template>
   <main>
-    <MyTitle />
+    <!-- <MyTitle />
     <MyTitle size="big" label="grand titre h1" />
     <MyTitle size="tiny" type="h2" label="petit titre h2" />
     <MyButton type="quantite" label="+" />
@@ -32,10 +46,10 @@ export default {
     <MyButton type="suivant" label="+" />
     <MyButton label="+" />
     <MyHeader />
-    <MyCheckbox />
-    <MyTitle size="-little" label="test" />
-    <MyText type="lien" label="blabla" size="body" />
-    <MyInfoCard />
+   <MyCheckbox />
+     <MyTitle size="-little" label="test" />
+    <MyText type="lien" label="blabla" size="body" /> 
+     -->
 
     <DefaultLayout>
       <template v-slot:header>
@@ -43,7 +57,9 @@ export default {
       </template>
       <MyTitle size="-enormous" label="Aeron" type="h1" />
       <MyButton label="Découvrir" />
+      <MyInfoCard />
       <template v-slot:footer>
+
         <MyFooter />
       </template>
     </DefaultLayout>

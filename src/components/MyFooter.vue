@@ -217,8 +217,8 @@ export default {
           fill="#D9D9D9"
         />
       </svg>
-
-      <button class="lang">
+      
+      <!-- <button class="lang">
         <a href="">Français | France</a>
         <ul>
           <li>Anglais | Royaume-Uni</li>
@@ -227,7 +227,7 @@ export default {
           <li>Espagnol | Espagne</li>
           <li>Portugais | Portugal</li>
         </ul>
-      </button>
+      </button> -->
     </div>
   </footer>
 </template>
