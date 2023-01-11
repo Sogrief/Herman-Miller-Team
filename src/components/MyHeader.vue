@@ -1,8 +1,10 @@
 <script>
 import MyText from "./../components/MyText.vue";
+import { RouterLink } from 'vue-router';
 export default {
   components: {
     MyText,
+    RouterLink,
   },
   data() {
     return {
@@ -46,7 +48,7 @@ export default {
 <template>
   <div class="header">
     <div>
-      <a href="">
+      <RouterLink class="header__logo" to="/">
         <svg
           width="241"
           height="27"
@@ -83,21 +85,21 @@ export default {
             fill="#01E6B6"
           />
         </svg>
-      </a>
+      </RouterLink>
     </div>
     <div>
       <ul class="header__row">
         <li class="header -item" v-for="item in menu" :key="item.id">
-          <a class="header -link" v-if="label === item.label" :href="item.link"
-            ><img class="header-svg" :src="item.svg"
-          /></a>
-          <MyText
-            v-else
-            size="menu"
-            type="lien"
-            :href="item.link"
-            :label="item.label"
-          />
+          <RouterLink
+            v-if="label === item.label"
+            :to="item.link"
+            class="header -link"
+          >
+            <img class="header-svg" :src="item.svg" />
+          </RouterLink>
+          <RouterLink v-else :class="'lien -menu'" :to="item.link">
+            {{ item.label }}
+          </RouterLink>
         </li>
       </ul>
     </div>

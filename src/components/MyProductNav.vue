@@ -10,6 +10,11 @@ export default {
 </script>
 
 <template>
+  <nav>
+    <MyText type="text" class="lien -menu" label="Points forts" />
+    <MyText type="text" class="lien -menu" label="Ergonomie" />
+    <MyText type="text" class="lien -menu" label="Volet technique" />
+  </nav>
   <div class="pointforts">
     <div class="pointforts-card">
       <svg
