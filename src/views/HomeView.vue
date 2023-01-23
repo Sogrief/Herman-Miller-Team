@@ -20,19 +20,6 @@ export default {
     MyFooter,
     DefaultLayout,
   },
-
-// On récupère les produits de Woocommerce avec le lien récupérer dans Postman
-  async mounted() {
-    const response =  await client.get('http://localhost/herman/wp-json/wc/v3/products')
-    this.products = response.data
-  },
-
-  
-  data () {
-    return{
-      products : []
-    }
-  },
 };
 </script>
 

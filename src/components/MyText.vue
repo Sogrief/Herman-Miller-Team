@@ -24,7 +24,7 @@ export default {
   </a>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @font-face {
   font-family: supreme;
   src: url("../../assets/fonts/SUPREME-REGULAR.OTF");
@@ -44,9 +44,6 @@ export default {
     font-size: pxToRem(12);
     font-family: $textFontFamily;
   }
-}
-.titre{
-  
 }
 .lien {
   cursor: pointer;
