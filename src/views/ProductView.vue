@@ -1,21 +1,33 @@
-<script>
-import MyHeader from "@/components/MyHeader.vue";
-import MyFooter from "@/components/MyFooter.vue";
-import MyProductNav from "@/components/MyProductNav.vue";
+<template>
+  <div class="product-view">
+    <div class="container">
+      <div class="row">
+        <div class="column -size-6">
+          route : {{ $route.params }}
+          <br />
+          wordpress data : {{ product }}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 
+<script>
+import {client} from "@/utils/axios"
 export default {
-  components: {
-    MyProductNav,
-    MyHeader,
-    MyFooter,
+  data () {
+    return {
+      product: {}
+    }
   },
-};
+
+  async mounted () {
+    const response = await client.get(import.meta.env.VITE_WP_API_URL + '/wc/v3/products?slug=' + this.$route.params.product)
+    this.product = response.data;
+  }
+}
 </script>
 
-<template>
-  <main>
-    <MyHeader />
-    <MyProductNav />
-    <MyFooter />
-  </main>
-</template>
+<style lang="scss">
+
+</style>
