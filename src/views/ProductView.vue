@@ -5,13 +5,12 @@
         <ProductGallery v-if="product.images" :images="product.images" />
       </div>
       <div class="container-header">
-        wordpress data : {{ product }}
         <h1>{{ product.name }}</h1>
         <p class="product-view__price">{{ product.price }}€</p>
       </div>
+      <div class="product-video" v-html="product.short_description" />
 
       <div class="product-view__description" v-html="product.description" />
-      <div class="product-view__short-description" v-html="product.short_description" />
 
       <div class="product_buy">
         <MyButton class="button" label="Acheter" />
@@ -49,3 +48,16 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.product {
+  &-video > div {
+    & > video {
+      height: 100%;
+    }
+  }
+}
+.wp-video{
+  width: 100px;
+}
+</style>
