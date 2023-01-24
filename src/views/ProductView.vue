@@ -17,6 +17,7 @@
         <MyButton class="button" label="Acheter" />
         <MyButton class="button-quantite" label="-" />
         <MyButton class="button-quantite" label="+" />
+        <p>{{ product.upsell_ids }}</p>
       </div>
     </div>
   </div>
