@@ -5,9 +5,7 @@
         <div class="column -size-9">
           <div class="products-list row">
             <div
-              v-for="(product, index) in products"
-              class="products-item column -size-3"
-            >
+              v-for="(product, index) in products" class="products-item column -size-3">
               <Product v-bind="product" />
             </div>
           </div>
