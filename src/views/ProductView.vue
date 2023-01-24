@@ -7,8 +7,9 @@
       <div class="container-header">
         <h1>{{ product.name }}</h1>
         <p class="product-view__price">{{ product.price }}€</p>
+
+        <ProductVideo v-if="product.meta_data" :meta_data="product.meta_data" />
       </div>
-      <div class="product-video" v-html="product.short_description" />
 
       <div class="product-view__description" v-html="product.description" />
 
@@ -24,14 +25,17 @@
 
 <script>
 import { client } from "@/outils/axios";
+import ProductVideo from "@/components/ProductVideo.vue"
 import ProductGallery from "@/components/ProductGallery.vue";
 import MyButton from "@/components/MyButton.vue";
 
 export default {
   components: {
     ProductGallery,
+    ProductVideo,
     MyButton,
   },
+
   data() {
     return {
       product: {},
@@ -46,18 +50,20 @@ export default {
     );
     this.product = response.data[0];
   },
+
 };
+
 </script>
 
 <style lang="scss">
-.product {
-  &-video > div {
-    & > video {
-      height: 100%;
-    }
-  }
-}
-.wp-video{
-  width: 100px;
-}
+// .product {
+//   &-video > div {
+//     & > video {
+//       height: 100%;
+//     }
+//   }
+// }
+// .wp-video{
+//   width: 100px;
+// }
 </style>
