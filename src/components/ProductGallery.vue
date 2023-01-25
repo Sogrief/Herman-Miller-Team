@@ -53,12 +53,10 @@ export default {
   &__list {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
-    margin-top: 20px;
   }
 
   &__item {
-    width: 22.5%;
+    width: 20%;
 
     &.-is-active {
       opacity: 0.5;
@@ -66,14 +64,11 @@ export default {
   }
 
   &__media {
-    aspect-ratio: 1;
-    border: 1px solid grey;
-    border-radius: 10px;
     overflow: hidden;
   }
 
   &__image {
-    max-width: 100%;
+    max-width: 45%;
     object-fit: cover;
   }
 }
