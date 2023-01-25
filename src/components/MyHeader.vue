@@ -79,6 +79,8 @@ export default {
         </svg>
       </RouterLink> 
     </div>-->
+      
+
     <div>
       <ul class="header__row">
         <li class="header -item" v-for="item in menuWP" :key="item.id">
