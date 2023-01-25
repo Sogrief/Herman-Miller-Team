@@ -42,27 +42,7 @@ export default {
       ],
     };
   },
-<<<<<<< Updated upstream
 };
-=======
-  async mounted() {
-    // Request Menu
-    const response = await client.get(
-      import.meta.env.VITE_WP_API_URL + "/wp/v2/menu-items"
-    );
-    this.response = response.data;
-    this.menuWP = this.response.map((item) => {
-      return {
-        id: item.id,
-        label: item.title.rendered,
-        link: item.url,
-        icone: item.thumbnail_src,
-      }  
-    })
-  }
-}
-</script>
->>>>>>> Stashed changes
 
 </script>
 
@@ -109,8 +89,8 @@ export default {
       </RouterLink>
     </div>
     <div>
+      bl ala
       <ul class="header__row">
-<<<<<<< Updated upstream
         <li class="header -item" v-for="item in menu" :key="item.id">
           <RouterLink
             v-if="label === item.label"
@@ -126,21 +106,6 @@ export default {
       </ul>
     </div>
   </div>
-=======
-      <li class="header -item" v-for="item in menu" :key="item.id">
-          <div v-if="item.title.rendered === item.title.rendered"
-            :to="item.url"
-            class="header -link">
-            <img class="header-svg" :src="item.thumbnail_src">
-          </div>
-          <div v-else :class="'lien -menu'" :to="item.url">
-            {{ item.title.rendered }}
-         </div>
-        </li>
-      </ul>
-    </div>
-    wordpress data : {{ menuWP }}
->>>>>>> Stashed changes
 </template>
 
 <style lang="scss" scoped>
