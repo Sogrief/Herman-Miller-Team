@@ -170,35 +170,35 @@ export default {
 
       <div class="payments">
         <img
-          src="assets/images/logo-cb-1 1.png"
+          src="/assets/images/logo-cb-1-1.png"
           width="39"
           height="27"
           alt="cb"
         />
 
         <img
-          src="assets/images/MasterCard-Logo-1 1.png"
+          src="/assets/images/MasterCard-Logo-1-1.png"
           width="49"
           height="37"
           alt="mastercard"
         />
 
         <img
-          src="assets/images/visa_PNG30 1.png"
+          src="/assets/images/visa_PNG30-1.png"
           width="65"
           height="20"
           alt="visa"
         />
 
         <img
-          src="assets/images/Paypal_2007_logo 1.png"
+          src="/assets/images/Paypal_2007_logo-1.png"
           width="101.16"
           height="27"
           alt="paypal"
         />
 
         <img
-          src="assets/images/logo-american-express-1 1.png"
+          src="/assets/images/logo-american-express-1-1.png"
           width="33"
           height="33"
           alt="american express"
