@@ -10,21 +10,21 @@ export default {
         {
           id: 1,
           title: "Livraison Gratuite",
-          srcImage: "../../assets/icones/truck.svg",
+          srcImage: "/assets/icones/truck.svg",
           label:
             "Vous avez de la chance : la livraison est gratuite ! Comptez un délai de 7 à 15 jours en fonction du pays de destination",
         },
         {
           id: 2,
           title: "Retours faciles",
-          srcImage: "../../assets/icones/boîte.svg",
+          srcImage: "/assets/icones/boîte.svg",
           label:
             "Vous n’êtes pas satisfait(e) ? Il vous suffit de retourner votre produit. Les retours effectués dans un délai de 14 jours seront toujours acceptés.",
         },
         {
           id: 3,
           title: "Garantie unique sur le marché",
-          srcImage: "../../assets/icones/check.svg",
+          srcImage: "/assets/icones/check.svg",
           label:
             "Nos produits sont conçus pour durer, et la plupart d’entre eux sont couverts par une garantie de 12 ans.",
         },
