@@ -1,5 +1,5 @@
 <template>
-  <div class="products-list row">
+  <div class="products-list">
     <div
       v-for="(product, index) in products" class="products-item column -size-3">
       <Product v-bind="product" />
@@ -31,4 +31,9 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+  .products-list{
+    background-color:red;  
+  }
+
+</style>
