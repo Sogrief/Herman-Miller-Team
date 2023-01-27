@@ -1,37 +1,54 @@
 <template>
+  <MyHeader />
   <div class="product-view">
     <div class="container">
       <div class="product_img">
+        <ProductCustom
+          v-if="product.variations"
+          :variations="product.variations"
+        />
         <ProductGallery v-if="product.images" :images="product.images" />
       </div>
       <div class="container-header">
         <h1>{{ product.name }}</h1>
         <p class="product-view__price">{{ product.price }}€</p>
       </div>
-      <div class="product-video" v-html="product.short_description" />
+
+      <div class="product_buy">
+        <MyButton class="button" label="Acheter" @click="addToCart" />
+        <MyButton class="button-quantite" label="-" />
+        <MyButton class="button-quantite" label="+" />
+      </div>
+
+      <ProductVideo v-if="product.meta_data" :meta_data="product.meta_data" />
 
       <div class="product-view__description" v-html="product.description" />
 
-      <div class="product_buy">
-        <MyButton class="button" label="Acheter" />
-        <MyButton class="button-quantite" label="-" />
-        <MyButton class="button-quantite" label="+" />
-        <p>{{ product.upsell_ids }}</p>
-      </div>
+    {{ product.upsell_ids }}
     </div>
   </div>
+  <MyFooter />
 </template>
 
 <script>
 import { client } from "@/outils/axios";
+import MyHeader from "@/components/MyHeader.vue";
+import MyFooter from "@/components/MyFooter.vue";
+import ProductVideo from "@/components/ProductVideo.vue";
 import ProductGallery from "@/components/ProductGallery.vue";
+import ProductCustom from "../components/ProductCustom.vue";
 import MyButton from "@/components/MyButton.vue";
 
 export default {
   components: {
+    ProductCustom,
+    MyHeader,
+    MyFooter,
     ProductGallery,
+    ProductVideo,
     MyButton,
   },
+
   data() {
     return {
       product: {},
@@ -46,18 +63,13 @@ export default {
     );
     this.product = response.data[0];
   },
+
+  methods: {
+    addToCart() {
+      this.$store.commit("add", this.product);
+    },
+  },
 };
 </script>
 
-<style lang="scss">
-.product {
-  &-video > div {
-    & > video {
-      height: 100%;
-    }
-  }
-}
-.wp-video{
-  width: 100px;
-}
-</style>
+<style lang="scss"></style>
