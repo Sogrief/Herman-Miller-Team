@@ -2,7 +2,7 @@
     <div class="product">
       <RouterLink :class="'product__link'" :to="`/products/${slug}`">
         <div v-if="cover" class="product__link__media">
-          <img :class="'product__image'" :src="cover.src" :alt="cover.alt">
+          <img :class="'product__link__media__image'" :src="cover.src" :alt="cover.alt">
         </div>
       </RouterLink>
       <p class="product__name">{{ name }}</p>
@@ -50,9 +50,15 @@
     position: relative;
   
     &__link {
+
       &__media {
-       width: 100%;
-     }
+       width: 25vw;
+
+        &__image {
+          max-width: 100%;
+          filter: drop-shadow(0px 0px 25px rgb(67, 67, 67));
+        }
+      }
     }
   
     &__name {
@@ -60,10 +66,6 @@
       font-weight: 700;
       line-height: 26px;
       color: darkslategrey;
-    }
-  
-    &__image {
-      max-width: 100%;
     }
   
     &__price {
