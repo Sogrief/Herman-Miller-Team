@@ -84,13 +84,13 @@ export default {
     <div>
       <ul class="header__row">
         <li class="header -item" v-for="item in menuWP" :key="item.id">
-          <div v-if="label === item.title & link === item.url"
+          <div v-if="label === item.title"
           class="header -link"> 
-          <a href="item.link">{{ item.label }}</a>
+          <a :href="item.link">{{ item.label }}</a>
           <img class="header-svg" :src="item.thumbnail_src">
         </div>
-        <div v-else :class="'lien -menu'" :to="item.url">
-          console.log(item.url)
+        <div v-else :class="'lien -menu'" :to="item.link">
+          {{item.label}}
         </div>
       
         </li>
