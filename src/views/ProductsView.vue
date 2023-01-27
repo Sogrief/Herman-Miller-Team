@@ -1,4 +1,7 @@
 <template>
+
+  <MyHeader />
+
   <div class="products-list">
     <div
       v-for="(product, index) in products" class="products-item column -size-3">
@@ -9,10 +12,13 @@
 
 <script>
 import { client } from "@/outils/axios";
+import MyHeader from "@/components/MyHeader.vue";
 import Product from "@/components/Product.vue";
 
 export default {
-  components: { Product },
+  components: { 
+    Product,
+    MyHeader },
 
   data() {
     return {
