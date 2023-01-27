@@ -1,9 +1,10 @@
 <template>
     <div class="product">
-      <RouterLink :class="'product__link'" :to="`/products/${slug}`" />
+      <RouterLink :class="'product__link'" :to="`/products/${slug}`">
       <div v-if="cover" class="product__media">
         <img :class="'product__image'" :src="cover.src" :alt="cover.alt">
       </div>
+      </RouterLink>
       <p class="product__name">{{ name }}</p>
       <p class="product__price">{{ price }}€</p>
     </div>
@@ -49,12 +50,6 @@
     position: relative;
   
     &__link {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 1;
     }
   
     &__media {
