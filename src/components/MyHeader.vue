@@ -23,7 +23,7 @@ export default {
       import.meta.env.VITE_WP_API_URL + "/menus/v1/menus/principal"
     );
     this.response = response.data;
-    this.menuWP = this.response.map((item) => {
+    this.menuWP = this.response.items.map((item) => {
       return {
         id: item.id,
         label: item.title,
@@ -79,23 +79,23 @@ export default {
         </svg>
       </RouterLink> 
     </div>-->
-      
-
+    
+    
     <div>
       <ul class="header__row">
         <li class="header -item" v-for="item in menuWP" :key="item.id">
-          <div v-if="item.title === item.title"
+          <div v-if="label === item.title"
           
-            class="header -link">
-            <img class="header-svg" :src="item.thumbnail_src">
-          </div>
-          <div v-else :class="'lien -menu'" :to="item.url">
-            {{ item.title }}
-         </div>
+          class="header -link">
+          <img class="header-svg" :src="item.thumbnail_src">
+        </div>
+        <div v-else :class="'lien -menu'" :to="item.url">
+          {{ item.title }}
+        </div>
+      
         </li>
       </ul>
     </div>
-
 </template>
 
 <style lang="scss" scoped>
