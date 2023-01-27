@@ -52,6 +52,7 @@
     flex-direction:column;
     align-items: center;
     background-image: url(/assets/images/encarts.png);
+    background-size: 100% 100%;
   
     &__link {
 
