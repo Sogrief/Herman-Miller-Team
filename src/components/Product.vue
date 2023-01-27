@@ -69,13 +69,14 @@
       font-size: 20px;
       font-weight: 700;
       line-height: 26px;
-      color: darkslategrey;
+      @include title();
     }
   
     &__price {
       font-size: 16px;
       font-weight: 700;
       margin-top: 10px;
+      @include bodyText();
     }
   }
   </style>
