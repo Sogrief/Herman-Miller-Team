@@ -1,4 +1,5 @@
 <script>
+import { client } from "@/outils/axios";
 import MyText from "./../components/MyText.vue";
 import { RouterLink } from 'vue-router';
 export default {
@@ -8,46 +9,36 @@ export default {
   },
   data() {
     return {
-      menu: [
+      menuWP: [
         {
-          id: 1,
-          label: "Produits",
-          link: "/products",
-        },
-        {
-          id: 2,
-          label: "Conseils",
-          link: "lien2",
-        },
-        {
-          id: 3,
-          label: "A Propos",
-          link: "/about",
-        },
-        {
-          id: 4,
-          link: "lien3",
-          svg: "./../assets/icones/recherche.svg",
-        },
-        {
-          id: 5,
-          link: "lien3",
-          svg: "./../assets/icones/panier.svg",
-        },
-        {
-          id: 6,
-          link: "lien3",
-          svg: "./../assets/icones/user.svg",
-        },
+          label:'',
+          link: ''
+        }
       ],
     };
   },
-};
-
+  async mounted() {
+    // Request Menu
+    const response = await client.get(
+      import.meta.env.VITE_WP_API_URL + "/menus/v1/menus/principal"
+    );
+    this.response = response.data;
+    this.menuWP = this.response.items.map((item) => {
+      return {
+        id: item.id,
+        label: item.title,
+        link: item.url,
+        icone: item.thumbnail_src,
+      }  
+    })
+  }
+}
 </script>
 
+<!-- Pour afficher les éléments du menu : wp/v2/menu-items -->
+
 <template>
-  <div class="header">
+   <!--<div class="header">
     <div>
       <RouterLink class="header__logo" to="/">
         <svg
@@ -86,26 +77,26 @@ export default {
             fill="#01E6B6"
           />
         </svg>
-      </RouterLink>
-    </div>
+      </RouterLink> 
+    </div>-->
+    
+    
     <div>
       bl ala
       <ul class="header__row">
-        <li class="header -item" v-for="item in menu" :key="item.id">
-          <RouterLink
-            v-if="label === item.label"
-            :to="item.link"
-            class="header -link"
-          >
-            <img class="header-svg" :src="item.svg" />
-          </RouterLink>
-          <RouterLink v-else :class="'lien -menu'" :to="item.link">
-            {{ item.label }}
-          </RouterLink>
+        <li class="header -item" v-for="item in menuWP" :key="item.id">
+          <div v-if="label === item.title"
+          
+          class="header -link">
+          <img class="header-svg" :src="item.thumbnail_src">
+        </div>
+        <div v-else :class="'lien -menu'" :to="item.url">
+          {{ item.title }}
+        </div>
+      
         </li>
       </ul>
     </div>
-  </div>
 </template>
 
 <style lang="scss" scoped>
