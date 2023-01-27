@@ -47,7 +47,9 @@
   
   <style lang="scss">
   .product {
-    position: relative;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
   
     &__link {
 
