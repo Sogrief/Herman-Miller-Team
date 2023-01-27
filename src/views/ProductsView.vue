@@ -42,6 +42,8 @@ export default {
     display:flex;
     flex-wrap:wrap;
     justify-content: center;
+    column-gap:3vw;
+    row-gap:40px;
   }
 
 </style>

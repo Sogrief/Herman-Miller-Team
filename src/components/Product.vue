@@ -46,10 +46,12 @@
   </script>
   
   <style lang="scss">
+  
   .product {
     display:flex;
     flex-direction:column;
     align-items: center;
+    background-image: url(/assets/images/encarts.png);
   
     &__link {
 
