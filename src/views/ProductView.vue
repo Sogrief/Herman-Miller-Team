@@ -24,7 +24,9 @@
 
       <div class="product-view__description" v-html="product.description" />
 
-    {{ product.upsell_ids }}
+      <ProductNav v-if="product.meta_data" :meta_data="product.meta_data" />
+
+      {{ product.upsell_ids }}
     </div>
   </div>
   <MyFooter />
@@ -38,10 +40,12 @@ import ProductVideo from "@/components/ProductVideo.vue";
 import ProductGallery from "@/components/ProductGallery.vue";
 import ProductCustom from "../components/ProductCustom.vue";
 import MyButton from "@/components/MyButton.vue";
+import ProductNav from "@/components/ProductNav.vue";
 
 export default {
   components: {
     ProductCustom,
+    ProductNav,
     MyHeader,
     MyFooter,
     ProductGallery,
