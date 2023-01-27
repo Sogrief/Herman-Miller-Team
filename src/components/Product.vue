@@ -55,9 +55,11 @@
 
       &__media {
        width: 25vw;
+       display:flex;
+       justify-content: center;
 
         &__image {
-          max-width: 100%;
+          width: 80%;
           filter: drop-shadow(0px 0px 25px rgb(67, 67, 67));
         }
       }
