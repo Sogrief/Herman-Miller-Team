@@ -33,7 +33,8 @@ export default {
 
 <style lang="scss">
   .products-list{
-    background-color:red;  
+    display:flex;
+    flex-wrap:wrap;
   }
 
 </style>
