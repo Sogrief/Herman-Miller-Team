@@ -5,7 +5,7 @@
   {{ this.filtres[0]}}
 
   <div class="categories">
-    <MyButton v-for="filtre in filtres" type="filtre" :label="filtre.label" :class="{'actif': filtre.isChecked}" @click="toggleCheck(filtre),setLabel(filtre.label)">{{filtre.label}}</MyButton>
+    <MyButton v-for="filtre in filtres" type="filtre" :label="filtre.label" :class="{'actif': filtre.isChecked}" @click="filtreCategory(filtre)">{{filtre.label}}</MyButton>
   </div>
 
   <div class="products-list">
@@ -40,28 +40,30 @@ export default {
   },
 
   methods:{
-    setLabel(label) {
-      this.label = label;
-    },
+    filtreCategory(filtre) {
+      this.label = filtre.label;
 
-    toggleCheck(filtre) {
-    //à priori on souhaite que lorsqu'on clique sur un filtre un seul soit activé 
-    //donc on les désactive tous puis on active celui qui nous intéresse
+
+
     if(filtre.isChecked==true)//si on reclique sur le même filtre ça le désactive
-    {
-      this.filtres.forEach(filtre=>{
-        filtre.isChecked=false;
-      })
-    }
-
-    else{
-      this.filtres.forEach(filtre=>{
+      {
+        this.filtres.forEach(filtre=>{//on désactive tous les filtres
           filtre.isChecked=false;
         })
 
-        filtre.isChecked = !filtre.isChecked
+        this.label="";// on remet par défaut tous les produits
       }
-    }
+
+      //à priori on souhaite que lorsqu'on clique sur un filtre un seul soit activé 
+      //donc on les désactive tous puis on active celui qui nous intéresse
+      else{
+        this.filtres.forEach(filtre=>{
+            filtre.isChecked=false;
+          })
+
+          filtre.isChecked = !filtre.isChecked
+      }
+    },
   },
 
   computed:{
