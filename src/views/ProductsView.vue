@@ -2,8 +2,6 @@
 
   <MyHeader />
 
-  {{ this.filtres[0]}}
-
   <div class="categories">
     <MyButton v-for="filtre in filtres" type="filtre" :label="filtre.label" :class="{'actif': filtre.isChecked}" @click="filtreCategory(filtre)">{{filtre.label}}</MyButton>
   </div>
