@@ -69,6 +69,8 @@ export default{
   }
 
   .containerH {
+    display: flex;
+    justify-content: center;
     transform: skew(-26deg);
   }
 
