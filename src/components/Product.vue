@@ -79,6 +79,7 @@
       font-size: 16px;
       font-weight: 700;
       margin-top: 10px;
+      margin-bottom:30px;
       @include bodyText();
     }
   }
