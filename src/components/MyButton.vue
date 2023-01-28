@@ -58,5 +58,10 @@ export default {
       border: none;
     }
   }
+
+  &.-filtre.actif{
+    background-color: $mainColor;
+
+  }
 }
 </style>

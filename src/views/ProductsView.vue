@@ -3,9 +3,7 @@
   <MyHeader />
 
   <div class="categories">
-    <MyButton label="Bureau" @click="setLabel('Bureau')"/>
-    <MyButton label="Chaise" @click="setLabel('Chaise')"/>
-    <MyButton label="Accessoire" @click="setLabel('Accessoire')"/>
+    <MyButton v-for="filtre in filtres" type="filtre" :label="filtre.label" :class="{'actif': filtre.isChecked}" @click="toggleCheck(filtre),setLabel(filtre.label)">{{filtre.label}}</MyButton>
   </div>
 
   <div class="products-list">
@@ -30,13 +28,22 @@ export default {
   data() {
     return {
       products: [],
-      label: ''
+      label: '',
+      filtres: [
+        { label: 'Bureau', isChecked: false},
+        { label: 'Chaise', isChecked: false},
+        { label: 'Accessoire', isChecked: false}
+      ]
     };
   },
 
   methods:{
     setLabel(label) {
       this.label = label;
+    },
+
+    toggleCheck(item) {
+      item.isChecked = !item.isChecked
     }
   },
 

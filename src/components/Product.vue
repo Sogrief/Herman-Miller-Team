@@ -32,10 +32,6 @@
       images: {
         type: Array,
         default: []
-      },
-      categories: {
-        type: Array,
-        default: []
       }
     },
 
