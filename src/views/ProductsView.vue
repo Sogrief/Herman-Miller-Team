@@ -3,13 +3,15 @@
   <MyHeader />
 
   <div class="categories">
-    <MyButton label="filtre"/>
-    <MyButton label="filtre"/>
-    <MyButton label="filtre"/>
+    <MyButton label="Bureau" @click="setLabel('Bureau')"/>
+    <MyButton label="Chaise" @click="setLabel('Chaise')"/>
+    <MyButton label="Accessoire" @click="setLabel('Accessoire')"/>
   </div>
 
+  {{ this.label }}
+
   <div class="products-list">
-    <div v-for="(product, index) in products" class="products-item column -size-3">
+    <div v-for="(product, index) in filteredProducts" class="products-item column -size-3">
       <Product v-bind="product" />
     </div>
   </div>
@@ -30,13 +32,23 @@ export default {
   data() {
     return {
       products: [],
+      label: ''
     };
   },
 
-  computed:{
-    filteredProducts(){
-      return this.products.filter(function(product){
+  methods:{
+    setLabel(label) {
+      this.label = label;
+      console.log(this.label)
+    }
+  },
 
+  computed:{
+    
+    filteredProducts(){
+      const objet=this;//filteredProducts à sa propre portée, il faut donc redéfinir this dans une constante
+      return this.products.filter(function(product){
+        return product.categories.includes(objet.label);
       })
     }
   },
@@ -48,6 +60,7 @@ export default {
     );
     this.products = productsResponse.data;
 
+    //mappin des categories
     this.products.forEach(product => {
       product.categories=product.categories.map(categorie => categorie.name);
     });

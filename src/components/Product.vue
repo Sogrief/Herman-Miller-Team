@@ -8,6 +8,8 @@
       <p class="product__name">{{ name }}</p>
       <p class="product__price">{{ price }}€</p>
     </div>
+
+    {{ this.categories }}
   </template>
   
   <script>
@@ -38,7 +40,7 @@
         default: []
       }
     },
-  
+    
     computed: {
       cover () {
         if (!this.images.length) return
