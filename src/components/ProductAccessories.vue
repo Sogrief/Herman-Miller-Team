@@ -1,7 +1,5 @@
 <script>
 import { client } from "@/outils/axios";
-import MyTitle from "./MyTitle.vue";
-
 export default {
   props: {
     upsell_ids: {
