@@ -17,10 +17,6 @@
         type: String,
         default: null
       },
-      catagorie: {
-        type: String,
-        default: null
-      },
       slug: {
         type: String,
         default: null

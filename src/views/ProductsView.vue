@@ -8,6 +8,13 @@
     <MyButton label="filtre"/>
   </div>
 
+  {{ this.categorie }}
+<div v-for="product in products">
+  <div v-for="category in product.categories">
+    {{category.name}}
+    
+  </div>
+</div>
 
   <div class="products-list">
     <div v-for="(product, index) in products" class="products-item column -size-3">
@@ -31,8 +38,21 @@ export default {
   data() {
     return {
       products: [],
-      categorie:"all"
+      categorie:[]
     };
+  },
+
+  methods: {
+    getCategories() {
+      for (let i = 0; i < this.products.length; i++) {
+        let product = this.products[i];
+
+        for (let j = 0; j < product.categories.length; j++) {
+          let category = product.categories[j];
+          this.categorie.push(category.name);
+        }
+      }
+    }
   },
 
   computed:{
@@ -49,7 +69,10 @@ export default {
       import.meta.env.VITE_WP_API_URL + "/wc/v3/products"
     );
     this.products = productsResponse.data;
+
+    this.getCategories();
   },
+
 };
 </script>
 
