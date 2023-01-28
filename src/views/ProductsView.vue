@@ -10,8 +10,7 @@
 
 
   <div class="products-list">
-    <div
-      v-for="(product, index) in products" class="products-item column -size-3">
+    <div v-for="(product, index) in products" class="products-item column -size-3">
       <Product v-bind="product" />
     </div>
   </div>
@@ -32,7 +31,7 @@ export default {
   data() {
     return {
       products: [],
-      price: "2000",
+      categorie:"all"
     };
   },
 
