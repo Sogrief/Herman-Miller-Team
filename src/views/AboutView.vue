@@ -45,7 +45,21 @@ export default{
   .imgText{
     display: flex;
     align-items: center;
+  }
 
+  .imgText>div>p{
+    text-align: justify;
+  }
+  
+  blockquote>p{
+    text-align: center;
+  }
+  .gapAbout{
+    gap: 140px;
+  }
+  
+  h2{
+    text-align :center;
   }
 
 }
