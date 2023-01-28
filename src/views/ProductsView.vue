@@ -1,28 +1,33 @@
 <template>
-  <div class="products-view">
-    <div class="container">
-      <div class="products-wrapper">
-        <div class="column -size-9">
-          <div class="products-list row">
-            <div
-              v-for="(product, index) in products"
-              class="products-item column -size-3"
-            >
-              <Product v-bind="product" />
-            </div>
-          </div>
-        </div>
-      </div>
+
+  <MyHeader />
+
+  <div class="categories">
+    <MyButton label="filtre"/>
+    <MyButton label="filtre"/>
+    <MyButton label="filtre"/>
+  </div>
+
+
+  <div class="products-list">
+    <div
+      v-for="(product, index) in products" class="products-item column -size-3">
+      <Product v-bind="product" />
     </div>
   </div>
 </template>
 
 <script>
 import { client } from "@/outils/axios";
+import MyHeader from "@/components/MyHeader.vue";
 import Product from "@/components/Product.vue";
+import MyButton from "@/components/MyButton.vue";
 
 export default {
-  components: { Product },
+  components: { 
+    Product,
+    MyHeader,
+    MyButton },
 
   data() {
     return {
@@ -41,4 +46,13 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+  .products-list{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    column-gap:3vw;
+    row-gap:40px;
+  }
+
+</style>
