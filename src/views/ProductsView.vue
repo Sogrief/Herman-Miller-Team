@@ -8,8 +8,6 @@
     <MyButton label="Accessoire" @click="setLabel('Accessoire')"/>
   </div>
 
-  {{ this.label }}
-
   <div class="products-list">
     <div v-for="(product, index) in filteredProducts" class="products-item column -size-3">
       <Product v-bind="product" />
@@ -39,16 +37,15 @@ export default {
   methods:{
     setLabel(label) {
       this.label = label;
-      console.log(this.label)
     }
   },
 
   computed:{
     
     filteredProducts(){
-      const objet=this;//filteredProducts à sa propre portée, il faut donc redéfinir this dans une constante
+      const objet=this;
 
-      if (objet.label === '') {
+      if (objet.label === '') {//si aucune catégorie n'est sélectionnée on affiche tous les produits
       return this.products
       }
 
@@ -76,6 +73,7 @@ export default {
 </script>
 
 <style lang="scss">
+
   .products-list{
     display:flex;
     flex-wrap:wrap;
