@@ -36,6 +36,14 @@ export default {
     };
   },
 
+  computed:{
+    filteredProducts(){
+      return this.products.filter(function(product){
+
+      })
+    }
+  },
+
   async mounted() {
     // Request products
     const productsResponse = await client.get(
