@@ -1,10 +1,8 @@
 <script>
 import MyTitle from "./MyTitle.vue";
-import MyText from "./MyText.vue";
 export default {
   components: {
     MyTitle,
-    MyText,
   },
   props: {
     acf: {
@@ -35,6 +33,7 @@ export default {
     >
       <MyTitle :label="item.ergonomy_title" type="h2" class="-default" />
       <img :src="item.ergonomy_image.url" />
+      <!-- A voir pour le carousel et l'importation des gifs -->
       <p>{{ item.ergonomy_text }}</p>
     </div>
   </div>
@@ -45,11 +44,11 @@ export default {
       v-for="item in acf.product_specification"
       :key="item.id"
     >
-      <MyTitle :label="item.specification_title" class="-default" />
+      <MyTitle :label="item.specification_title" type="h2" class="-default" />
       <p>{{ item.specification_text }}</p>
     </div>
-</div>
-    <div class="materiaux">
+  </div>
+  <div class="materiaux">
     <div
       class="materiaux-card"
       v-for="item in acf.product_materials"

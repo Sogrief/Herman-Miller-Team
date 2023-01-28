@@ -1,4 +1,7 @@
 <script>
+import { client } from "@/outils/axios";
+import MyTitle from "./MyTitle.vue";
+
 export default {
   props: {
     upsell_ids: {
@@ -6,17 +9,23 @@ export default {
       default: () => [],
     },
   },
-
-  data() {
-    return {
-      upsell
-    };
+  async mounted() {
+    const response = await client.get(
+      import.meta.env.VITE_WP_API_URL +
+        "/wc/v3/products?id=" +
+        this.upsell_ids[0]
+    );
+    this.accessorie = response.data[0];
   },
 };
 </script>
 
 <template>
-  {{ active }}
+  <div class="accessories">
+    <p>{{ accessorie.name }}</p>
+    <img :src="accessorie.images[0].src" />
+    <p>{{ accessorie.price }}</p>
+  </div>
 </template>
 
 <style lang="scss"></style>
