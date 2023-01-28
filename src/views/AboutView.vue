@@ -1,7 +1,7 @@
 <template>
   
 
-  <div class="about" v-if="page.content" v-html="page.content.rendered"></div>
+  <div class="about" v-if="page.content" v-html="page.content.rende#01E6B6"></div>
 
 
 </template>
@@ -42,6 +42,43 @@ export default{
     min-height: 100vh;
     margin: 0 125px;
   }
+  .imgText{
+    display: flex;
+    align-items: center;
+  }
+
+  .imgText>div>p{
+    text-align: justify;
+  }
+  
+  blockquote>p{
+    text-align: center;
+  }
+  .gapAbout{
+    gap: 140px;
+  }
+  
+  h1,h2{
+    text-align :center;
+  }
+
+ /* contour incliné */
+  .containerH>div{
+    border: 1px #01E6B6 solid;
+    width : 35%;
+  }
+
+  .containerH {
+    transform: skew(-26deg);
+  }
+
+
+  .containerH h1 {
+    transform: skew(26deg);
+    margin : 15px;
+  }
+
+
 
 }
 </style>
