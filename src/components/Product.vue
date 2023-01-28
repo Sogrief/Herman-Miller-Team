@@ -8,6 +8,8 @@
       <p class="product__name">{{ name }}</p>
       <p class="product__price">{{ price }}€</p>
     </div>
+
+    {{ this.categories }}
   </template>
   
   <script>
@@ -32,7 +34,17 @@
       images: {
         type: Array,
         default: []
+      },
+      categories: {
+        type: Array,
+        default: []
       }
+    },
+
+    mounted(){
+      //console.log(tab);
+     /* tab.push(this.categories.map(categorie => categorie.name));
+      console.log(tab);*/
     },
   
     computed: {

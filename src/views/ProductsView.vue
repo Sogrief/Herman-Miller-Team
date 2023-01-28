@@ -8,14 +8,6 @@
     <MyButton label="filtre"/>
   </div>
 
-  {{ this.categorie }}
-<div v-for="product in products">
-  <div v-for="category in product.categories">
-    {{category.name}}
-    
-  </div>
-</div>
-
   <div class="products-list">
     <div v-for="(product, index) in products" class="products-item column -size-3">
       <Product v-bind="product" />
@@ -38,21 +30,7 @@ export default {
   data() {
     return {
       products: [],
-      categorie:[]
     };
-  },
-
-  methods: {
-    getCategories() {
-      for (let i = 0; i < this.products.length; i++) {
-        let product = this.products[i];
-
-        for (let j = 0; j < product.categories.length; j++) {
-          let category = product.categories[j];
-          this.categorie.push(category.name);
-        }
-      }
-    }
   },
 
   computed:{
@@ -70,9 +48,10 @@ export default {
     );
     this.products = productsResponse.data;
 
-    this.getCategories();
+    this.products.forEach(product => {
+      product.categories=product.categories.map(categorie => categorie.name);
+    });
   },
-
 };
 </script>
 
