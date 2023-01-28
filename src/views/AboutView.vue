@@ -42,6 +42,11 @@ export default{
     min-height: 100vh;
     margin: 0 125px;
   }
+  .imgText{
+    display: flex;
+    align-items: center;
+
+  }
 
 }
 </style>
