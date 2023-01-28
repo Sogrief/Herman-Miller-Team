@@ -2,6 +2,8 @@
 
   <MyHeader />
 
+  {{ this.filtres[0]}}
+
   <div class="categories">
     <MyButton v-for="filtre in filtres" type="filtre" :label="filtre.label" :class="{'actif': filtre.isChecked}" @click="toggleCheck(filtre),setLabel(filtre.label)">{{filtre.label}}</MyButton>
   </div>
@@ -42,8 +44,23 @@ export default {
       this.label = label;
     },
 
-    toggleCheck(item) {
-      item.isChecked = !item.isChecked
+    toggleCheck(filtre) {
+    //à priori on souhaite que lorsqu'on clique sur un filtre un seul soit activé 
+    //donc on les désactive tous puis on active celui qui nous intéresse
+    if(filtre.isChecked==true)//si on reclique sur le même filtre ça le désactive
+    {
+      this.filtres.forEach(filtre=>{
+        filtre.isChecked=false;
+      })
+    }
+
+    else{
+      this.filtres.forEach(filtre=>{
+          filtre.isChecked=false;
+        })
+
+        filtre.isChecked = !filtre.isChecked
+      }
     }
   },
 
