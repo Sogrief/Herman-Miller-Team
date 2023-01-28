@@ -1,17 +1,24 @@
 <template>
-  <div class="about">
-    {{page.title.rendered}}
-  </div>
-  <div v-if="page.content" v-html="page.content.rendered"></div>
+  
+
+  <div class="about" v-if="page.content" v-html="page.content.rendered"></div>
 
 
 </template>
 
 
 <script>
-import { client } from "@/outils/axios"
+import { client } from "@/outils/axios";
+import MyTitle from "@/components/MyTitle.vue";
+import MyHeader from "@/components/MyHeader.vue";
+import MyText from "@/components/MyText.vue";
 
 export default{
+  components:{
+    MyTitle,
+    MyHeader,
+    MyText,
+  },
   data() {
     return{
       page:{},
@@ -33,8 +40,8 @@ export default{
 @media (min-width: 1024px) {
   .about {
     min-height: 100vh;
-    display: flex;
-    align-items: center;
+    margin: 0 125px;
   }
+
 }
 </style>
