@@ -52,6 +52,7 @@
     flex-direction:column;
     align-items: center;
     background-image: url(/assets/images/encarts.png);
+    background-size: 100% 100%;
   
     &__link {
 
@@ -78,6 +79,7 @@
       font-size: 16px;
       font-weight: 700;
       margin-top: 10px;
+      margin-bottom:30px;
       @include bodyText();
     }
   }
