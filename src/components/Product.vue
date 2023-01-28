@@ -44,6 +44,9 @@
         if (!this.images.length) return
         const [cover] = this.images
         return cover
+      }
+    }
+  }
        
 </script>
 
