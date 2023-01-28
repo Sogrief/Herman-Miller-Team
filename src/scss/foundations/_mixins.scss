@@ -1,6 +1,7 @@
 @mixin title {
     color : white;
     font-family: $titleFontFamily;
+    font-weight:400 ;
     text-transform: uppercase;
 
 }
