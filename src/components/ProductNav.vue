@@ -7,7 +7,7 @@ export default {
     MyText,
   },
   props: {
-    meta_data: {
+    acf: {
       type: Array,
       default: () => [],
     },
@@ -16,9 +16,50 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="pointforts">
+    <div
+      class="pointforts-card"
+      v-for="item in acf.product_advantage"
+      :key="item.id"
+    >
+      <img :src="item.advantage_image.url" />
+      <p>{{ item.advantage_text }}</p>
+    </div>
   </div>
-  {{ meta_data[3].value }}
+
+  <div class="ergonomie">
+    <div
+      class="ergonomie-card"
+      v-for="item in acf.product_ergonomy"
+      :key="item.id"
+    >
+      <MyTitle :label="item.ergonomy_title" type="h2" class="-default" />
+      <img :src="item.ergonomy_image.url" />
+      <p>{{ item.ergonomy_text }}</p>
+    </div>
+  </div>
+
+  <div class="specification">
+    <div
+      class="specification-card"
+      v-for="item in acf.product_specification"
+      :key="item.id"
+    >
+      <MyTitle :label="item.specification_title" class="-default" />
+      <p>{{ item.specification_text }}</p>
+    </div>
+</div>
+    <div class="materiaux">
+    <div
+      class="materiaux-card"
+      v-for="item in acf.product_materials"
+      :key="item.id"
+    >
+      <img :src="item.materials_image.url" />
+      <MyTitle :label="item.materials_title" type="h2" class="-default" />
+      <p>{{ item.materials_text }}</p>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>

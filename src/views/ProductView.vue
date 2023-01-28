@@ -24,7 +24,7 @@
 
       <div class="product-view__description" v-html="product.description" />
 
-      <ProductNav v-if="product.meta_data" :meta_data="product.meta_data" />
+      <ProductNav v-if="product.acf" :acf="product.acf" />
 
       {{ product.upsell_ids }}
     </div>
