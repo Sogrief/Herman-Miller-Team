@@ -2,6 +2,13 @@
 
   <MyHeader />
 
+  <div class="categories">
+    <MyButton label="filtre"/>
+    <MyButton label="filtre"/>
+    <MyButton label="filtre"/>
+  </div>
+
+
   <div class="products-list">
     <div
       v-for="(product, index) in products" class="products-item column -size-3">
@@ -14,11 +21,13 @@
 import { client } from "@/outils/axios";
 import MyHeader from "@/components/MyHeader.vue";
 import Product from "@/components/Product.vue";
+import MyButton from "@/components/MyButton.vue";
 
 export default {
   components: { 
     Product,
-    MyHeader },
+    MyHeader,
+    MyButton },
 
   data() {
     return {
