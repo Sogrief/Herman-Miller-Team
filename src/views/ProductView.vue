@@ -3,16 +3,21 @@
   <div class="product-view">
     <div class="container">
       <div class="product_img">
-        <ProductCustom
+        <!-- <ProductCustom
           v-if="product.variations"
           :variations="product.variations"
-        />
+        /> -->
         <ProductGallery v-if="product.images" :images="product.images" />
       </div>
       <div class="container-header">
         <h1>{{ product.name }}</h1>
         <p class="product-view__price">{{ product.price }}€</p>
       </div>
+
+      <ProductAccessories
+        v-if="product.upsell_ids"
+        :upsell_ids="product.upsell_ids"
+      />
 
       <div class="product_buy">
         <MyButton class="button" label="Acheter" @click="addToCart" />
@@ -25,8 +30,6 @@
       <div class="product-view__description" v-html="product.description" />
 
       <ProductNav v-if="product.acf" :acf="product.acf" />
-
-      {{ product.upsell_ids }}
     </div>
   </div>
   <MyFooter />
@@ -38,15 +41,17 @@ import MyHeader from "@/components/MyHeader.vue";
 import MyFooter from "@/components/MyFooter.vue";
 import ProductVideo from "@/components/ProductVideo.vue";
 import ProductGallery from "@/components/ProductGallery.vue";
-import ProductCustom from "../components/ProductCustom.vue";
+// import ProductCustom from "../components/ProductCustom.vue";
 import MyButton from "@/components/MyButton.vue";
 import ProductNav from "@/components/ProductNav.vue";
+import ProductAccessories from "../components/ProductAccessories.vue";
 
 export default {
   components: {
-    ProductCustom,
+    // ProductCustom,
     ProductNav,
     MyHeader,
+    ProductAccessories,
     MyFooter,
     ProductGallery,
     ProductVideo,
