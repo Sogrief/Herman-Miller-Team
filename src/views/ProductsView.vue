@@ -47,9 +47,16 @@ export default {
     
     filteredProducts(){
       const objet=this;//filteredProducts à sa propre portée, il faut donc redéfinir this dans une constante
-      return this.products.filter(function(product){
-        return product.categories.includes(objet.label);
-      })
+
+      if (objet.label === '') {
+      return this.products
+      }
+
+      else{
+          return this.products.filter(function(product){
+          return product.categories.includes(objet.label);
+        })
+      }
     }
   },
 
