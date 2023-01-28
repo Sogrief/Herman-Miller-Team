@@ -54,9 +54,13 @@ export default {
 
 <style lang="scss">
 .product-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   &__list {
     display: flex;
     flex-flow: row wrap;
+    width: fit-content;
   }
 
   &__item {
@@ -76,7 +80,7 @@ export default {
     width: 100%;
   }
   &__active {
-    width: 45%;
+    width: 100%;
   }
 }
 </style>

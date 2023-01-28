@@ -9,26 +9,28 @@
         /> -->
         <ProductGallery v-if="product.images" :images="product.images" />
       </div>
-      <div class="product_header">
-        <h1>{{ product.name }}</h1>
-        <p class="product-view__price">{{ product.price }}€</p>
-      </div>
-      <div class="product_buy">
-        <MyButton class="button" label="Acheter" />
-        <!-- Lier le bouton acheter vers le panier -->
-        <MyButton
-          class="button-quantite"
-          label="-"
-          @click="removeFromCart(1)"
-        />
-        <span>{{ quantity }}</span>
-        <MyButton class="button-quantite" label="+" @click="addToCart(1)" />
-      </div>
-    </div>
-    <!-- <ProductAccessories
+      <div class="product_info">
+        <div class="product_header">
+          <h1>{{ product.name }}</h1>
+          <p class="product-view__price">{{ product.price }}€</p>
+        </div>
+        <!-- <ProductAccessories
         v-if="product.upsell_ids"
         :upsell_ids="product.upsell_ids"
       /> -->
+        <div class="product_buy">
+          <MyButton class="button" label="Acheter" />
+          <!-- Lier le bouton acheter vers le panier -->
+          <MyButton
+            class="button-quantite"
+            label="-"
+            @click="removeFromCart(1)"
+          />
+          <span>{{ quantity }}</span>
+          <MyButton class="button-quantite" label="+" @click="addToCart(1)" />
+        </div>
+      </div>
+    </div>
 
     <ProductVideo v-if="product.meta_data" :meta_data="product.meta_data" />
 
@@ -94,4 +96,14 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.product {
+  &_container {
+    display: flex;
+  }
+  &_img{
+    width: 45%;
+    background-image: url('../../assets/images/product_bg.svg');
+  }
+}
+</style>
