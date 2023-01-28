@@ -1,7 +1,7 @@
 <template>
   <MyHeader />
   <div class="product-view">
-    <div class="container">
+    <div class="product_container">
       <div class="product_img">
         <!-- <ProductCustom
           v-if="product.variations"
@@ -9,28 +9,32 @@
         /> -->
         <ProductGallery v-if="product.images" :images="product.images" />
       </div>
-      <div class="container-header">
+      <div class="product_header">
         <h1>{{ product.name }}</h1>
         <p class="product-view__price">{{ product.price }}€</p>
       </div>
-
-      <ProductAccessories
+      <div class="product_buy">
+        <MyButton class="button" label="Acheter" />
+        <!-- Lier le bouton acheter vers le panier -->
+        <MyButton
+          class="button-quantite"
+          label="-"
+          @click="removeFromCart(1)"
+        />
+        <span>{{ quantity }}</span>
+        <MyButton class="button-quantite" label="+" @click="addToCart(1)" />
+      </div>
+    </div>
+    <!-- <ProductAccessories
         v-if="product.upsell_ids"
         :upsell_ids="product.upsell_ids"
-      />
+      /> -->
 
-      <div class="product_buy">
-        <MyButton class="button" label="Acheter" @click="addToCart" />
-        <MyButton class="button-quantite" label="-" />
-        <MyButton class="button-quantite" label="+" />
-      </div>
+    <ProductVideo v-if="product.meta_data" :meta_data="product.meta_data" />
 
-      <ProductVideo v-if="product.meta_data" :meta_data="product.meta_data" />
+    <div class="product-view__description" v-html="product.description" />
 
-      <div class="product-view__description" v-html="product.description" />
-
-      <ProductNav v-if="product.acf" :acf="product.acf" />
-    </div>
+    <ProductNav v-if="product.acf" :acf="product.acf" />
   </div>
   <MyFooter />
 </template>
@@ -44,14 +48,14 @@ import ProductGallery from "@/components/ProductGallery.vue";
 // import ProductCustom from "../components/ProductCustom.vue";
 import MyButton from "@/components/MyButton.vue";
 import ProductNav from "@/components/ProductNav.vue";
-import ProductAccessories from "../components/ProductAccessories.vue";
+// import ProductAccessories from "../components/ProductAccessories.vue";
 
 export default {
   components: {
     // ProductCustom,
     ProductNav,
     MyHeader,
-    ProductAccessories,
+    // ProductAccessories,
     MyFooter,
     ProductGallery,
     ProductVideo,
@@ -61,6 +65,8 @@ export default {
   data() {
     return {
       product: {},
+      inCart: false,
+      quantity: 1,
     };
   },
 
@@ -74,8 +80,15 @@ export default {
   },
 
   methods: {
-    addToCart() {
+    addToCart(quantity) {
+      this.quantity += quantity;
       this.$store.commit("add", this.product);
+    },
+    removeFromCart(quantity) {
+      this.quantity -= quantity;
+      if (this.quantity < 0) this.quantity = 0;
+      if (this.quantity === 0) this.inCart = false;
+      this.$store.commit("remove", this.product);
     },
   },
 };
