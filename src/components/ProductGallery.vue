@@ -1,7 +1,11 @@
 <template>
   <div class="product-gallery">
     <div v-if="active" class="product-gallery__media">
-      <img class="product-gallery__image" :src="active.src" :alt="active.alt" />
+      <img
+        class="product-gallery__active"
+        :src="active.src"
+        :alt="active.alt"
+      />
     </div>
     <div class="product-gallery__list">
       <div
@@ -50,13 +54,17 @@ export default {
 
 <style lang="scss">
 .product-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   &__list {
     display: flex;
     flex-flow: row wrap;
+    width: fit-content;
   }
 
   &__item {
-    width: 20%;
+    width: 10%;
 
     &.-is-active {
       opacity: 0.5;
@@ -68,8 +76,11 @@ export default {
   }
 
   &__image {
-    max-width: 45%;
     object-fit: cover;
+    width: 100%;
+  }
+  &__active {
+    width: 100%;
   }
 }
 </style>
