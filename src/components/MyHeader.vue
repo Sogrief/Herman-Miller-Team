@@ -87,7 +87,6 @@ this.menuWP = this.response.items.map((item) => {
       <li v-for="item in menuWP" :key="item.id">
         <a v-if="item.icone" :href="item.link">
           <img :src="item.icone" />
-          {{ item.label }}
         </a>
         <a v-else :href="item.link">{{ item.label }}</a>
       </li>
