@@ -5,6 +5,7 @@ import { RouterLink } from 'vue-router';
 export default {
   components: {
     RouterLink,
+    MyText
   },
   data() {
     return {
@@ -40,12 +41,12 @@ export default {
 
 
 <template>
-  <div class="header">
-    <ul>
-      <li v-for="item in menuWP" :key="item.id">
-        <a :href="item.link">
+  <div >
+    <ul class="header__row">
+      <li class="header -item" v-for="item in menuWP" :key="item.id">
+        <a class="header lien -menu" :href="item.link">
           <template v-if="item.icone">
-          <img :src="item.icone" />
+          <img class="header-svg" :src="item.icone" />
           </template>
           <template v-else> {{ item.label }}</template>
         </a>
@@ -61,15 +62,16 @@ export default {
   justify-content: space-between;
   align-items: center;
   &__row {
+    padding: 20px;
     display: flex;
     flex-direction: row;
     list-style: none;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     gap: 20px;
   }
   &-svg {
-    width: 20px;
+    width: 22px;
   }
 }
 </style>
