@@ -32,7 +32,7 @@ export default {
     <MyButton type="precedent" label="+" />
     <MyButton type="suivant" label="+" />
     <MyButton label="+" />
-    <MyHeader />
+    
    <MyCheckbox />
      <MyTitle size="-little" label="test" />
     <MyText type="lien" label="blabla" size="body" /> 
