@@ -17,27 +17,7 @@ export default {
       ],
     };
   },
-//   async mounted() {
-//     // Request Menu
-//     const response = await client.get(
-//       import.meta.env.VITE_WP_API_URL + "/wp/v2/menu-items"
-//     );
-//     this.response = response.data;
-//     this.menuWP = this.response.items.map((item) => {
-//       let icone = '';
-//       if (item['_links']['wp:featuredmedia']) {
-//         icone = item['_links']['wp:featuredmedia'][0].href;
-//       }
-//       return {
-//         id: item.id,
-//         label: item.title,
-//         link: item.url,
-//         icone: icone,
-//       }  
-//     })
-//   }
-// }
-async mounted() {
+  async mounted() {
     // Request Menu
     const response = await client.get(
       import.meta.env.VITE_WP_API_URL + "/menus/v1/menus/principal"
@@ -56,53 +36,22 @@ async mounted() {
     console.log(this.menuWP)
   }
 }
-
 </script>
 
-<!-- Pour afficher les éléments du menu : wp/v2/menu-items -->
 
 <template>
-  
-  <!--
-Ce code la fonctionne avec le plugin Menu image. Le problème c'est qu'il récupère bien l'url du svg, mais n'arrive pas à montrer vraiment l'icone. 
-
-
-const response = await client.get(
-  import.meta.env.VITE_WP_API_URL + "/menus/v1/menus/principal"
-);
-this.response = response.data;
-this.menuWP = this.response.items.map((item) => {
-  return {
-    id: item.id,
-    label: item.title,
-    link: item.url,
-    icone: item.thumbnail_src,
-  }  
-})
-}
-}
--->
-<div class="header">
-  <ul>
-    <li v-for="item in menuWP" :key="item.id">
-      <a :href="item.link">
-        <template v-if="item.icone">
+  <div class="header">
+    <ul>
+      <li v-for="item in menuWP" :key="item.id">
+        <a :href="item.link">
+          <template v-if="item.icone">
           <img :src="item.icone" />
-        </template>
-        <template v-else>
-          {{ item.label }}
-        </template>
-      </a>
-    </li>
-  </ul>
-</div>
-
-
-
-<!-- Avec le plugin menu icon de themselse, on peut récupérer une image via cette autre requete https://projet-herman.online/wp-json/wp/v2/menu-items/90
-Le problème, c'est que l'image se situe dans "href" est dans l'attribut ""wp:featuredmedia" qui est lui même dans "_links" -->
-
-
+          </template>
+          <template v-else> {{ item.label }}</template>
+        </a>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style lang="scss">
