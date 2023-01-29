@@ -47,6 +47,9 @@
 </script>
 
 <style lang="scss">
+
+@import "./../scss/foundations/variables";
+
 .product {
   display: flex;
   flex-direction: column;
@@ -80,6 +83,18 @@
     margin-top: 10px;
     margin-bottom: 30px;
     @include bodyText();
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, "tablet-down")) {
+  .product__link__media {
+    width: 40vw;
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, "tablet-up")) {
+  .product__link__media {
+    width: 80vw;
   }
 }
 </style>
