@@ -83,15 +83,20 @@ this.menuWP = this.response.items.map((item) => {
 }
 -->
 <div class="header">
-    <ul>
-      <li v-for="item in menuWP" :key="item.id">
-        <a v-if="item.icone" :href="item.link">
+  <ul>
+    <li v-for="item in menuWP" :key="item.id">
+      <a :href="item.link">
+        <template v-if="item.icone">
           <img :src="item.icone" />
-        </a>
-        <a v-else :href="item.link">{{ item.label }}</a>
-      </li>
-    </ul>
-  </div>
+        </template>
+        <template v-else>
+          {{ item.label }}
+        </template>
+      </a>
+    </li>
+  </ul>
+</div>
+
 
 
 <!-- Avec le plugin menu icon de themselse, on peut récupérer une image via cette autre requete https://projet-herman.online/wp-json/wp/v2/menu-items/90
