@@ -4,14 +4,24 @@
         <div v-if="cover" class="product__link__media">
           <img :class="'product__link__media__image'" :src="cover.src" :alt="cover.alt">
         </div>
+
+        <MyButton />
       </RouterLink>
+
       <p class="product__name">{{ name }}</p>
       <p class="product__price">{{ price }}€</p>
     </div>
-  </template>
+</template>
   
-  <script>
+<script>
+  import MyButton from "@/components/MyButton.vue";
+
   export default {
+    components: {
+    MyButton,
+    MyButton
+  },
+
     props: {
       name: {
         type: String,
