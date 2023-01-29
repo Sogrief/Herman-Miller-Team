@@ -171,6 +171,7 @@ p {
       display: flex;
       flex-direction: column;
       img {
+        margin-left: 115px;
         background-image: url("../../assets/images/grille_produit.svg");
         background-size: 944px 696px;
         background-position: center;
