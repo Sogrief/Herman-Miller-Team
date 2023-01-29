@@ -30,6 +30,7 @@ export default {
   padding: pxToRem(5) pxToRem(30);
   &:hover {
     color: white;
+    cursor:pointer;
   }
   //boutton avec flèche
   &.-suivant {
@@ -56,6 +57,15 @@ export default {
       background: $mainColor;
       color: #2b2b2b;
       border: none;
+    }
+  }
+
+  &.-filtre.actif{
+    background-color: $mainColor;
+    color:$backgroundColor;
+
+    &:hover{
+      color:white;
     }
   }
 }

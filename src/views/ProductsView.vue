@@ -3,9 +3,7 @@
   <MyHeader />
 
   <div class="categories">
-    <MyButton label="Bureau" @click="setLabel('Bureau')"/>
-    <MyButton label="Chaise" @click="setLabel('Chaise')"/>
-    <MyButton label="Accessoire" @click="setLabel('Accessoire')"/>
+    <MyButton v-for="filtre in filtres" type="filtre" :label="filtre.label" :class="{'actif': filtre.isChecked}" @click="filtreCategory(filtre)">{{filtre.label}}</MyButton>
   </div>
 
   <div class="products-list">
@@ -30,14 +28,38 @@ export default {
   data() {
     return {
       products: [],
-      label: ''
+      label: '',
+      filtres: [
+        { label: 'Bureau', isChecked: false},
+        { label: 'Chaise', isChecked: false},
+        { label: 'Accessoire', isChecked: false}
+      ]
     };
   },
 
   methods:{
-    setLabel(label) {
-      this.label = label;
-    }
+    filtreCategory(filtre) {
+      this.label = filtre.label;
+
+    if(filtre.isChecked==true)//si on reclique sur le même filtre ça le désactive
+      {
+        this.filtres.forEach(filtre=>{//on désactive tous les filtres
+          filtre.isChecked=false;
+        })
+
+        this.label="";// on remet par défaut tous les produits
+      }
+
+      //à priori on souhaite que lorsqu'on clique sur un filtre un seul soit activé 
+      //donc on les désactive tous puis on active seulement celui qui nous intéresse
+      else{
+        this.filtres.forEach(filtre=>{
+            filtre.isChecked=false;
+          })
+
+          filtre.isChecked = !filtre.isChecked
+      }
+    },
   },
 
   computed:{
@@ -79,7 +101,14 @@ export default {
     flex-wrap:wrap;
     justify-content: center;
     column-gap:3vw;
-    row-gap:40px;
+    row-gap:70px;
+  }
+
+  .categories{
+    display: flex;
+    column-gap: 20px;
+    margin-left:10vw;
+    margin-bottom:65px;
   }
 
 </style>
