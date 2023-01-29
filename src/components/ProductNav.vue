@@ -18,13 +18,13 @@ export default {
   methods: {
     prev() {
       if (this.currentIndex === 0) {
-        this.currentIndex = this.product_ergonomy.length - 1;
+        this.currentIndex = this.acf.product_ergonomy.length - 1;
       } else {
         this.currentIndex--;
       }
     },
     next() {
-      if (this.currentIndex === this.product_ergonomy.length - 1) {
+      if (this.currentIndex === this.acf.product_ergonomy.length - 1) {
         this.currentIndex = 0;
       } else {
         this.currentIndex++;
@@ -258,10 +258,11 @@ p {
   &-card {
     width: 100%;
     height: 100vh;
+    opacity: 100%;
     position: absolute;
     object-fit: cover;
     &:not(:first-of-type) {
-      display: none;
+      opacity: 0;
     }
     img {
       width: 100vw;
