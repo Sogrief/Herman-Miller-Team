@@ -49,12 +49,27 @@ export default {
     <div class="specification">
       <div class="specification-img">
         <img :src="acf.product_technique.technique_image.url" />
-        <a href="">
-          <MyTitle
-            :label="acf.product_technique.technique_link_text"
-            type="h3"
-            class="-default"
-        /></a>
+        <div class="specification-link">
+          <a href="">
+            <MyTitle
+              :label="acf.product_technique.technique_link_text"
+              type="h3"
+              class="-menu"
+            />
+            <svg
+              width="22"
+              height="32"
+              viewBox="0 0 22 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.388203 24.7V31.3L19.4682 20.68L13.5282 17.38L0.388203 24.7ZM0.388203 0.7V7.3L21.9882 19.3V12.7L0.388203 0.7Z"
+                fill="#01E6B6"
+              />
+            </svg>
+          </a>
+        </div>
       </div>
       <div
         class="specification-info"
@@ -71,6 +86,7 @@ export default {
             class="-default"
           />
           <p>
+            <!-- Voir pour faire sous forme de liste -->
             {{ item.specification_text }}
           </p>
         </div>
@@ -100,7 +116,7 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 35px;
-  margin-top: 120px;
+  margin-top: 90px;
   margin-left: 130px;
   &-card {
     display: flex;
@@ -149,9 +165,35 @@ p {
 
 .technique {
   .specification {
+    position: relative;
     display: flex;
     &-img {
-      background-image: url('../../assets/images/grille_produit.svg');
+      display: flex;
+      flex-direction: column;
+      img {
+        background-image: url("../../assets/images/grille_produit.svg");
+        background-size: 944px 696px;
+        background-position: center;
+      }
+      a {
+        margin-top: 5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+      }
+    }
+    &-info {
+      position: absolute;
+      left: 57vw;
+      top: 13vh;
+    }
+    &-card {
+      z-index: 2;
+      margin-bottom: 60px;
+      p {
+        width: 330px;
+      }
     }
   }
 }
