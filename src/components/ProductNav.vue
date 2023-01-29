@@ -45,15 +45,35 @@ export default {
     </div>
   </div>
 
-  <div class="technique">
-    <div class="specification" v-if="acf.product_technique.product_specification">
+  <div class="technique" v-if="acf.product_technique">
+    <div class="specification">
+      <div class="specification-img">
+        <img :src="acf.product_technique.technique_image.url" />
+        <a href="">
+          <MyTitle
+            :label="acf.product_technique.technique_link_text"
+            type="h3"
+            class="-default"
+        /></a>
+      </div>
       <div
-        class="specification-card"
-        v-for="item in acf.product_technique.product_specification"
-        :key="item.id"
+        class="specification-info"
+        v-if="acf.product_technique.product_specification"
       >
-        <MyTitle :label="item.product_technique.specification_title" type="h3" class="-default" />
-        <p>{{ item.specification_text }}</p>
+        <div
+          class="specification-card"
+          v-for="item in acf.product_technique.product_specification"
+          :key="item.id"
+        >
+          <MyTitle
+            :label="item.specification_title"
+            type="h3"
+            class="-default"
+          />
+          <p>
+            {{ item.specification_text }}
+          </p>
+        </div>
       </div>
     </div>
 
@@ -61,7 +81,7 @@ export default {
       <MyTitle label="Matériaux" type="h2" class="-title titre" />
       <div
         class="materiaux-card"
-        v-for="item in acf.product_materials"
+        v-for="item in acf.product_technique.product_materials"
         :key="item.id"
       >
         <img :src="item.materials_image.url" />
@@ -125,5 +145,14 @@ p {
   display: flex;
   gap: 155px;
   justify-content: center;
+}
+
+.technique {
+  .specification {
+    display: flex;
+    &-img {
+      background-image: url('../../assets/images/grille_produit.svg');
+    }
+  }
 }
 </style>
