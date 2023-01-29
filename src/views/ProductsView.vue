@@ -106,4 +106,11 @@ export default {
     row-gap:40px;
   }
 
+  .categories{
+    display: flex;
+    column-gap: 20px;
+    margin-left:10vw;
+    margin-bottom:65px;
+  }
+
 </style>
