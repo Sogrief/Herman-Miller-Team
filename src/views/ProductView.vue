@@ -45,6 +45,7 @@
 import { client } from "@/outils/axios";
 import MyHeader from "@/components/MyHeader.vue";
 import MyFooter from "@/components/MyFooter.vue";
+import Product from "@/components/Product.vue"
 import ProductVideo from "@/components/ProductVideo.vue";
 import ProductGallery from "@/components/ProductGallery.vue";
 // import ProductCustom from "../components/ProductCustom.vue";
@@ -57,6 +58,7 @@ export default {
     // ProductCustom,
     ProductNav,
     MyHeader,
+    Product,
     // ProductAccessories,
     MyFooter,
     ProductGallery,
@@ -101,9 +103,9 @@ export default {
   &_container {
     display: flex;
   }
-  &_img{
+  &_img {
     width: 45%;
-    background-image: url('../../assets/images/product_bg.svg');
+    background-image: url("../../assets/images/product_bg.svg");
   }
 }
 </style>
