@@ -1,9 +1,11 @@
 <template>
-    <div class="product">
+    <div class="product" v-on:mouseover="hover = true" v-on:mouseleave="hover = false">
       <RouterLink :class="'product__link'" :to="`/products/${slug}`">
         <div v-if="cover" class="product__link__media">
           <img :class="'product__link__media__image'" :src="cover.src" :alt="cover.alt">
-          <MyButton class="product__link__media__orderAdd" label="ajouter au panier"/>
+          <RouterLink class="product__link__media__orderAdd" :to="``">
+            <MyButton v-if="hover" label="ajouter au panier"/>
+          </RouterLink>
         </div>
       </RouterLink>
 
@@ -19,6 +21,12 @@
     components: {
     MyButton,
     MyButton
+  },
+
+  data() {
+    return {
+      hover:false
+    };
   },
 
     props: {
