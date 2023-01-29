@@ -45,27 +45,29 @@ export default {
     </div>
   </div>
 
-  <div class="specification" v-if="acf.product_specification">
-    <div
-      class="specification-card"
-      v-for="item in acf.product_specification"
-      :key="item.id"
-    >
-      <MyTitle :label="item.specification_title" type="h2" class="-default" />
-      <p>{{ item.specification_text }}</p>
+  <div class="technique">
+    <div class="specification" v-if="acf.product_specification">
+      <div
+        class="specification-card"
+        v-for="item in acf.product_specification"
+        :key="item.id"
+      >
+        <MyTitle :label="item.specification_title" type="h2" class="-default" />
+        <p>{{ item.specification_text }}</p>
+      </div>
     </div>
-  </div>
 
-  <div class="materiaux" v-if="acf.product_materials">
-    <MyTitle label="Matériaux" type="h2" class="-default" />
-    <div
-      class="materiaux-card"
-      v-for="item in acf.product_materials"
-      :key="item.id"
-    >
-      <img :src="item.materials_image.url" />
-      <MyTitle :label="item.materials_title" type="h2" class="-default" />
-      <p>{{ item.materials_text }}</p>
+    <div class="materiaux" v-if="acf.product_materials">
+      <MyTitle label="Matériaux" type="h2" class="-default titre" />
+      <div
+        class="materiaux-card"
+        v-for="item in acf.product_materials"
+        :key="item.id"
+      >
+        <img :src="item.materials_image.url" />
+        <MyTitle :label="item.materials_title" type="h2" class="-default" />
+        <p>{{ item.materials_text }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -93,7 +95,7 @@ p {
 .materiaux {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 20vh 1fr 1fr;
   margin-top: 50px;
   grid-gap: 0;
   margin-left: 13vw;
@@ -106,9 +108,15 @@ p {
       max-width: 182px;
     }
   }
+  & > .titre {
+    background-image: url(../../assets/images/encart_titre.svg);
+    background-repeat: no-repeat;
+    padding: 15px 25px;
+    grid-column: 1 / span 3;
+  }
 }
 
-.product_nav{
+.product_nav {
   display: flex;
   gap: 155px;
   justify-content: center;

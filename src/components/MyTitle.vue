@@ -2,11 +2,11 @@
 export default {
   data() {
     return {
-      className: `title ${this.size}`,
+      className: `title${this.class}`,
     };
   },
   props: {
-    size: String,
+    class: String,
     type: String,
     label: String,
   },
@@ -20,23 +20,23 @@ export default {
 <style lang="scss" scoped>
 .title {
   @include title();
-  &.-enormous {
+  &-enormous {
     font-size: pxToRem(80);
   }
-  &.-big {
+  &-big {
     font-size: pxToRem(30);
   }
-  &.-default {
+  &-default {
     font-size: pxToRem(20);
   }
-  &.-footer {
+  &-footer {
     font-size: pxToRem(16);
   }
-  &.-menu {
+  &-menu {
     font-size: pxToRem(16);
     padding-right: 22px;
   }
-  &.-icone {
+  &-icone {
     padding-right: 20px;
   }
 }
