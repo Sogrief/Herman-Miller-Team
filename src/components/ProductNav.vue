@@ -52,20 +52,20 @@ export default {
         v-for="item in acf.product_specification"
         :key="item.id"
       >
-        <MyTitle :label="item.specification_title" type="h2" class="-default" />
+        <MyTitle :label="item.specification_title" type="h3" class="-default" />
         <p>{{ item.specification_text }}</p>
       </div>
     </div>
 
     <div class="materiaux" v-if="acf.product_materials">
-      <MyTitle label="Matériaux" type="h2" class="-default titre" />
+      <MyTitle label="Matériaux" type="h2" class="-title titre" />
       <div
         class="materiaux-card"
         v-for="item in acf.product_materials"
         :key="item.id"
       >
         <img :src="item.materials_image.url" />
-        <MyTitle :label="item.materials_title" type="h2" class="-default" />
+        <MyTitle :label="item.materials_title" type="h3" class="-default" />
         <p>{{ item.materials_text }}</p>
       </div>
     </div>

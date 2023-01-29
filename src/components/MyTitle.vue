@@ -15,6 +15,7 @@ export default {
 <template>
   <h1 v-if="type === 'h1'" :class="className">{{ label }}</h1>
   <h2 v-else-if="type === 'h2'" :class="className">{{ label }}</h2>
+  <h3 v-else-if="type === 'h3'" :class="className">{{ label }}</h3>
 </template>
 
 <style lang="scss" scoped>
@@ -25,6 +26,9 @@ export default {
   }
   &-big {
     font-size: pxToRem(30);
+  }
+  &-title {
+    font-size: pxToRem(25);
   }
   &-default {
     font-size: pxToRem(20);
