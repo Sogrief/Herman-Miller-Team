@@ -103,7 +103,7 @@ export default {
     flex-wrap:wrap;
     justify-content: center;
     column-gap:3vw;
-    row-gap:40px;
+    row-gap:70px;
   }
 
   .categories{
