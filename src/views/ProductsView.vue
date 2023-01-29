@@ -53,7 +53,7 @@ export default {
       }
 
       //à priori on souhaite que lorsqu'on clique sur un filtre un seul soit activé 
-      //donc on les désactive tous puis on active celui qui nous intéresse
+      //donc on les désactive tous puis on active seulement celui qui nous intéresse
       else{
         this.filtres.forEach(filtre=>{
             filtre.isChecked=false;

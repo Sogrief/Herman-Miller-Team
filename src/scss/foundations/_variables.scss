@@ -8,3 +8,12 @@ $backgroundColor: #2b2b2b;
 $textFontFamily : supreme;
 $titleFontFamily : deserta;
 $logoFontFamily : anurati;
+
+//media queries
+
+$breakpoints: (
+  "phone-down": 480px,
+  "tablet-up": 768px,
+  "tablet-down": 992px,
+  "desktop": 1200px
+);
