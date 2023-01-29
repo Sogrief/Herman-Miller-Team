@@ -3,7 +3,7 @@
       <RouterLink :class="'product__link'" :to="`/products/${slug}`">
         <div v-if="cover" class="product__link__media">
           <img :class="'product__link__media__image'" :src="cover.src" :alt="cover.alt">
-          <RouterLink class="product__link__media__orderAdd" :to="`/products/${slug}`">
+          <RouterLink class="product__link__media__buy" :to="`/products/${slug}`">
             <MyButton v-if="hover" label="acheter"/>
           </RouterLink>
         </div>
@@ -86,8 +86,7 @@
         filter: drop-shadow(0px 0px 25px rgb(67, 67, 67));
       }
 
-      &__orderAdd{
-        background-color: red;
+      &__buy{
         filter: drop-shadow(0px 0px 70px black) drop-shadow(0px 0px 70px black) drop-shadow(0px 0px 70px black);
         position: absolute;
       }
