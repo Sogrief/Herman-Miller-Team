@@ -11,7 +11,7 @@
       </div>
       <div class="product_info">
         <div class="product_header">
-          <h1>{{ product.name }}</h1>
+          <MyTitle :label="product.name"  class="-enormous" type="h1" />
           <p class="product-view__price">{{ product.price }}€</p>
         </div>
         <!-- <ProductAccessories
@@ -51,6 +51,7 @@ import ProductGallery from "@/components/ProductGallery.vue";
 // import ProductCustom from "../components/ProductCustom.vue";
 import MyButton from "@/components/MyButton.vue";
 import ProductNav from "@/components/ProductNav.vue";
+import MyTitle from "../components/MyTitle.vue";
 // import ProductAccessories from "../components/ProductAccessories.vue";
 
 export default {
@@ -64,7 +65,8 @@ export default {
     ProductGallery,
     ProductVideo,
     MyButton,
-  },
+    MyTitle
+},
 
   data() {
     return {

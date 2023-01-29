@@ -265,7 +265,7 @@ p {
       opacity: 0;
     }
     img {
-      width: 100vw;
+      width: 90vw;
     }
     .title-default, .caption{
       position: absolute;
