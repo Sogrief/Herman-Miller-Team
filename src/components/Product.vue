@@ -3,9 +3,8 @@
       <RouterLink :class="'product__link'" :to="`/products/${slug}`">
         <div v-if="cover" class="product__link__media">
           <img :class="'product__link__media__image'" :src="cover.src" :alt="cover.alt">
+          <MyButton class="product__link__media__orderAdd" label="ajouter au panier"/>
         </div>
-
-        <MyButton />
       </RouterLink>
 
       <p class="product__name">{{ name }}</p>
@@ -72,10 +71,17 @@
       width: 25vw;
       display: flex;
       justify-content: center;
+      align-items: center;
 
       &__image {
         width: 80%;
         filter: drop-shadow(0px 0px 25px rgb(67, 67, 67));
+      }
+
+      &__orderAdd{
+        background-color: red;
+        filter: drop-shadow(0px 0px 70px black) drop-shadow(0px 0px 70px black) drop-shadow(0px 0px 70px black);
+        position: absolute;
       }
     }
   }
