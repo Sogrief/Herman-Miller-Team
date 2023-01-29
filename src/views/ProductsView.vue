@@ -41,8 +41,6 @@ export default {
     filtreCategory(filtre) {
       this.label = filtre.label;
 
-
-
     if(filtre.isChecked==true)//si on reclique sur le même filtre ça le désactive
       {
         this.filtres.forEach(filtre=>{//on désactive tous les filtres
