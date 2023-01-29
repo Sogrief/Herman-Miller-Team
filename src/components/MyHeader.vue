@@ -2,6 +2,7 @@
 import { client } from "@/outils/axios";
 import MyText from "./../components/MyText.vue";
 import { RouterLink } from 'vue-router';
+
 export default {
   components: {
     RouterLink,
@@ -16,9 +17,20 @@ export default {
           icone: ''
         }
       ],
+      logoURL: ''
     };
   },
   async mounted() {
+    // Request Logo
+    const logoResponse = await client.get(
+      import.meta.env.VITE_WP_API_URL + "/wp/v2/settings"
+    );
+    const logoID = logoResponse.data.site_logo;
+    const mediaResponse = await client.get(
+      import.meta.env.VITE_WP_API_URL + "/wp/v2/media/" + logoID
+    );
+    this.logoURL = mediaResponse.data.source_url;
+    
     // Request Menu
     const response = await client.get(
       import.meta.env.VITE_WP_API_URL + "/menus/v1/menus/principal"
@@ -34,19 +46,29 @@ export default {
         };
       });
     }
-    console.log(this.menuWP)
+    this.menuWP.unshift({
+      label: 'Logo',
+      link: '',
+      icone: this.logoURL
+    });
+    console.log(this.logoURL)
   }
 }
-</script>
 
+</script>
 
 <template>
   <div >
     <ul class="header__row">
-      <li class="header -item" v-for="item in menuWP" :key="item.id">
+      <li class="header -item" v-for="(item, index) in menuWP" :key="item.id">
         <a class="header lien -menu" :href="item.link">
-          <template v-if="item.icone">
-          <img class="header-svg" :src="item.icone" />
+          <template v-if="index === 0">
+            <img class="header-logo" :src="item.icone"/>
+          </template>
+          <template v-else-if="item.icone">
+            <div>
+              <img class="header-icone" :src="item.icone"/>
+            </div>
           </template>
           <template v-else> {{ item.label }}</template>
         </a>
@@ -54,6 +76,8 @@ export default {
     </ul>
   </div>
 </template>
+Et dans votre CSS, vous pouvez définir des styles spécifiques pour ces classes :
+
 
 <style lang="scss">
 .header {
@@ -70,8 +94,14 @@ export default {
     align-items: center;
     gap: 20px;
   }
-  &-svg {
+  &-icone {
     width: 22px;
   }
 }
+
+li.header:nth-child(1) {
+ flex-grow: 1;
+}
+
+
 </style>
