@@ -1,13 +1,6 @@
 import { createStore } from "vuex";
 
 export default createStore({
-  state:{
-    productsCart:[]
-  }
-
-})
-
-/*export default createStore({
   state: {
     products: JSON.parse(localStorage.getItem("cart")) || [],
   },
@@ -46,4 +39,4 @@ export default createStore({
       localStorage.setItem("cart", JSON.stringify(state.products));
     },
   },
-});*/
+});

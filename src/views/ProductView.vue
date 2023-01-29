@@ -28,13 +28,11 @@
           />
           <span>{{ quantity }}</span>
           <MyButton class="button-quantite" label="+" @click="addToCart(1)" />
-          
-          <div>
-            <MyButton class="button" label="Ajouter au panier"/>
-          </div>
         </div>
       </div>
     </div>
+
+    {{ this.$store.products }}
 
     <ProductVideo v-if="product.meta_data" :meta_data="product.meta_data" />
 
