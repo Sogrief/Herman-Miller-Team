@@ -1,49 +1,53 @@
 <template>
-  <div class="product">
-    <RouterLink :class="'product__link'" :to="`/products/${slug}`">
-      <div v-if="cover" class="product__link__media">
-        <img :class="'product__link__media__image'" :src="cover.src"
-        :alt="cover.alt"
-      </div>
-    </RouterLink>
-    <p class="product__name">{{ name }}</p>
-    <p class="product__price">{{ price }}€</p>
-  </div>
-</template>
+    <div class="product">
+      <RouterLink :class="'product__link'" :to="`/products/${slug}`">
+        <div v-if="cover" class="product__link__media">
+          <img :class="'product__link__media__image'" :src="cover.src" :alt="cover.alt">
+        </div>
+      </RouterLink>
+      <p class="product__name">{{ name }}</p>
+      <p class="product__price">{{ price }}€</p>
+    </div>
+  </template>
+  
+  <script>
+  export default {
+    props: {
+      name: {
+        type: String,
+        default: null
+      },
+      slug: {
+        type: String,
+        default: null
+      },
+      description: {
+        type: String,
+        default: null
+      },
+      price: {
+        type: String,
+        default: null
+      },
+      images: {
+        type: Array,
+        default: []
+      },
+      categories: {
+        type: Array,
+        default: []
+      }
+    },
 
-<script>
-export default {
-  props: {
-    name: {
-      type: String,
-      default: null,
-    },
-    slug: {
-      type: String,
-      default: null,
-    },
-    description: {
-      type: String,
-      default: null,
-    },
-    price: {
-      type: String,
-      default: null,
-    },
-    images: {
-      type: Array,
-      default: [],
-    },
-  },
-
-  computed: {
-    cover() {
-      if (!this.images.length) return;
-      const [cover] = this.images;
-      return cover;
-    },
-  },
-};
+    computed: {
+      cover () {
+        if (!this.images.length) return
+        const [cover] = this.images
+        return cover
+      }
+    }
+  }
+       
 </script>
 
 <style lang="scss">

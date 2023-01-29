@@ -14,7 +14,14 @@ export default {
 </script>
 
 <template>
-  <div class="pointforts">
+  <nav class="product_nav">
+    <MyTitle type="h2" class="-default" label="Points forts" />
+    <MyTitle type="h2" class="-default" label="Ergonomie" />
+    <MyTitle type="h2" class="-default" label="Volet technique" />
+    <!-- A voir comment récupérer les titres des ACF -->
+  </nav>
+
+  <div class="pointforts" v-if="acf.product_advantage">
     <div
       class="pointforts-card"
       v-for="item in acf.product_advantage"
@@ -25,7 +32,7 @@ export default {
     </div>
   </div>
 
-  <div class="ergonomie">
+  <div class="ergonomie" v-if="acf.product_ergonomy">
     <div
       class="ergonomie-card"
       v-for="item in acf.product_ergonomy"
@@ -38,7 +45,7 @@ export default {
     </div>
   </div>
 
-  <div class="specification">
+  <div class="specification" v-if="acf.product_specification">
     <div
       class="specification-card"
       v-for="item in acf.product_specification"
@@ -48,7 +55,9 @@ export default {
       <p>{{ item.specification_text }}</p>
     </div>
   </div>
-  <div class="materiaux">
+
+  <div class="materiaux" v-if="acf.product_materials">
+    <MyTitle label="Matériaux" type="h2" class="-default" />
     <div
       class="materiaux-card"
       v-for="item in acf.product_materials"
@@ -97,5 +106,11 @@ p {
       max-width: 182px;
     }
   }
+}
+
+.product_nav{
+  display: flex;
+  gap: 155px;
+  justify-content: center;
 }
 </style>
