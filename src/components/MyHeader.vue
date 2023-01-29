@@ -4,6 +4,7 @@ import MyText from "./../components/MyText.vue";
 import { RouterLink } from 'vue-router';
 export default {
   components: {
+    RouterLink,
   },
   data() {
     return {
@@ -16,27 +17,46 @@ export default {
       ],
     };
   },
-  async mounted() {
+//   async mounted() {
+//     // Request Menu
+//     const response = await client.get(
+//       import.meta.env.VITE_WP_API_URL + "/wp/v2/menu-items"
+//     );
+//     this.response = response.data;
+//     this.menuWP = this.response.items.map((item) => {
+//       let icone = '';
+//       if (item['_links']['wp:featuredmedia']) {
+//         icone = item['_links']['wp:featuredmedia'][0].href;
+//       }
+//       return {
+//         id: item.id,
+//         label: item.title,
+//         link: item.url,
+//         icone: icone,
+//       }  
+//     })
+//   }
+// }
+async mounted() {
     // Request Menu
     const response = await client.get(
-      import.meta.env.VITE_WP_API_URL + "/wp/v2/menu-items"
+      import.meta.env.VITE_WP_API_URL + "/menus/v1/menus/principal"
     );
     this.response = response.data;
-    this.menuWP = this.response.items.map((item) => {
-      console.log(item);
-      let icone = '';
-      if (item['_links']['wp:featuredmedia']) {
-        icone = item['_links']['wp:featuredmedia'][0].href;
-      }
-      return {
-        id: item.id,
-        label: item.title,
-        link: item.url,
-        icone: icone,
-      }  
-    })
+    if (this.response && this.response.items) {
+      this.menuWP = this.response.items.map((item) => {
+        return {
+          id: item.id,
+          label: item.title,
+          link: item.url,
+          icone: item.thumbnail_src,
+        };
+      });
+    }
+    console.log(this.menuWP)
   }
 }
+
 </script>
 
 <!-- Pour afficher les éléments du menu : wp/v2/menu-items -->
@@ -63,17 +83,15 @@ this.menuWP = this.response.items.map((item) => {
 }
 -->
 <div class="header">
-
-    <div>
-      <ul>
+    <ul>
       <li v-for="item in menuWP" :key="item.id">
         <a v-if="item.icone" :href="item.link">
-          <img :src="item.icone"/>
+          <img :src="item.icone" />
+          {{ item.label }}
         </a>
         <a v-else :href="item.link">{{ item.label }}</a>
       </li>
     </ul>
-    </div>
   </div>
 
 
