@@ -46,18 +46,18 @@ export default {
   </div>
 
   <div class="technique">
-    <div class="specification" v-if="acf.product_specification">
+    <div class="specification" v-if="acf.product_technique.product_specification">
       <div
         class="specification-card"
-        v-for="item in acf.product_specification"
+        v-for="item in acf.product_technique.product_specification"
         :key="item.id"
       >
-        <MyTitle :label="item.specification_title" type="h3" class="-default" />
+        <MyTitle :label="item.product_technique.specification_title" type="h3" class="-default" />
         <p>{{ item.specification_text }}</p>
       </div>
     </div>
 
-    <div class="materiaux" v-if="acf.product_materials">
+    <div class="materiaux" v-if="acf.product_technique.product_materials">
       <MyTitle label="Matériaux" type="h2" class="-title titre" />
       <div
         class="materiaux-card"
@@ -99,20 +99,25 @@ p {
   margin-top: 50px;
   grid-gap: 0;
   margin-left: 13vw;
-  &-card {
-    img {
-      width: 182px;
-      height: 182px;
-    }
-    p {
-      max-width: 182px;
-    }
-  }
   & > .titre {
     background-image: url(../../assets/images/encart_titre.svg);
     background-repeat: no-repeat;
     padding: 15px 25px;
     grid-column: 1 / span 3;
+  }
+  &-card {
+    margin-bottom: 35px;
+    img {
+      width: 182px;
+      height: 182px;
+    }
+    p {
+      width: 182px;
+    }
+    &:nth-of-type(5) > h3 {
+      width: 180px;
+      line-height: 27px;
+    }
   }
 }
 
