@@ -9,16 +9,24 @@ export default {
       type: Array,
       default: () => [],
     },
+    image:{
+      type: Array,
+      defautl: () => []
+    }
   },
   data() {
     return {
       currentIndex: 0,
+      active: this.acf.product_ergonomy[0]
     };
   },
   methods: {
     prev() {
       if (this.currentIndex === 0) {
-        this.currentIndex = this.acf.product_ergonomy.length - 1;
+        this.active[currentIndex].style.display = "none";
+        this.active = this.acf.product_ergonomy[this.currentIndex]
+        this.active[currentIndex].style.display = "block";
+
       } else {
         this.currentIndex--;
       }
@@ -167,6 +175,7 @@ p {
   background-image: url('../../assets/images/Grille_forts.svg');
   background-size: 100vw;
   display: grid;
+  margin-bottom: 60px;
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 35px;
   margin-top: 90px;
@@ -259,7 +268,7 @@ p {
   &-card {
     width: 100%;
     height: 100vh;
-    opacity: 100%;
+    display: block;
     position: absolute;
     object-fit: cover;
     &:not(:first-of-type) {

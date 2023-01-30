@@ -35,7 +35,7 @@
 
     <div class="product-view__description" v-html="product.description" />
 
-    <ProductNav v-if="product.acf" :acf="product.acf" />
+    <ProductNav v-if="product.acf" :acf="product.acf" :image="product.acf.product_ergonomy" />
   </div>
   <MyFooter />
 </template>
