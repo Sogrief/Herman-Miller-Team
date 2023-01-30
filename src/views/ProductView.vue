@@ -108,6 +108,7 @@ export default {
   &_img {
     width: 45%;
     background-image: url("../../assets/images/product_bg.svg");
+    background-size:cover;
   }
 }
 </style>

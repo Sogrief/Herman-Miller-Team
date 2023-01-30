@@ -164,11 +164,13 @@ p {
   @include bodyText();
 }
 .pointforts {
+  background-image: url('../../assets/images/Grille_forts.svg');
+  background-size: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 35px;
   margin-top: 90px;
-  margin-left: 130px;
+  padding-left: 130px;
   &-card {
     display: flex;
     align-items: center;
@@ -222,10 +224,10 @@ p {
       display: flex;
       flex-direction: column;
       img {
-        margin-left: 115px;
-        background-image: url("../../assets/images/grille_produit.svg");
-        background-size: 944px 696px;
-        background-position: center;
+        padding-left: 115px;
+        background-image: url("../../assets/images/grille_produit.png");
+        background-size: 100% 100%;
+        background-position: right top;
       }
       a {
         margin-top: 5vh;
@@ -245,6 +247,7 @@ p {
       margin-bottom: 60px;
       p {
         width: 330px;
+        line-height: 1.5;
       }
     }
   }
