@@ -55,7 +55,6 @@ export default {
 
   <div>
     <div class="ergonomie" v-if="acf.product_ergonomy">
-      <transition-group name="fade">
       <div
         class="ergonomie-card"
         v-for="item in acf.product_ergonomy"
@@ -66,7 +65,6 @@ export default {
         <!-- A voir pour le carousel et l'importation des gifs -->
         <p class="caption">{{ item.ergonomy_text }}</p>
       </div>
-    </transition-group>
       <button @click="prev" class="ergonomie-button prev">
         <svg
           width="12"

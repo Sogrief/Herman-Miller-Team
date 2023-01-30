@@ -14,10 +14,7 @@
           <MyTitle :label="product.name"  class="-enormous" type="h1" />
           <p class="product-view__price">{{ product.price }}€</p>
         </div>
-        <!-- <ProductAccessories
-        v-if="product.upsell_ids"
-        :upsell_ids="product.upsell_ids"
-      /> -->
+        
         <div class="product_buy">
           <MyButton class="button" label="Acheter" />
           <!-- Lier le bouton acheter vers le panier -->
@@ -31,6 +28,8 @@
         </div>
       </div>
     </div>
+
+    <ProductAccessories v-if="product.upsell_ids" :upsell_ids="product.upsell_ids" />
 
     <ProductVideo v-if="product.meta_data" :meta_data="product.meta_data" />
 
@@ -51,8 +50,9 @@ import ProductGallery from "@/components/ProductGallery.vue";
 // import ProductCustom from "../components/ProductCustom.vue";
 import MyButton from "@/components/MyButton.vue";
 import ProductNav from "@/components/ProductNav.vue";
+import ProductAccessories from '@/components/ProductAccessories.vue'
 import MyTitle from "../components/MyTitle.vue";
-// import ProductAccessories from "../components/ProductAccessories.vue";
+
 
 export default {
   components: {
@@ -60,7 +60,7 @@ export default {
     ProductNav,
     MyHeader,
     Product,
-    // ProductAccessories,
+    ProductAccessories,
     MyFooter,
     ProductGallery,
     ProductVideo,
