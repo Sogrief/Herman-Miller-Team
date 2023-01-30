@@ -9,16 +9,24 @@ export default {
       type: Array,
       default: () => [],
     },
+    image:{
+      type: Array,
+      defautl: () => []
+    }
   },
   data() {
     return {
       currentIndex: 0,
+      active: this.acf.product_ergonomy[0]
     };
   },
   methods: {
     prev() {
       if (this.currentIndex === 0) {
-        this.currentIndex = this.acf.product_ergonomy.length - 1;
+        this.active[currentIndex].style.display = "none";
+        this.active = this.acf.product_ergonomy[this.currentIndex]
+        this.active[currentIndex].style.display = "block";
+
       } else {
         this.currentIndex--;
       }
@@ -55,7 +63,6 @@ export default {
 
   <div>
     <div class="ergonomie" v-if="acf.product_ergonomy">
-      <transition-group name="fade">
       <div
         class="ergonomie-card"
         v-for="item in acf.product_ergonomy"
@@ -66,7 +73,6 @@ export default {
         <!-- A voir pour le carousel et l'importation des gifs -->
         <p class="caption">{{ item.ergonomy_text }}</p>
       </div>
-    </transition-group>
       <button @click="prev" class="ergonomie-button prev">
         <svg
           width="12"
@@ -166,11 +172,14 @@ p {
   @include bodyText();
 }
 .pointforts {
+  background-image: url('../../assets/images/Grille_forts.svg');
+  background-size: 100vw;
   display: grid;
+  margin-bottom: 60px;
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 35px;
   margin-top: 90px;
-  margin-left: 130px;
+  padding-left: 130px;
   &-card {
     display: flex;
     align-items: center;
@@ -224,10 +233,10 @@ p {
       display: flex;
       flex-direction: column;
       img {
-        margin-left: 115px;
-        background-image: url("../../assets/images/grille_produit.svg");
-        background-size: 944px 696px;
-        background-position: center;
+        padding-left: 115px;
+        background-image: url("../../assets/images/grille_produit.png");
+        background-size: 100% 100%;
+        background-position: right top;
       }
       a {
         margin-top: 5vh;
@@ -247,6 +256,7 @@ p {
       margin-bottom: 60px;
       p {
         width: 330px;
+        line-height: 1.5;
       }
     }
   }
@@ -258,7 +268,7 @@ p {
   &-card {
     width: 100%;
     height: 100vh;
-    opacity: 100%;
+    display: block;
     position: absolute;
     object-fit: cover;
     &:not(:first-of-type) {
