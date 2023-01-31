@@ -85,14 +85,14 @@ export default{
     background-color: #01E6B6;
     color: #2b2b2b;
     padding: 35px;
-    position: absolute;
-width: 28%;
-left: 25%;
-top: 256%;
+    position: relative;
+    left: 25%;
+
   }
 
   .blockValeur{
-    background-image: url(../../assets/images/fond_pointille.png);
+    background-image: url('../../assets/images/Fond_pointillé.png');
+    
   }
 
 
