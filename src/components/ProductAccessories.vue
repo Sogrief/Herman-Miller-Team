@@ -23,8 +23,14 @@ export default{
     <div class="accessories">
     <p>{{ accessorie.name }}</p>
     <p>{{ accessorie.price }}</p>
+    <input class="check" type="checkbox">
   </div>
 
 </template>
 
-<style></style>
+<style lang="scss">
+.check{
+    background-color: transparent;
+    border: 1px solid; 
+}
+</style>
