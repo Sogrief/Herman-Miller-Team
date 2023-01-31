@@ -1,39 +1,40 @@
 <script>
+import { client } from "@/outils/axios";
 import MyTitle from "./MyTitle.vue";
 export default {
   components: {
     MyTitle,
   },
-  props: {
-    acf: {
-      type: Array,
-      default: () => [],
-    },
+  data() {
+    return {
+      infos: [],
+    };
   },
-  // async mounted() {
-  //   const response = await client.get(
-  //     import.meta.env.VITE_WP_API_URL +
-  //       "/wp/v2/pages/11"
-  //   );
-  //   this.infos = response.data[0];
-  // },
+   async mounted() {
+     const response = await client.get(
+       import.meta.env.VITE_WP_API_URL +
+         "/wp/v2/pages/11"
+     );
+     this.infos =  response.data;
+     console.log(response.data)
+   },
 }
 
 </script>
-
 <template>
-   <div class="bg-perspective">
-     <div class=" infoCard" v-if="acf.infos">
-        <div class="infoCard__image"
-        v-for="item in acf.infos"
-        :key="item.id">
-         <img :src="item.img.url" :alt="title" />
-         <MyTitle type="h3" class="infoCard__title" :label="item.infos.title" />
-       </div>
-       <p class="infoCard__text">{{ item.infos.text }}</p>
-     </div>
-   </div>
+  <div class="bg-perspective">
+    <div class=" infoCard" v-if="acf.infos">
+       <div class="infoCard__image"
+       v-for="item in acf.infos"
+       :key="item.id">
+        <img :src="item.img.url" :alt="title" />
+        <MyTitle type="h3" class="infoCard__title" :label="item.infos.title" />
+      </div>
+      <p class="infoCard__text">{{ item.infos.text }}</p>
+    </div>
+  </div>
 </template>
+
 
 
 
