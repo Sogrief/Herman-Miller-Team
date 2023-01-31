@@ -1,6 +1,10 @@
 <script>
 import { client } from '@/outils/axios';
+import ProductImage from './ProductImage.vue';
 export default{
+    components: {
+        ProductImage,
+    },
     data() {
         return{
             accessorie: {},
@@ -23,6 +27,7 @@ export default{
     <div class="accessories">
         <p>{{ accessorie.name }}</p>
         <p>{{ accessorie.price }}€</p>
+        <ProductImage v-if="accessorie.images" :images="accessorie.images"/>
         <input class="checkbox" type="checkbox">
         <label class="check" for="myCheckbox"></label>
     </div>
