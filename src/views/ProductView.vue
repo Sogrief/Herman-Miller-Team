@@ -26,16 +26,17 @@
           <span>{{ quantity }}</span>
           <MyButton class="button-quantite" label="+" @click="addToCart(1)" />
         </div>
+
+        <ProductAccessories v-if="product.upsell_ids" :upsell_ids="product.upsell_ids" />
       </div>
     </div>
-
-    <ProductAccessories v-if="product.upsell_ids" :upsell_ids="product.upsell_ids" />
 
     <ProductVideo v-if="product.meta_data" :meta_data="product.meta_data" />
 
     <div class="product-view__description" v-html="product.description" />
 
     <ProductNav v-if="product.acf" :acf="product.acf" :image="product.acf.product_ergonomy" />
+
   </div>
   <MyFooter />
 </template>

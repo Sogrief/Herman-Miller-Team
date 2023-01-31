@@ -1,3 +1,5 @@
+@import "./variables";
+@import "./mixins";
 *{
     box-sizing: border-box;
 
@@ -5,7 +7,7 @@
 
 body{
     padding: 0;
-    background-color: #2b2b2b;
+    background-color: $backgroundColor;
 }
 
 a{
