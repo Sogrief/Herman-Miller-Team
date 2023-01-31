@@ -10,6 +10,7 @@ export default{
     data() {
         return{
             accessorie: {},
+            index: 0,
         }
     },
     props: {
@@ -19,8 +20,20 @@ export default{
         },
     },
     async created() {
-        const response = await client.get(import.meta.env.VITE_WP_API_URL + "/wc/v3/products?id=" + this.upsell_ids[0]);
+        // const response = await client.get(import.meta.env.VITE_WP_API_URL + "/wc/v3/products?id=" + this.upsell_ids[Index]);
+        // this.accessorie = response.data[0]
+        const makeRequest = () => {
+        if (index === this.upsell_ids.length) return;
+        const currentElement = upsell_ids.length[index];
+        const response = axios.get(import.meta.env.VITE_WP_API_URL + "/wc/v3/products?id=" + this.currentElement.id);
         this.accessorie = response.data[0]
+        .then(response => {
+            const access = axios.get(import.meta.env.VITE_WP_API_URL + "/wc/v3/products?id=" + this.currentElement.id);
+            this.accessorie = access.data[0]
+      index++;
+      makeRequest();
+    })
+};
     }
 }
 </script>
