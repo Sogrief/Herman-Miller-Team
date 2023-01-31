@@ -96,6 +96,13 @@ export default {
     </div>
   </div>
 </nav> 
+
+<div class="product_link" v-if="acf.product_link">
+  <div class="link" v-for="item in acf.product_link" :key="item.id">
+    <img :src="item.link_image.url">
+    <MyTitle type="h3" class="-default" :label="item.link_text" />
+  </div>
+</div>
 </template>
 
 <style lang="scss" scoped>
