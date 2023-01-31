@@ -21,16 +21,29 @@ export default{
 
 <template>
     <div class="accessories">
-    <p>{{ accessorie.name }}</p>
-    <p>{{ accessorie.price }}</p>
-    <input class="check" type="checkbox">
-  </div>
+        <p>{{ accessorie.name }}</p>
+        <p>{{ accessorie.price }}€</p>
+        <input class="checkbox" type="checkbox">
+        <label class="check" for="myCheckbox"></label>
+    </div>
 
 </template>
 
 <style lang="scss">
-.check{
-    background-color: transparent;
-    border: 1px solid; 
-}
+input[type="checkbox"] {
+    display: none;
+  }
+  .check {
+    width: 15px;
+    height: 15px;
+    border: 1px solid $bodyText;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .accessories{
+    background-image: url('../../assets/images/accessorie_bg.svg');
+    background-repeat: no-repeat;
+    display: flex;
+  }
 </style>

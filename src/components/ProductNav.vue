@@ -1,4 +1,18 @@
 <script>
+var acc = document.querySelectorAll('.button');
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
 import MyTitle from "./MyTitle.vue";
 export default {
   components: {
@@ -43,14 +57,15 @@ export default {
 </script>
 
 <template>
-  <nav class="product_nav">
-    <MyTitle type="h2" class="-default" label="Points forts" />
-    <MyTitle type="h2" class="-default" label="Ergonomie" />
-    <MyTitle type="h2" class="-default" label="Volet technique" />
-    <!-- A voir comment récupérer les titres des ACF -->
+  <nav class="product_nav" v-if="acf.nav_title">
+    <div class="nav" v-for="item in acf.nav_title" :key="item.id">
+      <button class="button">bla</button>
+      <MyTitle type="h2" class="-default" :label="item.title" />
+      <img src="../../assets/images/arrow_nav.svg" alt="">
+    </div>
   </nav>
 
-  <div class="pointforts" v-if="acf.product_advantage">
+  <div class="pointforts panel" v-if="acf.product_advantage">
     <div
       class="pointforts-card"
       v-for="item in acf.product_advantage"
@@ -62,7 +77,7 @@ export default {
   </div>
 
   <div>
-    <div class="ergonomie" v-if="acf.product_ergonomy">
+    <div class="ergonomie panel" v-if="acf.product_ergonomy">
       <div
         class="ergonomie-card"
         v-for="item in acf.product_ergonomy"
@@ -104,7 +119,7 @@ export default {
     </div>
   </div>
 
-  <div class="technique" v-if="acf.product_technique">
+  <div class="technique panel" v-if="acf.product_technique">
     <div class="specification">
       <div class="specification-img">
         <img :src="acf.product_technique.technique_image.url" />
@@ -223,6 +238,12 @@ p {
   display: flex;
   gap: 155px;
   justify-content: center;
+  .nav{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: solid 1px $bodyText;
+  }
 }
 
 .technique {
@@ -309,5 +330,17 @@ p {
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;
+}
+
+.active, .nav:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 </style>
