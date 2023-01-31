@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-    <div class="pointforts panel" v-if="acf.product_advantage">
+    <div class="pointforts" v-if="acf.product_advantage">
         <div
         class="pointforts-card"
         v-for="item in acf.product_advantage"
