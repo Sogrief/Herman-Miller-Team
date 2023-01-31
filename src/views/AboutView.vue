@@ -1,6 +1,6 @@
 <template>
   
-
+  <MyHeader />
   <div class="about" v-if="page.content" v-html="page.content.rendered"></div>
 
 
@@ -78,6 +78,21 @@ export default{
   .containerH h1 {
     transform: skew(26deg);
     margin : 15px;
+  }
+
+  .greenBlock{
+    border: 6px solid #01E6B6;
+    background-color: #01E6B6;
+    color: #2b2b2b;
+    padding: 35px;
+    position: absolute;
+width: 28%;
+left: 25%;
+top: 256%;
+  }
+
+  .blockValeur{
+    background-image: url(../../assets/images/fond_pointille.png);
   }
 
 
