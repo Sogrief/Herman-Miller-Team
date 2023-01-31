@@ -1,9 +1,11 @@
 <script>
 import { client } from '@/outils/axios';
 import ProductImage from './ProductImage.vue';
+import MyTitle from './MyTitle.vue';
 export default{
     components: {
         ProductImage,
+        MyTitle,
     },
     data() {
         return{
@@ -25,30 +27,48 @@ export default{
 
 <template>
     <div class="accessories">
-        <p>{{ accessorie.name }}</p>
-        <p>{{ accessorie.price }}€</p>
-        <ProductImage v-if="accessorie.images" :images="accessorie.images"/>
-        <input class="checkbox" type="checkbox">
-        <label class="check" for="myCheckbox"></label>
+        <MyTitle type="h2" class="-title" label="Ajout d'accessoires" />
+        <div class="accessories_card">
+            <ProductImage class="accessories_img" v-if="accessorie.images" :images="accessorie.images"/>
+            <p class="accessories_name">{{ accessorie.name }}</p>
+            <p class="accessories_price">{{ accessorie.price }}€</p>
+            <input class="accessories_checkbox" type="checkbox">
+            <label class="accessories_check" for="myCheckbox"></label>
+        </div>
     </div>
 
 </template>
 
 <style lang="scss">
-input[type="checkbox"] {
-    display: none;
-  }
-  .check {
-    width: 15px;
-    height: 15px;
-    border: 1px solid $bodyText;
-    cursor: pointer;
-    display: inline-block;
-  }
-
-  .accessories{
+.accessories{
     background-image: url('../../assets/images/accessorie_bg.svg');
     background-repeat: no-repeat;
-    display: flex;
-  }
+    width: 440px;
+    height: 310px;
+    padding: 40px 0 0 50px;
+    &_card{
+        display: flex;
+        gap: 25px;
+        margin-top: 30px;
+        align-items: center;
+    }
+    &_img{
+        width: 60px;
+        height:auto;
+        object-fit: cover;
+    }
+    &_price{
+        margin-left: 70px;
+    }
+    &_checkbox{
+        display: none;
+    }
+    &_check {
+        width: 15px;
+        height: 15px;
+        border: 1px solid $bodyText;
+        cursor: pointer;
+        display: inline-block;
+    }
+}
 </style>
