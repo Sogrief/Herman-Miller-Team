@@ -24,31 +24,28 @@ export default {
 </script>
 
 <template>
-  <main>
-     <MyTitle />
+  <!-- <MyTitle />
     <MyTitle size="big" label="grand titre h1" />
     <MyTitle size="tiny" type="h2" label="petit titre h2" />
     <MyButton type="quantite" label="+" />
     <MyButton type="precedent" label="+" />
     <MyButton type="suivant" label="+" />
     <MyButton label="+" />
-    
+    <MyHeader />
    <MyCheckbox />
      <MyTitle size="-little" label="test" />
-    <MyText type="lien" label="blabla" size="body" /> 
-     -->
-
-    <DefaultLayout>
-      <template v-slot:header>
-        <MyHeader />
-      </template>
-      <MyTitle size="-enormous" label="Aeron" type="h1" />
-      <MyButton label="Découvrir" />
-      <MyInfoCard />
-      <template v-slot:footer>
-
-        <MyFooter />
-      </template>
-    </DefaultLayout>
-  </main>
+     <MyText type="lien" label="blabla" size="body" />  -->
+     <DefaultLayout>
+        <template v-slot:header>
+          <MyHeader />
+        </template>
+        <main>
+          <MyTitle size="-enormous" label="Aeron" type="h1" />
+          <MyButton label="Découvrir" />
+          <MyInfoCard />
+        </main>
+        <template v-slot:footer>
+          <MyFooter />
+        </template>
+      </DefaultLayout>
 </template>

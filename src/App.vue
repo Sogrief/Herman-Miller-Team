@@ -9,4 +9,5 @@ export default {
     RouterView
   }
 }
+
 </script>
