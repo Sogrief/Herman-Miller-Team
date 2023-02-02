@@ -3,8 +3,7 @@ import MyTitle from './MyTitle.vue';
 export default {
   data() {
     return {
-      active: this.slide[0],
-      currentIndex: 1,
+      currentIndex: 0
     };
   },
     components: {
@@ -17,39 +16,40 @@ export default {
     },
  },
  methods: {
-    previous() {
-      this.currentIndex = (this.currentIndex - 1 + this.acf.product_ergonomy.length) % this.acf.product_ergonomy.length;
-    },
+  prev() {
+    if (this.currentIndex === 0) {
+      this.currentIndex = this.slide.length - 1;
+      return;
+    }
+    this.currentIndex--;
+  },
     next() {
-      this.currentIndex = (this.currentIndex + 1) % this.acf.product_ergonomy.length;
-      console.log(this.currentIndex);
-    },
-    
+      if (this.currentIndex === this.slide.length - 1) {
+        this.currentIndex = 0;
+        return;
+      }
+      this.currentIndex++;
+    }
   }
 }
 </script>
 
 <template>
+  <div class="slider">
     <div class="ergonomie" v-if="slide">
-      <!-- <div class="ergonomie-card active" v-if="active">
-        <MyTitle :label="active.ergonomy_title" type="h2" class="-default" />
-        <img :src="active.ergonomy_image.url" />
-         A voir pour le carousel et l'importation des gifs
-        <p class="caption">{{ active.ergonomy_text }}</p>
-      </div> -->
       <div
         class="ergonomie-card"
-        v-if="active"
-        v-for="item in slide"
+        v-for=" (item, index) in slide"
         :key="index"
-        :class="{ 'active':  currentIndex === active.id }"
+        :style="{ transform: 'translateX(' + (-100 * currentIndex) + '%)' }"
       >
         <MyTitle :label="item.ergonomy_title" type="h2" class="-default" />
         <img :src="item.ergonomy_image.url" />
         <!-- A voir pour le carousel et l'importation des gifs -->
         <p class="caption">{{ item.ergonomy_text }}</p>
       </div>
-      <button @click="previous" class="ergonomie-button prev">
+    </div>
+    <button @click="prev" class="ergonomie-button prev">
         <svg
           width="12"
           height="22"
@@ -77,24 +77,17 @@ export default {
           />
         </svg>
       </button>
-    </div>
+  </div>
 </template>
 
 <style lang="scss">
 .ergonomie {
-  position: relative;
   height: 100vh;
+  display: flex;
+  transition: transform 0.5s ease;
   &-card {
     width: 100%;
-    height: 100vh;
-    display: block;
-    transition: opacity 0.5s ease-in-out;
-    position: absolute;
     object-fit: cover;
-    opacity: 0;
-    &.active{
-      opacity: 1;
-    }
     img {
       width: 90vw;
     }
@@ -103,7 +96,7 @@ export default {
     }
     .title-default{
       top: 22px;
-      left: 33px;
+      right: 38px;
     }
     .caption{
       bottom: 50px;
@@ -125,5 +118,10 @@ export default {
     }
   }
 }
+.slider {
+  position: relative;
+  overflow: hidden;
+}
+
 
 </style>
