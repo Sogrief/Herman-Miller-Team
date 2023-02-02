@@ -42,6 +42,7 @@ export default {
     font-size: 16px;
     margin: 0 5%;
     padding-bottom: 20px;
+    
   &__title {
     line-height: auto;
     max-width: 226px;
