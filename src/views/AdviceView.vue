@@ -1,29 +1,27 @@
 <template>
-    <div class="conseils">
-    {{page.title.rendered}}
+  <div class="conseils">
+    {{ page.title.rendered }}
   </div>
   <div v-if="page.content" v-html="page.content.rendered"></div>
-
 </template>
 
 <script>
-    import { client } from "@/outils/axios"
+import { client } from "@/outils/axios";
 export default {
-    data() {
-        return{
-            page:{}
-        };
-    },
+  data() {
+    return {
+      page: {},
+    };
+  },
 
-    async created () {
+  async created() {
     const response = await client.get(
-      import.meta.env.VITE_WP_API_URL + "/wp/v2/pages?slug=conseils&_fields=id,title,content,date,excerpt"
+      import.meta.env.VITE_WP_API_URL +
+        "/wp/v2/pages?slug=conseils&_fields=id,title,content,date,excerpt"
     );
-     this.page = response.data[0];
-     
-   },
-
-}
+    this.page = response.data[0];
+  },
+};
 </script>
 
 <style>
@@ -33,5 +31,29 @@ export default {
     display: flex;
     align-items: center;
   }
+}
+
+.wp-block-gallery {
+  display: grid;
+  grid-template-columns: 21.3% 24% 24% 24%;
+}
+
+.wp-block-image:nth-child(0n + 2) {
+  margin-top: -53px;
+  margin-bottom: 0;
+}
+
+.wp-block-image:nth-child(0n + 3) {
+  margin-top: -10px;
+  margin-bottom: 0;
+}
+
+.wp-block-image:nth-child(0n + 4) {
+  margin-top: 34px;
+  margin-bottom: 0;
+}
+
+.wp-block-image:nth-child(0n + 5) {
+  margin-top: -88px;
 }
 </style>
