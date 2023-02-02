@@ -1,17 +1,15 @@
 <script></script>
 
 <template>
+  <header>
+    <slot name="header"></slot>
+  </header>
   <main class="layout">
-    <header>
-      <slot name="header"></slot>
-    </header>
-    <article>
       <slot></slot>
-    </article>
-    <footer>
-      <slot name="footer"></slot>
-    </footer>
   </main>
+  <footer>
+    <slot name="footer"></slot>
+  </footer>
 </template>
 
 <style></style>

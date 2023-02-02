@@ -26,4 +26,7 @@ export default {
 
 
 <style>
+.imgEntete>img{
+    width: 100%;
+}
 </style>

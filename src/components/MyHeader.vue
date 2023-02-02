@@ -106,6 +106,7 @@ methods: {
     justify-content: flex-end;
     align-items: center;
     gap: 20px;
+    margin:0;
   }
   &-icone {
     width: 22px;
