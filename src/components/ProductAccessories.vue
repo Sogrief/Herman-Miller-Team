@@ -19,21 +19,7 @@ export default{
             default: () => [],
         },
     },
-    // async created() {
-    //     const response = await client.get(import.meta.env.VITE_WP_API_URL + "/wc/v3/products?id=" + this.upsell_ids[0]);
-    //     this.accessorie = response.data[0]
-    //     const makeRequest = () => {
-    //     if (index === this.upsell_ids.length) return;
-    //     const currentElement = upsell_ids.length[index];
-    //     const response = client.get(import.meta.env.VITE_WP_API_URL + "/wc/v3/products?id=" + this.currentElement);
-    //     this.accessorie = response.data[0]
-    //     .then(response => {
-    //         const access = client.get(import.meta.env.VITE_WP_API_URL + "/wc/v3/products?id=" + this.currentElement.id);
-    //         this.accessorie = access.data[0]
-    //   index++;
-    //   makeRequest();
-    // })
-// };
+   
 async created() {
   let accessories = [];
   for (let i = 0; i < this.upsell_ids.length; i++) {
@@ -44,6 +30,11 @@ async created() {
     });
   }
   this.accessories = accessories;
+},
+methods: {
+    addToCart() {
+      this.$store.commit("add", this.accessories);
+    },
 }
 }
 </script>
@@ -56,7 +47,7 @@ async created() {
             <p class="accessories_name">{{ accessory.data.name }}</p>
             <p class="accessories_price">{{ accessory.data.price }}€</p>
             <input class="accessories_checkbox" type="checkbox">
-            <label class="accessories_check" for="myCheckbox"></label>
+            <label class="accessories_check" for="myCheckbox" @click="addToCart()"></label>
     </div>
   </div>
 </template>
