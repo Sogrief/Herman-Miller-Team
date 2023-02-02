@@ -3,10 +3,10 @@
   <div class="product-view">
     <div class="product_container">
       <div class="product_img">
-        <!-- <ProductCustom
+        <ProductCustom
           v-if="product.variations"
           :variations="product.variations"
-        /> -->
+        />
         <ProductGallery v-if="product.images" :images="product.images" />
       </div>
       <div class="product_info">
@@ -48,7 +48,7 @@ import MyFooter from "@/components/MyFooter.vue";
 import Product from "@/components/Product.vue"
 import ProductVideo from "@/components/ProductVideo.vue";
 import ProductGallery from "@/components/ProductGallery.vue";
-// import ProductCustom from "../components/ProductCustom.vue";
+import ProductCustom from "../components/ProductCustom.vue";
 import MyButton from "@/components/MyButton.vue";
 import ProductNav from "@/components/ProductNav.vue";
 import ProductAccessories from '@/components/ProductAccessories.vue'
@@ -57,7 +57,7 @@ import MyTitle from "../components/MyTitle.vue";
 
 export default {
   components: {
-    // ProductCustom,
+    ProductCustom,
     ProductNav,
     MyHeader,
     Product,
