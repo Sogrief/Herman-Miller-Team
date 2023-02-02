@@ -1,42 +1,56 @@
 <template>
 
     <MyHeader />
-    
-    <div class="panier">
-        <div class="panier__item" v-for="addedProducts in $store.state.products">
-            <div class="panier__item__product">
-                <div class="panier__item__product__img">                
-                    <img v-bind:src="addedProducts.images[0].src">
-                    <div>
-                        <MyButton class="button-quantite" label="-" @click="removeFromCart(addedProducts)"/>
-                        {{addedProducts.quantity}}
-                        <MyButton class="button-quantite" label="+" @click="addToCart(addedProducts)"/>
+    <div class="container">
+        <div class="panier">
+            <div class="panier__item" v-for="addedProducts in $store.state.products">
+                <div class="panier__item__product">
+                    <div class="panier__item__product__img">                
+                        <img v-bind:src="addedProducts.images[0].src">
+                        <div>
+                            <MyButton class="button-quantite" label="-" @click="removeFromCart(addedProducts)"/>
+                            {{addedProducts.quantity}}
+                            <MyButton class="button-quantite" label="+" @click="addToCart(addedProducts)"/>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="panier__item__infos">
-                <div>{{addedProducts.name}}</div>
-                <div>prix total : {{ addedProducts.quantity*addedProducts.price }} €</div>
-            </div>
+                <div class="panier__item__infos">
+                    <div>{{addedProducts.name}}</div>
+                    <div>prix total : {{ addedProducts.quantity*addedProducts.price }} €</div>
+                </div>
 
-            <div class="panier__item__sideButtons">
-                <RouterLink :to="`/products/${addedProducts.slug}`" target="_blank">
-                    <MyButton class="button" label="personnaliser" />
-                </RouterLink>
+                <div class="panier__item__sideButtons">
+                    <RouterLink :to="`/products/${addedProducts.slug}`" target="_blank">
+                        <MyButton class="button" label="personnaliser" />
+                    </RouterLink>
 
-                <img src="/assets/icones/trash.svg" @click="deleted(addedProducts)">
+                    <img src="/assets/icones/trash.svg" @click="deleted(addedProducts)">
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="panneauReduc">
-        <div class="panneauReduc__reduc">
-            <div class="panneauReduc__reduc__input">
-                <label>réduction</label>
-                <input type="text"/>
+        <div class="panneauReduc">
+            <div class="panneauReduc__reduc">
+                <div class="panneauReduc__reduc__input">
+                    <label>réduction</label>
+                    <input type="text"/>
+                </div>
+                <MyButton class="button" label="appliquer" />
             </div>
-            <MyButton class="button" label="appliquer" />
+
+            <div class="panneauReduc__total">total {{ total }}€</div>
+            <div class="panneauReduc__infos">
+                <div><img src="/assets/images/casesBiseaux.svg"> Retours gratuits</div>
+                <div><img src="/assets/images/casesBiseaux.svg"> 12 ans de garantie</div>
+                <div><img src="/assets/images/casesBiseaux.svg"> Livraison rapide</div>
+            </div>
+            <div class="panneauReduc__paiement">
+                <MyButton class="button -suivant" label="procéder au paiement " />
+                <RouterLink :to="`/products`">
+                    <MyButton class="button -precedent" label="continuer mes achats" />
+                </RouterLink>
+            </div>
         </div>
     </div>
 
@@ -73,12 +87,29 @@ export default {
         deleted(deleteProduct){
             this.$store.commit("remove", deleteProduct.id);
         },
+    },
+
+    computed: {
+            total () {
+            return this.$store.state.products.reduce((total, addedProducts) => {
+                return total + (addedProducts.quantity * addedProducts.price)
+            }, 0)
+        }
     }
 }
 
 </script>
   
 <style lang="scss">
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: pxToRem(60);
+    column-gap:3vw;
+    justify-content: center;
+    align-items: flex-start;
+}
 
 .panier{
     display:flex;
@@ -131,12 +162,15 @@ export default {
 }
 
 .panneauReduc{
-    height:100px;
     width:40vw;
     background-image: url(/assets/images/encartsBiseauxEpais.png);
     background-size: 100% 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    row-gap: pxToRem(30);
+    padding: pxToRem(100);
 
     &__reduc{
         display: flex;
@@ -157,6 +191,27 @@ export default {
                 background-color: $backgroundColor;
             }
         }
+    }
+
+    &__total{
+        @include title;
+    }
+
+    &__infos{
+        @include bodyText;
+    }
+
+    &__paiement{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        row-gap: pxToRem(10);
+    }
+}
+
+@media screen and (max-width: map-get($breakpoints, "tablet-down")) {
+    .container{
+        flex-direction: column;
     }
 }
 
