@@ -3,21 +3,20 @@
   <div class="product-view">
     <div class="product_container">
       <div class="product_img">
-        <!-- <ProductCustom
+        <ProductCustom
           v-if="product.variations"
           :variations="product.variations"
-        /> -->
+        />
         <ProductGallery v-if="product.images" :images="product.images" />
       </div>
       <div class="product_info">
         <div class="product_header">
-          <h1>{{ product.name }}</h1>
+          <MyTitle :label="product.name"  class="-enormous" type="h1" />
           <p class="product-view__price">{{ product.price }}€</p>
         </div>
-        <!-- <ProductAccessories
-        v-if="product.upsell_ids"
-        :upsell_ids="product.upsell_ids"
-      /> -->
+        
+        <ProductAccessories v-if="product.upsell_ids" :upsell_ids="product.upsell_ids" />
+
         <div class="product_buy">
           <MyButton class="button" label="Acheter" />
           <!-- Lier le bouton acheter vers le panier -->
@@ -29,6 +28,7 @@
           <span>{{ quantity }}</span>
           <MyButton class="button-quantite" label="+" @click="addToCart(1)" />
         </div>
+
       </div>
     </div>
 
@@ -36,7 +36,10 @@
 
     <div class="product-view__description" v-html="product.description" />
 
-    <ProductNav v-if="product.acf" :acf="product.acf" />
+    <ProductNav v-if="product.acf" :acf="product.acf" :image="product.acf.product_ergonomy" />
+
+    <ProductSetUp v-if="product.cross_sell_ids" :cross_sell_ids="product.cross_sell_ids"/>
+
   </div>
   <MyFooter />
 </template>
@@ -48,23 +51,27 @@ import MyFooter from "@/components/MyFooter.vue";
 import Product from "@/components/Product.vue"
 import ProductVideo from "@/components/ProductVideo.vue";
 import ProductGallery from "@/components/ProductGallery.vue";
-// import ProductCustom from "../components/ProductCustom.vue";
+import ProductCustom from "../components/ProductCustom.vue";
 import MyButton from "@/components/MyButton.vue";
 import ProductNav from "@/components/ProductNav.vue";
-// import ProductAccessories from "../components/ProductAccessories.vue";
+import ProductAccessories from '@/components/ProductAccessories.vue'
+import MyTitle from "../components/MyTitle.vue";
+import ProductSetUp from "@/components/ProductSetUp.vue";
 
 export default {
   components: {
-    // ProductCustom,
+    ProductCustom,
     ProductNav,
+    ProductSetUp,
     MyHeader,
     Product,
-    // ProductAccessories,
+    ProductAccessories,
     MyFooter,
     ProductGallery,
     ProductVideo,
     MyButton,
-  },
+    MyTitle
+},
 
   data() {
     return {
@@ -103,9 +110,29 @@ export default {
   &_container {
     display: flex;
   }
+  &-view__price{
+    font-size: 30px;
+    margin: 0;
+    margin-bottom: 30px;
+  }
+  &_header{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    .title-enormous{
+    margin: 0;
+  }
+  }
+  &_info{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 45%;
+  }
   &_img {
     width: 45%;
     background-image: url("../../assets/images/product_bg.svg");
+    background-size:cover;
   }
 }
 </style>

@@ -1,3 +1,5 @@
+@import "./variables";
+@import "./mixins";
 *{
     box-sizing: border-box;
 
@@ -20,6 +22,19 @@ p{
 h1, h2, h3{
     @include title();
 }
+
+.aProposText{
+    font-family: $textFontFamily;
+    font-weight : 700;
+    text-transform: none;
+    color : $mainColor;
+    font-size: 20px;
+  }
+
+.aProposBlock{
+    width: 40%;
+    
+  }
 
 blockquote>p{
     font-style: italic;
