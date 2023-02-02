@@ -36,14 +36,41 @@ async created() {
 
 <template>
     <div class="setup">
-        <MyTitle type="h2" class="-title" label="Complétez votre set-up" />
-    <div v-for="product in setup" :key="setup.index" class="setup_card">
+        <MyTitle type="h2" class="-title setup_title" label="Complétez votre set-up" />
+        <div class="setup_container">
+        <div v-for="product in setup" :key="setup.index" class="setup_card">
             <ProductImage class="setup_img" v-if="product.data.images" :images="product.data.images"/>
-            <p class="setup_name">{{ product.data.name }}</p>
-            <p class="setup_price">{{ product.data.price }}€</p>
+            <div class="setup_info">
+              <MyTitle type="h3" class="-default" :label="product.data.name" />
+              <p class="setup_price">{{ product.data.price }}€</p>
+            </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss">
+.setup{
+  &_title{
+    margin-top: 90px;
+    padding-left: 70px;
+    margin-left: 25px;
+    background-image: url('../../assets/images/title_bg.svg');
+    background-repeat: no-repeat;
+  }
+  &_img{
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+    filter: drop-shadow(0px 0px 25px rgb(67, 67, 67));
+  }
+  &_info{
+    display: flex;
+    gap: 50px;
+  }
+  &_container{
+    display: flex;
+    justify-content: center;
+  }
+}
 </style>
