@@ -30,6 +30,11 @@ async created() {
     });
   }
   this.accessories = accessories;
+},
+methods: {
+    addToCart() {
+      this.$store.commit("add", this.accessories);
+    },
 }
 }
 </script>
@@ -42,7 +47,7 @@ async created() {
             <p class="accessories_name">{{ accessory.data.name }}</p>
             <p class="accessories_price">{{ accessory.data.price }}€</p>
             <input class="accessories_checkbox" type="checkbox">
-            <label class="accessories_check" for="myCheckbox"></label>
+            <label class="accessories_check" for="myCheckbox" @click="addToCart()"></label>
     </div>
   </div>
 </template>

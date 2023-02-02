@@ -37,6 +37,8 @@
 
     <ProductNav v-if="product.acf" :acf="product.acf" :image="product.acf.product_ergonomy" />
 
+    <ProductSetUp v-if="product.cross_sell_ids" :cross_sell_ids="product.cross_sell_ids"/>
+
   </div>
   <MyFooter />
 </template>
@@ -53,12 +55,13 @@ import MyButton from "@/components/MyButton.vue";
 import ProductNav from "@/components/ProductNav.vue";
 import ProductAccessories from '@/components/ProductAccessories.vue'
 import MyTitle from "../components/MyTitle.vue";
-
+import ProductSetUp from "@/components/ProductSetUp.vue";
 
 export default {
   components: {
     ProductCustom,
     ProductNav,
+    ProductSetUp,
     MyHeader,
     Product,
     ProductAccessories,
