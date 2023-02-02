@@ -40,7 +40,7 @@ export default{
 @media (min-width: 1024px) {
   .about {
     min-height: 100vh;
-    margin: 0 125px;
+    margin: 0 50vh;
   }
   .imgText{
     display: flex;
@@ -80,19 +80,27 @@ export default{
     margin : 15px;
   }
 
-  .greenBlock{
-    border: 6px solid #01E6B6;
+
+    .greenBlock {
     background-color: #01E6B6;
     color: #2b2b2b;
-    padding: 35px;
-    position: relative;
-    left: 25%;
+    padding: 50px;
+    position: absolute;
+    left: 20%;
+    width: 477px;
+    top: 225%;
 
   }
 
-  .blockValeur{
-    background-image: url('../../assets/images/Fond_pointillé.png');
-    
+  .blockValeur::before{
+    background-image: url('/assets/images/Fond_pointillé.png');
+    content: "";
+    position: absolute;
+    top: 224%;
+    left: 12%;
+    width: 53%;
+    height: 118%;
+    z-index: -1;
   }
 
 
