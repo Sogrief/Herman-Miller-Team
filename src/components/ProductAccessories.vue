@@ -1,5 +1,5 @@
 <script>
-import { client } from '@/outils/axios';
+import { client } from "@/outils/axios";
 import ProductImage from './ProductImage.vue';
 import MyTitle from './MyTitle.vue';
 export default{
@@ -25,10 +25,10 @@ export default{
         const makeRequest = () => {
         if (index === this.upsell_ids.length) return;
         const currentElement = upsell_ids.length[index];
-        const response = axios.get(import.meta.env.VITE_WP_API_URL + "/wc/v3/products?id=" + this.currentElement.id);
+        const response = client.get(import.meta.env.VITE_WP_API_URL + "/wc/v3/products?id=" + this.currentElement);
         this.accessorie = response.data[0]
         .then(response => {
-            const access = axios.get(import.meta.env.VITE_WP_API_URL + "/wc/v3/products?id=" + this.currentElement.id);
+            const access = client.get(import.meta.env.VITE_WP_API_URL + "/wc/v3/products?id=" + this.currentElement.id);
             this.accessorie = access.data[0]
       index++;
       makeRequest();
