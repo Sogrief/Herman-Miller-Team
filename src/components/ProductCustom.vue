@@ -1,8 +1,11 @@
 <template>
-
-<div class="points" @click="openModal">
-  <span v-for="point in points" :key="point.id"></span>
+<div class="custom">
+  <div class="custom_points" @click="openModal">
+    <img class="custom_points_img" src="../../assets/images/product_point.svg" v-for="point in points" :key="point.id">
+  </div>
 </div>
+
+
 <modal v-if="showModal" @close="closeModal">
   <div class="variations">
     <div
@@ -46,19 +49,27 @@ selectVariation(variation) {
 };
 </script>
 
-<style>
-.points {
-position: absolute;
-top: 0;
-left: 0;
+<style lang="scss">
+.custom{
+  position: relative;
+  &_points {
+    position: relative;
+    &_img{
+      position: absolute;
+      top: 300px;
+      left: 50px;
+    }
+    &_img:nth-of-type(2){
+      top: 100px;
+      left: 220px;
+    }
+    &_img:nth-of-type(3){
+      top:500px;
+      left: 250px;
+    }
 }
-.points span {
-width: 10px;
-height: 10px;
-background-color: red;
-display: inline-block;
-margin-right: 10px;
 }
+
 .variations {
 display: flex;
 background-color: pink;
