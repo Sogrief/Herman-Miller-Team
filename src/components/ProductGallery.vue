@@ -57,8 +57,10 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 40px;
   &__list {
     display: flex;
+    justify-content: center;
     flex-flow: row wrap;
     width: fit-content;
   }
