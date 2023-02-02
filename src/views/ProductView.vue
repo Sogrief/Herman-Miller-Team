@@ -9,6 +9,12 @@
         />
         <ProductGallery v-if="product.images" :images="product.images" />
       </div>
+
+      <div v-if="colorAttribute" class="product-view__attribute">
+            <div v-for="(option, index) in colorAttribute.options" class="product-view__option" @click="changeColor(option)">{{ option }}</div>
+          </div>
+
+
       <div class="product_info">
         <div class="product_header">
           <MyTitle :label="product.name"  class="-enormous" type="h1" />
@@ -70,7 +76,9 @@ export default {
     return {
       product: {},
       inCart: false,
+      variations: [],
       quantity: 1,
+      activeColor: null,
     };
   },
 
@@ -81,13 +89,39 @@ export default {
         this.$route.params.product
     );
     this.product = response.data[0];
+    if (this.product.type === 'variable') {
+        for await (const id of this.product.variations) {
+          const response = await client.get(import.meta.env.VITE_WP_API_URL + '/wc/v3/products/' + id)
+          this.variations.push(response.data)
+        }
+        console.log(this.variations);
+      }
   },
+
+  computed: {
+    colorAttribute () {
+      if (!this.product.attributes) return
+      return this.product.attributes.find(attribute => attribute.name === 'Couleur')
+    },
+    displayedProduct () {
+      if (!this.activeColor) return this.product
+      const [variation] = this.variations.filter((variation) => {
+        return variation.attributes.find(attribute => attribute.option === this.activeColor)
+      })
+      return variation || this.product
+    }
+  },
+
 
   methods: {
     addToCart() {
       this.$store.commit("add", this.product);
     }
   },
+  changeColor (color) {
+      this.activeColor = color
+    }
+
 };
 </script>
 
