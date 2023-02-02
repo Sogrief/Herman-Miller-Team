@@ -14,15 +14,15 @@ export default {
         {
           label:'',
           link: '',
-          icone: ''
+          icone: '',
         }
       ],
       logoURL: ''
     };
   },
   async mounted() {
-    // Request Logo
-    const logoResponse = await client.get(
+        // Request Logo
+        const logoResponse = await client.get(
       import.meta.env.VITE_WP_API_URL + "/wp/v2/settings"
     );
     const logoID = logoResponse.data.site_logo;
@@ -37,46 +37,59 @@ export default {
     );
     this.response = response.data;
     if (this.response && this.response.items) {
-      this.menuWP = this.response.items.map((item) => {
-        return {
-          id: item.id,
-          label: item.title,
-          link: item.url,
-          icone: item.thumbnail_src,
-        };
-      });
-    }
-    this.menuWP.unshift({
-      label: 'Logo',
-      link: '',
-      icone: this.logoURL
+    this.menuWP = this.response.items.map((item) => {
+      return {
+        id: item.id,
+        label: item.title,
+        link: this.convertLinkToRoute(item.url),
+        icone: item.thumbnail_src,
+        // route: this.convertLinkToRoute(item.url),
+      };
     });
-    console.log(this.logoURL)
   }
+  this.menuWP.unshift({
+    label: 'Logo',
+    link: '',
+    icone: this.logoURL,
+  });
+},
+methods: {
+  convertLinkToRoute(link) {
+    if (!link) {
+    return '';
+  }
+    const url = new URL(link);
+  return url.pathname;
+}},
 }
-
 </script>
 
 <template>
   <div >
     <ul class="header__row">
       <li class="header -item" v-for="(item, index) in menuWP" :key="item.id">
-        <a class="header lien -menu" :href="item.link">
-          <template v-if="index === 0">
+        <template v-if="index === 0">
+          <RouterLink to="/">
             <img class="header-logo" :src="item.icone"/>
-          </template>
-          <template v-else-if="item.icone">
+          </RouterLink>
+        </template>
+        <template v-else-if="item.icone">
+          <RouterLink :to=" item.link">
             <div>
               <img class="header-icone" :src="item.icone"/>
             </div>
-          </template>
-          <template v-else> {{ item.label }}</template>
-        </a>
+          </RouterLink>
+        </template>
+        <template v-else>
+          <RouterLink :to=" item.link">{{ item.label }}</RouterLink>
+        </template>
       </li>
     </ul>
   </div>
 </template>
-Et dans votre CSS, vous pouvez définir des styles spécifiques pour ces classes :
+
+
+
 
 
 <style lang="scss">
