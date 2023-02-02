@@ -84,9 +84,9 @@ export default {
 .ergonomie {
   height: 100vh;
   display: flex;
-  gap: 10px;
   transition: transform 0.5s ease;
   &-card {
+    width: 100%;
     object-fit: cover;
     img {
       width: 90vw;
@@ -96,7 +96,7 @@ export default {
     }
     .title-default{
       top: 22px;
-      left: 33px;
+      right: 38px;
     }
     .caption{
       bottom: 50px;
