@@ -2,99 +2,106 @@
 import { client } from "@/outils/axios";
 import MyText from "./../components/MyText.vue";
 import { RouterLink } from 'vue-router';
+
 export default {
   components: {
-    MyText,
     RouterLink,
+    MyText
   },
   data() {
     return {
       menuWP: [
         {
           label:'',
-          link: ''
+          link: '',
+          icone: ''
         }
       ],
+      logoURL: ''
     };
   },
   async mounted() {
+    // Request Logo
+    const logoResponse = await client.get(
+      import.meta.env.VITE_WP_API_URL + "/wp/v2/settings"
+    );
+    const logoID = logoResponse.data.site_logo;
+    const mediaResponse = await client.get(
+      import.meta.env.VITE_WP_API_URL + "/wp/v2/media/" + logoID
+    );
+    this.logoURL = mediaResponse.data.source_url;
+    
     // Request Menu
     const response = await client.get(
       import.meta.env.VITE_WP_API_URL + "/menus/v1/menus/principal"
     );
     this.response = response.data;
-    this.menuWP = this.response.items.map((item) => {
-      return {
-        id: item.id,
-        label: item.title,
-        link: item.url,
-        icone: item.thumbnail_src,
-      }  
-    })
+    if (this.response && this.response.items) {
+      this.menuWP = this.response.items.map((item) => {
+        return {
+          id: item.id,
+          label: item.title,
+          link: item.url,
+          icone: item.thumbnail_src,
+        };
+      });
+    }
+    this.menuWP.unshift({
+      label: 'Logo',
+      link: '',
+      icone: this.logoURL
+    });
+    console.log(this.logoURL)
   }
 }
+
 </script>
 
-<!-- Pour afficher les éléments du menu : wp/v2/menu-items -->
-
 <template>
-
-  <!--
-Ce code la fonctionne avec le plugin Menu image. Le problème c'est qu'il récupère bien l'url du svg, mais n'arrive pas à montrer vraiment l'icone. 
-
-
-const response = await client.get(
-  import.meta.env.VITE_WP_API_URL + "/menus/v1/menus/principal"
-);
-this.response = response.data;
-this.menuWP = this.response.items.map((item) => {
-  return {
-    id: item.id,
-    label: item.title,
-    link: item.url,
-    icone: item.thumbnail_src,
-  }  
-})
-}
-}
-<div class="header">
-
-    <div>
-      <ul>
-      <li v-for="item in menuWP" :key="item.id">
-        <a v-if="item.icone" :href="item.link">
-          <svg class="header-svg" v-html="item.icone"></svg>
+  <div >
+    <ul class="header__row">
+      <li class="header -item" v-for="(item, index) in menuWP" :key="item.id">
+        <a class="header lien -menu" :href="item.link">
+          <template v-if="index === 0">
+            <img class="header-logo" :src="item.icone"/>
+          </template>
+          <template v-else-if="item.icone">
+            <div>
+              <img class="header-icone" :src="item.icone"/>
+            </div>
+          </template>
+          <template v-else> {{ item.label }}</template>
         </a>
-        <a v-else :href="item.link">{{ item.label }}</a>
       </li>
     </ul>
-    </div>
   </div>
-
--->
-
-<!-- Avec le plugin menu icon de themselse, on peut récupérer une image via cette autre requete https://projet-herman.online/wp-json/wp/v2/menu-items/90
-Le problème, c'est que l'image se situe dans "href" est dans l'attribut ""wp:featuredmedia" qui est lui même dans "_links" -->
-
-
 </template>
+Et dans votre CSS, vous pouvez définir des styles spécifiques pour ces classes :
 
-<style lang="scss" scoped>
+
+<style lang="scss">
 .header {
   height: 56px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   &__row {
+    padding: 20px;
     display: flex;
     flex-direction: row;
     list-style: none;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     gap: 20px;
   }
-  &-svg {
-    width: 20px;
+  &-icone {
+    width: 22px;
   }
 }
+
+li.header:nth-child(1) {
+ flex-grow: 1;
+}
+
+
 </style>
