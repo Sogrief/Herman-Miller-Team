@@ -3,9 +3,11 @@ import MyTitle from "./MyTitle.vue";
 import ProductAdvantage from "./ProductAdvantage.vue";
 import ProductErgonomy from "./ProductErgonomy.vue";
 import ProductTechnique from "./ProductTechnique.vue";
+import MyText from "./MyText.vue";
 export default {
   components: {
     MyTitle,
+    MyText,
     ProductAdvantage,
     ProductErgonomy,
     ProductTechnique,
@@ -100,7 +102,12 @@ export default {
 <div class="product_link" v-if="acf.product_link">
   <div class="link" v-for="item in acf.product_link" :key="item.id">
     <img :src="item.link_image.url">
-    <MyTitle type="h3" class="-default" :label="item.link_text" />
+    <div class="link_title">
+      <MyText size="menu" type="lien" :label="item.link_text" />
+      <svg width="19" height="26" viewBox="0 0 19 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.156592 20.25V25.75L16.0566 16.9L11.1066 14.15L0.156592 20.25ZM0.156592 0.25V5.75L18.1566 15.75V10.25L0.156592 0.25Z" fill="#01E6B6"/>
+      </svg>
+    </div>
   </div>
 </div>
 </template>
@@ -111,6 +118,8 @@ p {
 }
 
 .product_nav {
+  margin-left: 40px;
+  margin-top: 40px;
   .nav_title{
     width: 50px;
     display: flex;
@@ -121,6 +130,19 @@ p {
   }
   .nav_text{
     display: none;
+  }
+}
+
+.link{
+  display: flex;
+  align-items: flex-end;
+  &_title{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  img{
+    padding-left: 70px;
   }
 }
 
