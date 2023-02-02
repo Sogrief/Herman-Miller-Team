@@ -3,14 +3,15 @@ import MyTitle from './MyTitle.vue';
 export default {
   data() {
     return {
-      currentIndex: 283,
+      active: this.slide[0],
+      currentIndex: 1,
     };
   },
     components: {
         MyTitle,
     },
     props: {
-    acf: {
+    slide: {
       type: Array,
       default: () => [],
     },
@@ -21,18 +22,27 @@ export default {
     },
     next() {
       this.currentIndex = (this.currentIndex + 1) % this.acf.product_ergonomy.length;
-    }
+      console.log(this.currentIndex);
+    },
+    
   }
 }
 </script>
 
 <template>
-    <div class="ergonomie" v-if="acf.product_ergonomy">
+    <div class="ergonomie" v-if="slide">
+      <!-- <div class="ergonomie-card active" v-if="active">
+        <MyTitle :label="active.ergonomy_title" type="h2" class="-default" />
+        <img :src="active.ergonomy_image.url" />
+         A voir pour le carousel et l'importation des gifs
+        <p class="caption">{{ active.ergonomy_text }}</p>
+      </div> -->
       <div
         class="ergonomie-card"
-        v-for="item in acf.product_ergonomy"
-        :key="item.id"
-        :class="{ active: item.id === currentIndex }"
+        v-if="active"
+        v-for="item in slide"
+        :key="index"
+        :class="{ 'active':  currentIndex === active.id }"
       >
         <MyTitle :label="item.ergonomy_title" type="h2" class="-default" />
         <img :src="item.ergonomy_image.url" />
