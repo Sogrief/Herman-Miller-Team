@@ -3,7 +3,7 @@ import MyTitle from './MyTitle.vue';
 export default {
   data() {
     return {
-      currentIndex: 0
+      currentIndex: 283,
     };
   },
     components: {
