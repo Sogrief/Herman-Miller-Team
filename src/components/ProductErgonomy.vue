@@ -1,6 +1,11 @@
 <script>
 import MyTitle from './MyTitle.vue';
 export default {
+  data() {
+    return {
+      currentIndex: 283,
+    };
+  },
     components: {
         MyTitle,
     },
@@ -9,7 +14,15 @@ export default {
       type: Array,
       default: () => [],
     },
- }
+ },
+ methods: {
+    previous() {
+      this.currentIndex = (this.currentIndex - 1 + this.acf.product_ergonomy.length) % this.acf.product_ergonomy.length;
+    },
+    next() {
+      this.currentIndex = (this.currentIndex + 1) % this.acf.product_ergonomy.length;
+    }
+  }
 }
 </script>
 
@@ -19,13 +32,14 @@ export default {
         class="ergonomie-card"
         v-for="item in acf.product_ergonomy"
         :key="item.id"
+        :class="{ active: item.id === currentIndex }"
       >
         <MyTitle :label="item.ergonomy_title" type="h2" class="-default" />
         <img :src="item.ergonomy_image.url" />
         <!-- A voir pour le carousel et l'importation des gifs -->
         <p class="caption">{{ item.ergonomy_text }}</p>
       </div>
-      <button @click="prev" class="ergonomie-button prev">
+      <button @click="previous" class="ergonomie-button prev">
         <svg
           width="12"
           height="22"
@@ -64,10 +78,12 @@ export default {
     width: 100%;
     height: 100vh;
     display: block;
+    transition: opacity 0.5s ease-in-out;
     position: absolute;
     object-fit: cover;
-    &:not(:first-of-type) {
-      opacity: 0;
+    opacity: 0;
+    &.active{
+      opacity: 1;
     }
     img {
       width: 90vw;
@@ -98,12 +114,6 @@ export default {
       left: 10px;
     }
   }
-}
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
 }
 
 </style>
