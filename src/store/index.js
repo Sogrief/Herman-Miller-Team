@@ -25,6 +25,7 @@ export default createStore({
       );
       // Delete 1 item from index
       state.products.splice(indexToDelete, 1);
+      
       // Synchronize store & localStorage
       localStorage.setItem("cart", JSON.stringify(state.products));
     },

@@ -41,11 +41,7 @@ export default {
 
 
 <template>
-  <div >
-
-    <RouterLink class="product__link__media__buy" :to="`/cart`">
-            <div>panier lien provisoire</div>
-    </RouterLink>
+  <div>
     <ul class="header__row">
       <li class="header -item" v-for="item in menuWP" :key="item.id">
         <a class="header lien -menu" :href="item.link">

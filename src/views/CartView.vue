@@ -10,17 +10,23 @@
                     <img v-bind:src="addedProducts.images[0].src">
                     <div>
                         <MyButton class="button-quantite" label="-" @click="removeFromCart(addedProducts)"/>
+                        {{addedProducts.quantity}}
                         <MyButton class="button-quantite" label="+" @click="addToCart(addedProducts)"/>
                     </div>
                 </div>
             </div>
 
-            {{ this.$store.products }}
-
             <div class="panier__item__infos">
                 <div>{{addedProducts.name}}</div>
-                <div>{{addedProducts.price}}€</div>
-                <div>{{addedProducts.quantity}}</div>
+                <div>prix total : {{ addedProducts.quantity*addedProducts.price }} €</div>
+            </div>
+
+            <div class="panier__item__sideButtons">
+                <RouterLink :to="`/products/${addedProducts.slug}`" target="_blank">
+                    <MyButton class="button" label="personnaliser" />
+                </RouterLink>
+
+                <img src="/assets/icones/trash.svg" @click="deleted(addedProducts)">
             </div>
         </div>
     </div>
@@ -45,15 +51,18 @@ export default {
 
         removeFromCart(addedProducts){
             if (addedProducts.quantity==1){
-                console.log("vide");
                 addedProducts.quantity=0;
-                this.$store.commit("remove", addedProducts);
+                this.$store.commit("remove", addedProducts.id);
             }
 
             else{
                 addedProducts.quantity--;
             }
-        }
+        },
+
+        deleted(deleteProduct){
+            this.$store.commit("remove", deleteProduct.id);
+        },
     }
 }
 
@@ -65,6 +74,7 @@ export default {
     display:flex;
     flex-wrap:wrap;
     flex-direction:column;
+    width:50vw;
     row-gap:pxToRem(30);
 
     &__item{
@@ -79,10 +89,12 @@ export default {
                 flex-direction: column;
                 align-items:center;
                 width:pxToRem(200);
+                @include bodyText();
                 filter: drop-shadow(0px 0px 25px rgb(67, 67, 67));
+                row-gap: pxToRem(20);
 
                 img{
-                    width:100%;
+                    width:10vw;
                 }
             }
         }
@@ -92,6 +104,18 @@ export default {
             flex-direction: column;
             row-gap: pxToRem(7);
             @include bodyText();
+        }
+
+        &__sideButtons{
+            display: flex;
+            flex-grow: 1;
+            align-self: flex-start;
+            justify-content:flex-end;
+            column-gap: pxToRem(20);
+
+            img{
+                width:pxToRem(20);
+            }
         }
     }
 }
