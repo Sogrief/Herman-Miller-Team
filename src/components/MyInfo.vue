@@ -1,44 +1,30 @@
 <script>
-import { client } from "@/outils/axios";
 import MyTitle from "./MyTitle.vue";
 export default {
   components: {
     MyTitle,
   },
-  data() {
-    return {
-      infos: [],
-    };
-  },
-  async mounted() {
-    const response = await client.get(
-      import.meta.env.VITE_WP_API_URL + "/wp/v2/pages/11"
-    );
-    this.infos = response.data;
-    console.log(response.data);
- 
+  props: {
+    acf: {
+      type: Array,
+      default: () => [],
+    },
   },
 };
 </script>
 
 <template>
   <div class="bg-perspective">
-    TEXTTT
-    <div class=" infoCard" v-if="infos">
+    <div class=" infoCard" v-if="acf.infos">
       <div
         class="infoCard__image"
-        v-for="item in infos"
+        v-for="item in acf.infos"
         :key="item.id"
       >
         <img :src="item.img.url" :alt="item.title" />
-        <MyTitle
-          type="h3"
-          class="infoCard__title"
-          :label="item.title"
-        />
+        <MyTitle type="h2" class="-default" :label="item.title" />
+         <p class="infoCard__text">{{ item.text }}</p>
       </div>
-      <p class="infoCard__text">{{ item.text }}</p>
-      {{ this.infos }}
     </div>
   </div>
 </template>

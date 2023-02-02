@@ -23,7 +23,7 @@ export default {
 
   data(){
     return {
-      infos: [],
+      front: {},
     }
   },
   async mounted() {
@@ -31,7 +31,7 @@ export default {
       import.meta.env.VITE_WP_API_URL +
         "/wp/v2/pages/11"
     );
-    this.infos = response.data;
+    this.front = response.data;
   },
 };
 </script>
@@ -55,7 +55,7 @@ export default {
         <main>
           <MyTitle size="-enormous" label="Aeron" type="h1" />
           <MyButton label="Découvrir" />
-          <MyInfo   v-if="infos.length" :acf="infos.item" />
+          <MyInfo v-if="front.acf" :acf="front.acf" />
         </main>
         <template v-slot:footer>
           <MyFooter />
