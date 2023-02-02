@@ -7,7 +7,7 @@
           v-if="product.variations"
           :variations="product.variations"
         />
-        <ProductGallery v-if="product.images" :images="product.images" />
+        <ProductGallery v-if="displayedProduct.images" :images="displayedProduct.images" />
       </div>
 
       <div v-if="colorAttribute" class="product-view__attribute">
@@ -17,8 +17,8 @@
 
       <div class="product_info">
         <div class="product_header">
-          <MyTitle :label="product.name"  class="-enormous" type="h1" />
-          <p class="product-view__price">{{ product.price }}€</p>
+          <MyTitle :label="displayedProduct.name"  class="-enormous" type="h1" />
+          <p class="product-view__price">{{ displayedProduct.price }}€</p>
         </div>
         
         <ProductAccessories v-if="product.upsell_ids" :upsell_ids="product.upsell_ids" />
@@ -115,13 +115,13 @@ export default {
 
   methods: {
     addToCart() {
-      this.$store.commit("add", this.product);
-    }
-  },
-  changeColor (color) {
+      this.$store.commit("add", {product: this.displayedProduct});
+    },
+    changeColor (color) {
       this.activeColor = color
     }
 
+  },
 };
 </script>
 

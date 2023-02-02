@@ -45,6 +45,11 @@ export default {
   },
 
   methods: {
+    watch: {
+    images (value) {
+      this.active = value[0]
+    }
+  },
     changeImage(image) {
       this.active = image;
     },
