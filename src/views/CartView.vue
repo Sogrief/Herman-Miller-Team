@@ -1,7 +1,6 @@
 <template>
 
     <MyHeader />
-
     
     <div class="panier">
         <div class="panier__item" v-for="addedProducts in $store.state.products">
@@ -31,11 +30,22 @@
         </div>
     </div>
 
+    <div class="panneauReduc">
+        <div class="panneauReduc__reduc">
+            <div class="panneauReduc__reduc__input">
+                <label>réduction</label>
+                <input type="text"/>
+            </div>
+            <MyButton class="button" label="appliquer" />
+        </div>
+    </div>
+
 </template>
 
 <script>
 import MyHeader from "@/components/MyHeader.vue";
 import MyButton from "@/components/MyButton.vue";
+import MyInput from "@/components/MyInput.vue";
 
 export default {
     components: { 
@@ -115,6 +125,36 @@ export default {
 
             img{
                 width:pxToRem(20);
+            }
+        }
+    }
+}
+
+.panneauReduc{
+    height:100px;
+    width:40vw;
+    background-image: url(/assets/images/encartsBiseauxEpais.png);
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+
+    &__reduc{
+        display: flex;
+        align-items: flex-end;
+        column-gap:2vw;
+
+        &__input{
+            label
+            {
+                @include title;
+            }
+
+            input
+            {
+                display:block;
+                border:1px solid $bodyText;
+                padding:pxToRem(5);
+                background-color: $backgroundColor;
             }
         }
     }
