@@ -1,6 +1,6 @@
 <template>
   
-
+  <MyHeader />
   <div class="about" v-if="page.content" v-html="page.content.rendered"></div>
 
 
@@ -40,7 +40,7 @@ export default{
 @media (min-width: 1024px) {
   .about {
     min-height: 100vh;
-    margin: 0 125px;
+    margin: 0 50vh;
   }
   .imgText{
     display: flex;
@@ -78,6 +78,29 @@ export default{
   .containerH h1 {
     transform: skew(26deg);
     margin : 15px;
+  }
+
+
+    .greenBlock {
+    background-color: #01E6B6;
+    color: #2b2b2b;
+    padding: 50px;
+    position: absolute;
+    left: 20%;
+    width: 477px;
+    top: 225%;
+
+  }
+
+  .blockValeur::before{
+    background-image: url('/assets/images/Fond_pointillé.png');
+    content: "";
+    position: absolute;
+    top: 224%;
+    left: 12%;
+    width: 53%;
+    height: 118%;
+    z-index: -1;
   }
 
 
