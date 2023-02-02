@@ -85,7 +85,7 @@ export default {
       <img src="../../assets/images/arrow_nav.svg" alt="">
     </div>
     <div class="nav_text">
-      <ProductErgonomy :acf="acf" />
+      <ProductErgonomy :slide="acf.product_ergonomy" />
     </div>
   </div>
   <div class="nav_technique">
