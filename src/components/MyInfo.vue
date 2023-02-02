@@ -32,15 +32,27 @@ export default {
 
  <style lang="scss" >
 .infoCard {
-  @include bodyText();
+    @include bodyText();
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    color: #C5C5C5;
+    font-family: supreme;
+    font-size: 16px;
+    margin: 0 5%;
+    padding-bottom: 20px;
   &__title {
     line-height: auto;
     max-width: 226px;
   }
   &__image {
     display: flex;
+    flex-direction: column;
+    align-items:center;
     justify-content: center;
-    padding-bottom: 24px;
+    padding-bottom: 25px;;
+    width: 23%;
 
   }
   &__text {
