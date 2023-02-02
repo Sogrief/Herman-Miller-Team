@@ -2,22 +2,20 @@
 
     <MyHeader />
 
-
-    {{ $store.state.products[0]}}
-    <div>
-        
-    </div>
+    
     <div class="panier">
         <div class="panier__item" v-for="addedProducts in $store.state.products">
             <div class="panier__item__product">
                 <div class="panier__item__product__img">                
                     <img v-bind:src="addedProducts.images[0].src">
                     <div>
-                        <MyButton class="button-quantite" label="-" />
-                        <MyButton class="button-quantite" label="+" />
+                        <MyButton class="button-quantite" label="-" @click="removeFromCart(addedProducts)"/>
+                        <MyButton class="button-quantite" label="+" @click="addToCart(addedProducts)"/>
                     </div>
                 </div>
             </div>
+
+            {{ this.$store.products }}
 
             <div class="panier__item__infos">
                 <div>{{addedProducts.name}}</div>
@@ -38,6 +36,29 @@ export default {
     MyHeader, 
     MyButton
     },
+
+    methods:{
+        addToCart(addedProducts){
+            addedProducts.quantity++;
+
+            this.$store.commit("add", addedProducts);
+            console.log(addedProducts.quantity);
+        },
+
+        removeFromCart(addedProducts){
+            if (addedProducts.quantity==1){
+                //this.$store.commit("remove", addedProducts);
+                console.log("vide");
+                addedProducts.quantity=0;
+            }
+
+            else{
+                addedProducts.quantity--;
+            }
+            console.log(addedProducts.quantity);
+            //this.$store.commit("remove", addedProducts);
+        }
+    }
 }
 
 </script>
