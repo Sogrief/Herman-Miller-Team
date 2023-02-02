@@ -7,6 +7,7 @@ import MyText from "@/components/MyText.vue";
 import MyInfo from "@/components/MyInfo.vue";
 import MyCheckbox from "@/components/MyCheckbox.vue";
 import MyFooter from "@/components/MyFooter.vue";
+import HomeContent from "@/components/HomeContent.vue";
 import DefaultLayout from "@/layout/DefaultLayout.vue";
 
 export default {
@@ -18,6 +19,7 @@ export default {
     MyInfo,
     MyCheckbox,
     MyFooter,
+    HomeContent,
     DefaultLayout,
   },
 
@@ -29,9 +31,10 @@ export default {
   async mounted() {
     const response = await client.get(
       import.meta.env.VITE_WP_API_URL +
-        "/wp/v2/pages/11"
+        "/wp/v2/pages?slug=accueil"
     );
     this.front = response.data;
+    console.log(this.front);
   },
 };
 </script>
@@ -53,8 +56,7 @@ export default {
           <MyHeader />
         </template>
         <main>
-          <MyTitle size="-enormous" label="Aeron" type="h1" />
-          <MyButton label="Découvrir" />
+          <HomeContent />
           <MyInfo v-if="front.acf" :acf="front.acf" />
         </main>
         <template v-slot:footer>
