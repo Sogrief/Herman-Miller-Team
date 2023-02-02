@@ -55,7 +55,7 @@ export default {
         <main>
           <MyTitle size="-enormous" label="Aeron" type="h1" />
           <MyButton label="Découvrir" />
-          <MyInfo   v-if="infos.length" :acf="infos.acf" />
+          <MyInfo   v-if="infos.length" :acf="infos.item" />
         </main>
         <template v-slot:footer>
           <MyFooter />

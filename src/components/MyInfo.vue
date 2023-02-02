@@ -10,32 +10,38 @@ export default {
       infos: [],
     };
   },
-   async mounted() {
-     const response = await client.get(
-       import.meta.env.VITE_WP_API_URL +
-         "/wp/v2/pages/11"
-     );
-     this.infos =  response.data;
-     console.log(response.data)
-   },
-}
-
+  async mounted() {
+    const response = await client.get(
+      import.meta.env.VITE_WP_API_URL + "/wp/v2/pages/11"
+    );
+    this.infos = response.data;
+    console.log(response.data);
+ 
+  },
+};
 </script>
+
 <template>
   <div class="bg-perspective">
-    <div class=" infoCard" v-if="acf.infos">
-       <div class="infoCard__image"
-       v-for="item in acf.infos"
-       :key="item.id">
-        <img :src="item.img.url" :alt="title" />
-        <MyTitle type="h3" class="infoCard__title" :label="item.infos.title" />
+    TEXTTT
+    <div class=" infoCard" v-if="infos">
+      <div
+        class="infoCard__image"
+        v-for="item in infos"
+        :key="item.id"
+      >
+        <img :src="item.img.url" :alt="item.title" />
+        <MyTitle
+          type="h3"
+          class="infoCard__title"
+          :label="item.title"
+        />
       </div>
-      <p class="infoCard__text">{{ item.infos.text }}</p>
+      <p class="infoCard__text">{{ item.text }}</p>
+      {{ this.infos }}
     </div>
   </div>
 </template>
-
-
 
 
  <style lang="scss" >
