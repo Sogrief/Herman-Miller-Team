@@ -102,12 +102,12 @@ export default {
 <div class="product_link" v-if="acf.product_link">
   <div class="link" v-for="item in acf.product_link" :key="item.id">
     <img :src="item.link_image.url">
-    <div class="link_title">
+      <a class="link_title" href="">
       <MyText size="menu" type="lien" :label="item.link_text" />
       <svg width="19" height="26" viewBox="0 0 19 26" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0.156592 20.25V25.75L16.0566 16.9L11.1066 14.15L0.156592 20.25ZM0.156592 0.25V5.75L18.1566 15.75V10.25L0.156592 0.25Z" fill="#01E6B6"/>
       </svg>
-    </div>
+    </a>
   </div>
 </div>
 </template>
