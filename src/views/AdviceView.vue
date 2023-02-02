@@ -40,17 +40,14 @@ export default {
 
 .wp-block-image:nth-child(0n + 2) {
   margin-top: -53px;
-  margin-bottom: 0;
 }
 
 .wp-block-image:nth-child(0n + 3) {
   margin-top: -10px;
-  margin-bottom: 0;
 }
 
 .wp-block-image:nth-child(0n + 4) {
   margin-top: 34px;
-  margin-bottom: 0;
 }
 
 .wp-block-image:nth-child(0n + 5) {
