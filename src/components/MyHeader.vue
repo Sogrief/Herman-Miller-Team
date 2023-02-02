@@ -69,19 +69,19 @@ methods: {
     <ul class="header__row">
       <li class="header -item" v-for="(item, index) in menuWP" :key="item.id">
         <template v-if="index === 0">
-          <RouterLink to="/">
+          <RouterLink class="header lien -menu" to="/">
             <img class="header-logo" :src="item.icone"/>
           </RouterLink>
         </template>
         <template v-else-if="item.icone">
-          <RouterLink :to=" item.link">
+          <RouterLink class="header lien -menu" :to=" item.link">
             <div>
               <img class="header-icone" :src="item.icone"/>
             </div>
           </RouterLink>
         </template>
         <template v-else>
-          <RouterLink :to=" item.link">{{ item.label }}</RouterLink>
+          <RouterLink class="header lien -menu" :to=" item.link">{{ item.label }}</RouterLink>
         </template>
       </li>
     </ul>
