@@ -5,17 +5,12 @@
   </div>
 </div>
 
+<div v-if="showModal" class="modal-background">
+      <div class="modal-content">
+        Contenu de la modale
+      </div>
+</div>
 
-<modal v-if="showModal" @close="closeModal">
-  <div class="variations">
-    <div
-      class="variation"
-      v-for="variation in variations"
-      :key="variation.id"
-      @click="selectVariation(variation)"
-    ></div>
-  </div>
-</modal>
 </template>
 
 <script>
@@ -24,7 +19,6 @@ data() {
 return {
   showModal: false,
   points: [{ id: 1 }, { id: 2 }, { id: 3 }],
-  selectedVariation: null
 };
 },
 props: {
@@ -70,14 +64,21 @@ selectVariation(variation) {
 }
 }
 
-.variations {
-display: flex;
-background-color: pink;
-flex-wrap: wrap;
+.modal-background {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.variation {
-width: 50px;
-height: 50px;
-background-color: blue;
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
 }
 </style>
