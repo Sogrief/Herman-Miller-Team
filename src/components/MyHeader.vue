@@ -65,7 +65,7 @@ methods: {
 </script>
 
 <template>
-  <div >
+  <div>
     <ul class="header__row">
       <li class="header -item" v-for="(item, index) in menuWP" :key="item.id">
         <template v-if="index === 0">

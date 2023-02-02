@@ -18,19 +18,15 @@
         <ProductAccessories v-if="product.upsell_ids" :upsell_ids="product.upsell_ids" />
 
         <div class="product_buy">
-          <MyButton class="button" label="Acheter" />
-          <!-- Lier le bouton acheter vers le panier -->
-          <MyButton
-            class="button-quantite"
-            label="-"
-            @click="removeFromCart(1)"
-          />
-          <span>{{ quantity }}</span>
-          <MyButton class="button-quantite" label="+" @click="addToCart(1)" />
+          <RouterLink :to="`/cart`" target="_blank">
+            <MyButton class="button" label="Acheter" @click="buy()" />
+          </RouterLink>
         </div>
 
       </div>
     </div>
+
+    {{ this.$store.products }}
 
     <ProductVideo v-if="product.meta_data" :meta_data="product.meta_data" />
 
@@ -91,16 +87,9 @@ export default {
   },
 
   methods: {
-    addToCart(quantity) {
-      this.quantity += quantity;
-      this.$store.commit("add", this.product);
-    },
-    removeFromCart(quantity) {
-      this.quantity -= quantity;
-      if (this.quantity < 0) this.quantity = 0;
-      if (this.quantity === 0) this.inCart = false;
-      this.$store.commit("remove", this.product);
-    },
+    buy(){
+      this.$store.commit('add', this.product,this.quantity)
+    }
   },
 };
 </script>

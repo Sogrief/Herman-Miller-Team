@@ -1,17 +1,34 @@
 <template>
-    <div class="product">
+    <div class="product" v-on:mouseover="hover = true" v-on:mouseleave="hover = false">
       <RouterLink :class="'product__link'" :to="`/products/${slug}`">
         <div v-if="cover" class="product__link__media">
           <img :class="'product__link__media__image'" :src="cover.src" :alt="cover.alt">
+          <RouterLink class="product__link__media__buy" :to="`/products/${slug}`">
+            <MyButton v-if="hover" label="acheter"/>
+          </RouterLink>
         </div>
       </RouterLink>
+
       <p class="product__name">{{ name }}</p>
       <p class="product__price">{{ price }}€</p>
     </div>
-  </template>
+</template>
   
-  <script>
+<script>
+  import MyButton from "@/components/MyButton.vue";
+
   export default {
+    components: {
+    MyButton,
+    MyButton
+  },
+
+  data() {
+    return {
+      hover:false
+    };
+  },
+
     props: {
       name: {
         type: String,
@@ -62,10 +79,16 @@
       width: 25vw;
       display: flex;
       justify-content: center;
+      align-items: center;
 
       &__image {
         width: 80%;
         filter: drop-shadow(0px 0px 25px rgb(67, 67, 67));
+      }
+
+      &__buy{
+        filter: drop-shadow(0px 0px 70px black) drop-shadow(0px 0px 70px black) drop-shadow(0px 0px 70px black);
+        position: absolute;
       }
     }
   }
