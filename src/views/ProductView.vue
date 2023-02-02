@@ -19,15 +19,11 @@
         :upsell_ids="product.upsell_ids"
       /> -->
         <div class="product_buy">
-          <MyButton class="button" label="Acheter" />
+          <RouterLink :to="`/cart`">
+          
+            <MyButton class="button" label="Acheter" @click="buy()" /></RouterLink>
+          
           <!-- Lier le bouton acheter vers le panier -->
-          <MyButton
-            class="button-quantite"
-            label="-"
-            @click="removeFromCart(1)"
-          />
-          <span>{{ quantity }}</span>
-          <MyButton class="button-quantite" label="+" @click="addToCart(1)" />
         </div>
       </div>
     </div>
@@ -86,16 +82,19 @@ export default {
   },
 
   methods: {
-    addToCart(quantity) {
+    /*addToCart(quantity) {
       this.quantity += quantity;
-      this.$store.commit("add", this.product);
+      //this.$store.commit("add", this.product);
     },
     removeFromCart(quantity) {
       this.quantity -= quantity;
       if (this.quantity < 0) this.quantity = 0;
       if (this.quantity === 0) this.inCart = false;
-      this.$store.commit("remove", this.product);
-    },
+      //this.$store.commit("remove", this.product);
+    },*/
+    buy(){
+      this.$store.commit('add', this.product,this.quantity)
+    }
   },
 };
 </script>
