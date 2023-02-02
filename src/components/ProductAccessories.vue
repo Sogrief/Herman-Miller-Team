@@ -62,12 +62,12 @@ methods: {
     &_card{
         display: flex;
         gap: 25px;
-        margin-top: 30px;
+        margin-top: 20px;
         align-items: center;
     }
     &_img{
         width: 60px;
-        height:auto;
+        height: 60px;
         object-fit: cover;
     }
     &_price{
@@ -75,13 +75,13 @@ methods: {
     }
     &_checkbox{
         display: none;
-    }
-    &_check {
-        width: 15px;
-        height: 15px;
-        border: 1px solid $bodyText;
-        cursor: pointer;
-        display: inline-block;
+        + label {
+            width: 15px;
+            height: 15px;
+            border: 1px solid $bodyText;
+            cursor: pointer;
+            display: inline-block;
+        }
     }
 }
 </style>

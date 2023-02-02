@@ -18,16 +18,9 @@
         <ProductAccessories v-if="product.upsell_ids" :upsell_ids="product.upsell_ids" />
 
         <div class="product_buy">
-          <MyButton class="button" label="Acheter" />
-          <!-- Lier le bouton acheter vers le panier -->
-          <MyButton
-            class="button-quantite"
-            label="-"
-            @click="removeFromCart(1)"
-          />
-          <span>{{ quantity }}</span>
-          <MyButton class="button-quantite" label="+" @click="addToCart(1)" />
+          <MyButton  label="Acheter" @click="addToCart" />
         </div>
+        
 
       </div>
     </div>
@@ -91,16 +84,9 @@ export default {
   },
 
   methods: {
-    addToCart(quantity) {
-      this.quantity += quantity;
+    addToCart() {
       this.$store.commit("add", this.product);
-    },
-    removeFromCart(quantity) {
-      this.quantity -= quantity;
-      if (this.quantity < 0) this.quantity = 0;
-      if (this.quantity === 0) this.inCart = false;
-      this.$store.commit("remove", this.product);
-    },
+    }
   },
 };
 </script>
@@ -114,6 +100,12 @@ export default {
     font-size: 30px;
     margin: 0;
     margin-bottom: 30px;
+  }
+  &_buy{
+    margin-top: 30px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
   }
   &_header{
     display: flex;
