@@ -15,6 +15,8 @@
           <p class="product-view__price">{{ product.price }}€</p>
         </div>
         
+        <ProductAccessories v-if="product.upsell_ids" :upsell_ids="product.upsell_ids" />
+
         <div class="product_buy">
           <MyButton class="button" label="Acheter" />
           <!-- Lier le bouton acheter vers le panier -->
@@ -27,7 +29,6 @@
           <MyButton class="button-quantite" label="+" @click="addToCart(1)" />
         </div>
 
-        <ProductAccessories v-if="product.upsell_ids" :upsell_ids="product.upsell_ids" />
       </div>
     </div>
 
@@ -108,6 +109,25 @@ export default {
 .product {
   &_container {
     display: flex;
+  }
+  &-view__price{
+    font-size: 30px;
+    margin: 0;
+    margin-bottom: 30px;
+  }
+  &_header{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    .title-enormous{
+    margin: 0;
+  }
+  }
+  &_info{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 45%;
   }
   &_img {
     width: 45%;
