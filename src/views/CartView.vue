@@ -39,24 +39,20 @@ export default {
 
     methods:{
         addToCart(addedProducts){
-            addedProducts.quantity++;
-
             this.$store.commit("add", addedProducts);
             console.log(addedProducts.quantity);
         },
 
         removeFromCart(addedProducts){
             if (addedProducts.quantity==1){
-                //this.$store.commit("remove", addedProducts);
                 console.log("vide");
                 addedProducts.quantity=0;
+                this.$store.commit("remove", addedProducts);
             }
 
             else{
                 addedProducts.quantity--;
             }
-            console.log(addedProducts.quantity);
-            //this.$store.commit("remove", addedProducts);
         }
     }
 }

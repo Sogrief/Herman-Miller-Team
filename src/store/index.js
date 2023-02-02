@@ -7,6 +7,7 @@ export default createStore({
   mutations: {
     add(state, product) {
       // Check if product is already in state.product
+  
       const stateProduct = state.products.find(
         (item) => product.id === item.id
       );
@@ -30,7 +31,7 @@ export default createStore({
       localStorage.setItem("cart", JSON.stringify(state.products));
     },
     updateQuantity(state, { id, quantity }) {
-      if (quantity <= 0) return;
+      if (quantity <= 0) return
       const stateProduct = state.products.find((item) => id === item.id);
       if (stateProduct) {
         stateProduct.quantity = quantity;
