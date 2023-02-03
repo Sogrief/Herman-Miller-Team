@@ -25,6 +25,7 @@ export default{
 
     input
     {
+      @include bodyText();
       display:block;
       border:2px solid $mainColor;
       padding:pxToRem(5);

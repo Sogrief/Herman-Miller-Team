@@ -114,8 +114,7 @@
             </div>
           </div>
         </div>
-        <Loader v-if="loading" />
-        <div v-else class="order-view__submit">
+        <div class="order-view__submit">
             <MyButton :label="'Valider la commande'" @click="confirmOrder"/>
         </div>
       </form>
@@ -170,7 +169,6 @@ export default {
           country: ''
         },
       },
-      loading: false,
       otherAddress: false,
       message: {}
     }
@@ -178,7 +176,6 @@ export default {
 
   methods: {
     async confirmOrder () {
-      this.loading = true
       // Create array from store product array with only needed keys
       const lineItems = this.$store.state.products.map((product) => {
         return {
@@ -198,7 +195,6 @@ export default {
           line_items: lineItems
         })
 
-        this.loading = false
 
         // Request has succeeded. Display a success message
         this.message = { type: 'success', text: 'Votre commande a bien été enregistrée' }
@@ -231,7 +227,6 @@ export default {
 
       } catch (err) {
         // Request has failed. Display an error message
-        this.loading = false
         this.message = { type: 'error', text: 'Une erreur est survenue' }
       }
     }
@@ -241,7 +236,7 @@ export default {
 </script>
   
 <style lang="scss">
-label {
+label, p {
   @include bodyText();
 }
     .order-view {
