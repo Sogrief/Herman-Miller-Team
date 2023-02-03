@@ -40,7 +40,7 @@ export default{
 @media (min-width: 1024px) {
   .about {
     min-height: 100vh;
-    margin: 0 50vh;
+    margin: 0 35vh;
   }
   .imgText{
     display: flex;
@@ -53,9 +53,10 @@ export default{
   
   blockquote>p{
     text-align: center;
+    font-size: 1.25em;
   }
   .gapAbout{
-    gap: 140px;
+    gap: 58px;
   }
   
   h1,h2{
@@ -85,25 +86,58 @@ export default{
     background-color: #01E6B6;
     color: #2b2b2b;
     padding: 50px;
-    position: absolute;
+    position: relative;
     left: 20%;
     width: 477px;
-    top: 225%;
-
   }
 
+  .blockValeur{
+    background-image: url('/assets/images/Encart _fleche_.png');
+    background-repeat: no-repeat;
+    background-position-x: 20%;
+    background-position-y: 94%;
+    
+  }
+  
   .blockValeur::before{
     background-image: url('/assets/images/Fond_pointillé.png');
     content: "";
     position: absolute;
-    top: 224%;
-    left: 12%;
+    top: 119%;
     width: 53%;
-    height: 118%;
+    height: 66%;
     z-index: -1;
   }
 
+.imgApropos{
+  top: 0px;
+  position: relative;
+  right: 188px;
+  z-index: -1;
+  }
 
+  .aProposBlock{
+      max-width: 53%;
+      position: relative;
+      left: 50%;
+  }
+  .aProposText{
+      margin: 0;
+  }
 
+  .citation{
+  background-image: url('/assets/images/guillemet.svg');
+  background-size: 10px;
+  background-repeat: no-repeat;
+  margin:2px;   
+  }
+
+  .contourApropos{
+    background-image: url('/assets/images/encartAp.svg');
+    background-size: 367px;
+    background-repeat: no-repeat;
+    background-position: top right;
+  }
 }
+
 </style>
