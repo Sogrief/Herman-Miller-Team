@@ -3,16 +3,29 @@
   <div class="product-view">
     <div class="product_container">
       <div class="product_img">
-        <ProductCustom
-          v-if="product.variations"
-          :variations="product.variations"
-        />
+
+        <div class="custom">
+          <div class="custom_points">
+            <div class="custom_points_img">
+              <img src="../../assets/images/product_point.svg" @click="openModal">
+              <div v-if="showModal" class="modal-background">
+                <div class="modal-content">
+                 <MyTitle type="h3" :label="displayedProduct.attributes[0].name" class="-default" />
+                <div v-if="colorAttribute" class="product-view__attribute">
+                  <div v-for="(option, index) in colorAttribute.options" class="product-view__option" @click="changeColor(option)">
+                    <p>{{ option }}</p>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <ProductGallery v-if="displayedProduct.images" :images="displayedProduct.images" />
       </div>
 
-      <div v-if="colorAttribute" class="product-view__attribute">
-            <div v-for="(option, index) in colorAttribute.options" class="product-view__option" @click="changeColor(option)">{{ option }}</div>
-          </div>
+      
 
 
       <div class="product_info">
@@ -46,6 +59,7 @@
 <script>
 import { client } from "@/outils/axios";
 import MyHeader from "@/components/MyHeader.vue";
+import MyCheckbox from "@/components/MyCheckbox.vue"
 import MyFooter from "@/components/MyFooter.vue";
 import Product from "@/components/Product.vue"
 import ProductVideo from "@/components/ProductVideo.vue";
@@ -63,6 +77,7 @@ export default {
     ProductNav,
     ProductSetUp,
     MyHeader,
+    MyCheckbox,
     Product,
     ProductAccessories,
     MyFooter,
@@ -79,6 +94,7 @@ export default {
       variations: [],
       quantity: 1,
       activeColor: null,
+      showModal: false,
     };
   },
 
@@ -117,10 +133,16 @@ export default {
     addToCart() {
       this.$store.commit("add", {product: this.displayedProduct});
     },
+    closeModal() {
+      this.showModal = false;
+    },
     changeColor (color) {
-      this.activeColor = color
-    }
-
+      this.activeColor = color;
+      this.closeModal();
+    },
+    openModal() {
+      this.showModal = true;
+    },
   },
 };
 </script>
@@ -160,5 +182,42 @@ export default {
     background-image: url("../../assets/images/product_bg.svg");
     background-size:cover;
   }
+}
+
+.custom{
+  position: relative;
+  &_points {
+    position: relative;
+    &_img{
+      position: absolute;
+      top: 180px;
+      left: 250px;
+    }
+}
+}
+
+.modal-background {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  padding: 20px;
+  border: 1px $mainColor solid;
+  .title-default{
+    margin: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.product-view__attribute{
+  display: flex;
+  gap: 20px;
+  width: 3%;
+  cursor: pointer;
 }
 </style>

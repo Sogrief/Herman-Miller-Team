@@ -1,22 +1,3 @@
-<template>
-<div class="custom">
-  <div class="custom_points">
-    <div class="custom_points_img">
-      <img src="../../assets/images/product_point.svg" @click="openModal">
-    <div v-if="showModal" class="modal-background">
-      <div class="modal-content">
-        Contenu de la modale
-      </div>
-    </div>
-    </div>
-  </div>
-  
-</div>
-
-
-
-</template>
-
 <script>
 export default {
 data() {
@@ -24,6 +5,7 @@ return {
   showModal: false,
 };
 },
+
 methods: {
 openModal() {
   this.showModal = true;
@@ -44,6 +26,7 @@ openModal() {
     }
 }
 }
+
 .modal-background {
   position: absolute;
   bottom: 40px;
