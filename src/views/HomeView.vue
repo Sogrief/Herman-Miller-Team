@@ -53,10 +53,10 @@ export default {
         <template v-slot:header>
           <MyHeader />
         </template>
-        <main>
+        <main class="accueil">
           <div v-if="front.content" v-html="front.content.rendered"></div>
-          <MyTitle size="-enormous" label="Aeron" type="h1" />
-          <MyButton label="Découvrir" />
+          <!--<MyTitle size="-enormous" label="Aeron" type="h1" />
+          <MyButton class="decouvrirAeron" label="Découvrir" />-->
           <MyInfo v-if="front.acf" :acf="front.acf" />
           
         </main>
@@ -65,3 +65,82 @@ export default {
         </template>
       </DefaultLayout>
 </template>
+
+<style lang="scss">
+.accueil{
+h2,h1{text-align: center;}
+
+  .imgEntete{
+    width:90vw;
+    margin-left:5vw;
+
+    img{
+      width: 100%;
+    }
+  }
+
+  .wp-block-gallery-4, .wp-block-gallery{
+    display: flex;
+    justify-content: center;
+    margin-bottom: pxToRem(175);
+    figure{
+      width:pxToRem(300);
+      img{
+        width:100%;
+        height:auto;
+      }
+
+      figcaption{
+        @include bodyText();
+        text-align: center;
+      }
+    }
+  }
+
+  .wp-block-media-text__media{
+  margin:auto;
+  }
+
+  .wp-block-media-text{
+      width:50vw;
+      margin:auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .wp-block-buttons{
+      display: flex;
+      justify-content: center;
+    }
+  .wp-block-group{
+    display: flex;
+    justify-content: center;
+  }
+
+  .wp-block-button{
+    margin:auto;
+    a{
+      color: $mainColor !important;
+      background-color: $backgroundColor;
+      border: 1px solid $mainColor;
+      width: auto;
+      padding: pxToRem(5) pxToRem(30);
+      @include bodyText();
+    }
+
+    &:hover {
+      cursor:pointer;
+
+      a{
+        color: white !important;
+      }
+    }
+  }
+}
+
+.decouvrirAeron{
+  display: inline;
+  text-align: center;
+}
+</style>
