@@ -275,6 +275,25 @@ label {
     display: flex;
     justify-content: center;
   }
+.-size-12{
+  display: flex;
+  align-items: center;
+}
+  input[type="checkbox"]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    width: 15px;
+    content: '';
+    height: 15px;
+    border: 1px solid $bodyText;
+    cursor: pointer;
+    margin-right: 10px;
+    &:checked {
+     background-color: $bodyText;
+      position: relative;
+    }
+  }
 
   &__message {
     font-size: 16px;
@@ -285,16 +304,6 @@ label {
 
     &.-is-type-success {
       color: darkslategrey;
-    }
-    input[type="checkbox"]{
-        display: none;
-        + label {
-            width: 15px;
-            height: 15px;
-            border: 1px solid $bodyText;
-            cursor: pointer;
-            display: inline-block;
-        }
     }
   }
 
