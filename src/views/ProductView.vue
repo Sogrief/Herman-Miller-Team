@@ -3,16 +3,35 @@
   <div class="product-view">
     <div class="product_container">
       <div class="product_img">
-        <ProductCustom
-          v-if="product.variations"
-          :variations="product.variations"
-        />
-        <ProductGallery v-if="product.images" :images="product.images" />
+
+        <div class="custom">
+          <div class="custom_points">
+            <div class="custom_points_img">
+              <img src="../../assets/images/product_point.svg" @click="openModal">
+              <div v-if="showModal" class="modal-background">
+                <div class="modal-content">
+                 <MyTitle type="h3" :label="displayedProduct.attributes[0].name" class="-default" />
+                <div v-if="colorAttribute" class="product-view__attribute">
+                  <div v-for="(option, index) in colorAttribute.options" class="product-view__option" @click="changeColor(option)">
+                    <p>{{ option }}</p>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ProductGallery v-if="displayedProduct.images" :images="displayedProduct.images" />
       </div>
+
+      
+
+
       <div class="product_info">
         <div class="product_header">
-          <MyTitle :label="product.name"  class="-enormous" type="h1" />
-          <p class="product-view__price">{{ product.price }}€</p>
+          <MyTitle :label="displayedProduct.name"  class="-enormous" type="h1" />
+          <p class="product-view__price">{{ displayedProduct.price }}€</p>
         </div>
         
         <ProductAccessories v-if="product.upsell_ids" :upsell_ids="product.upsell_ids" />
@@ -22,6 +41,7 @@
             <MyButton class="button" label="Acheter" @click="buy()" />
           </RouterLink>
         </div>
+        
 
       </div>
     </div>
@@ -43,6 +63,7 @@
 <script>
 import { client } from "@/outils/axios";
 import MyHeader from "@/components/MyHeader.vue";
+import MyCheckbox from "@/components/MyCheckbox.vue"
 import MyFooter from "@/components/MyFooter.vue";
 import Product from "@/components/Product.vue"
 import ProductVideo from "@/components/ProductVideo.vue";
@@ -60,6 +81,7 @@ export default {
     ProductNav,
     ProductSetUp,
     MyHeader,
+    MyCheckbox,
     Product,
     ProductAccessories,
     MyFooter,
@@ -73,7 +95,10 @@ export default {
     return {
       product: {},
       inCart: false,
+      variations: [],
       quantity: 1,
+      activeColor: null,
+      showModal: false,
     };
   },
 
@@ -84,12 +109,47 @@ export default {
         this.$route.params.product
     );
     this.product = response.data[0];
+    if (this.product.type === 'variable') {
+        for await (const id of this.product.variations) {
+          const response = await client.get(import.meta.env.VITE_WP_API_URL + '/wc/v3/products/' + id)
+          this.variations.push(response.data)
+        }
+        console.log(this.variations);
+      }
   },
 
+  computed: {
+    colorAttribute () {
+      if (!this.product.attributes) return
+      return this.product.attributes.find(attribute => attribute.name === 'Couleur')
+    },
+    displayedProduct () {
+      if (!this.activeColor) return this.product
+      const [variation] = this.variations.filter((variation) => {
+        return variation.attributes.find(attribute => attribute.option === this.activeColor)
+      })
+      return variation || this.product
+    }
+  },
+
+
   methods: {
+
+    closeModal() {
+      this.showModal = false;
+    },
+    changeColor (color) {
+      this.activeColor = color;
+      this.closeModal();
+    },
+    openModal() {
+      this.showModal = true;
+    },
+
     buy(){
       this.$store.commit('add', this.product,this.quantity)
     }
+
   },
 };
 </script>
@@ -103,6 +163,12 @@ export default {
     font-size: 30px;
     margin: 0;
     margin-bottom: 30px;
+  }
+  &_buy{
+    margin-top: 30px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
   }
   &_header{
     display: flex;
@@ -123,5 +189,42 @@ export default {
     background-image: url("../../assets/images/product_bg.svg");
     background-size:cover;
   }
+}
+
+.custom{
+  position: relative;
+  &_points {
+    position: relative;
+    &_img{
+      position: absolute;
+      top: 180px;
+      left: 250px;
+    }
+}
+}
+
+.modal-background {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  padding: 20px;
+  border: 1px $mainColor solid;
+  .title-default{
+    margin: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.product-view__attribute{
+  display: flex;
+  gap: 20px;
+  width: 3%;
+  cursor: pointer;
 }
 </style>
