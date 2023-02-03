@@ -5,8 +5,19 @@
         <div class="panier">
             <div class="panier__item" v-for="addedProducts in $store.state.products">
                 <div class="panier__item__product">
-                    <div class="panier__item__product__img">                
-                        <img v-bind:src="addedProducts.images[0].src">
+                    <div class="panier__item__product__img">   
+                        <!--<img v-bind:src="addedProducts.images[0].src">-->
+
+                        <div v-if="addedProducts.images">
+                            <img v-bind:src="addedProducts.images[0].src">
+                        </div>
+
+                        <div v-else-if="addedProducts.product.images">
+                            <img v-bind:src="addedProducts.product.images[0].src">
+                        </div>
+
+                        <div v-else></div>
+                        
                         <div>
                             <MyButton class="button-quantite" label="-" @click="removeFromCart(addedProducts)"/>
                             {{addedProducts.quantity}}
@@ -21,7 +32,7 @@
                 </div>
 
                 <div class="panier__item__sideButtons">
-                    <RouterLink :to="`/products/${addedProducts.slug}`" target="_blank">
+                    <RouterLink :to="`/boutique/${addedProducts.slug}`" target="_blank">
                         <MyButton class="button" label="personnaliser" />
                     </RouterLink>
 
@@ -47,7 +58,7 @@
             </div>
             <div class="panneauReduc__paiement">
                 <MyButton class="button -suivant" label="procéder au paiement " />
-                <RouterLink :to="`/products`">
+                <RouterLink :to="`/boutique`">
                     <MyButton class="button -precedent" label="continuer mes achats" />
                 </RouterLink>
             </div>

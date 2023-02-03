@@ -7,7 +7,16 @@
 
 <script>
 import { client } from "@/outils/axios";
+import MyTitle from "@/components/MyTitle.vue";
+import MyHeader from "@/components/MyHeader.vue";
+import MyText from "@/components/MyText.vue";
+
 export default {
+  components: {
+    MyTitle,
+    MyHeader,
+    MyText,
+  },
   data() {
     return {
       page: {},
