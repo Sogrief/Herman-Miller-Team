@@ -37,12 +37,16 @@
         <ProductAccessories v-if="product.upsell_ids" :upsell_ids="product.upsell_ids" />
 
         <div class="product_buy">
-          <MyButton  label="Acheter" @click="addToCart" />
+          <RouterLink :to="`/cart`" target="_blank">
+            <MyButton class="button" label="Acheter" @click="buy()" />
+          </RouterLink>
         </div>
         
 
       </div>
     </div>
+
+    {{ this.$store.products }}
 
     <ProductVideo v-if="product.meta_data" :meta_data="product.meta_data" />
 
@@ -130,9 +134,7 @@ export default {
 
 
   methods: {
-    addToCart() {
-      this.$store.commit("add", {product: this.displayedProduct});
-    },
+
     closeModal() {
       this.showModal = false;
     },
@@ -143,6 +145,11 @@ export default {
     openModal() {
       this.showModal = true;
     },
+
+    buy(){
+      this.$store.commit('add', this.product,this.quantity)
+    }
+
   },
 };
 </script>
