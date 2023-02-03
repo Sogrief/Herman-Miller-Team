@@ -1,9 +1,6 @@
 <template>
 
-<DefaultLayout>
-        <template v-slot:header>
           <MyHeader />
-        </template>
 
     <div class="order-view">
     <div class="container">
@@ -127,10 +124,9 @@
     </div>
   </div>
 
-  <template v-slot:footer>
+
           <MyFooter />
-        </template>
-      </DefaultLayout>
+
 </template>
 
 <script>
