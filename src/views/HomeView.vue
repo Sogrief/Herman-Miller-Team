@@ -73,6 +73,7 @@ h2,h1{text-align: center;}
   .imgEntete{
     width:90vw;
     margin-left:5vw;
+    height: 120vh;
 
     img{
       width: 100%;
