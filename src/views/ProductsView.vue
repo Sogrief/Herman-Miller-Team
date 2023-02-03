@@ -13,10 +13,9 @@
       <Product v-bind="product" />
     </div>
   </div>
-
-  <template v-slot:footer>
-          <MyFooter />
-        </template>
+      <template v-slot:footer>
+        <MyFooter />
+      </template>
       </DefaultLayout>
 </template>
 
@@ -25,12 +24,16 @@ import { client } from "@/outils/axios";
 import MyHeader from "@/components/MyHeader.vue";
 import Product from "@/components/Product.vue";
 import MyButton from "@/components/MyButton.vue";
+import MyFooter from "@/components/MyFooter.vue";
+import DefaultLayout from "@/layout/DefaultLayout.vue";
 
 export default {
   components: { 
     Product,
     MyHeader,
-    MyButton },
+    MyButton,
+    MyFooter,
+    DefaultLayout, },
 
   data() {
     return {
