@@ -10,78 +10,55 @@
         <div class="order-view__row || row">
           <div class="column -size-6">
             <div class="order-view__field">
-              <label class="order-view__label" for="firstname">Prénom</label>
-              <input class="order-view__input" id="firstname" type="text" name="first_name" v-model="form.billing.first_name">
+                <MyInput label="Prénom" type="text" v-model="form.billing.first_name" />
             </div>
           </div>
           <div class="column -size-6">
             <div class="order-view__field">
-              <label class="order-view__label" for="lastname">Nom</label>
-              <input class="order-view__input" id="lastname" type="text" name="last_name" v-model="form.billing.last_name">
-            </div>
-          </div>
-        </div>
-        <div class="order-view__row || row">
-          <div class="column -size-6">
-            <div class="order-view__field">
-              <label class="order-view__label" for="address">Adresse</label>
-              <input class="order-view__input" id="address" type="text" name="address_1" v-model="form.billing.address_1">
-            </div>
-          </div>
-          <div class="column -size-6">
-            <div class="order-view__field">
-              <label class="order-view__label" for="extra-address">Complément d'adresse</label>
-              <input class="order-view__input" id="extra-address" type="text" name="address_2" v-model="form.billing.address_2">
+                <MyInput label="Nom" type="text" v-model="form.billing.last_name" />
             </div>
           </div>
         </div>
         <div class="order-view__row || row">
           <div class="column -size-6">
             <div class="order-view__field">
-              <label class="order-view__label" for="city">Ville</label>
-              <input class="order-view__input" id="city" type="text" name="city" v-model="form.billing.city">
+                <MyInput label="Adresse" type="text" v-model="form.billing.address_1" />
             </div>
           </div>
           <div class="column -size-6">
             <div class="order-view__field">
-              <label class="order-view__label" for="state">État/région</label>
-              <input class="order-view__input" id="state" type="text" name="state" v-model="form.billing.state">
-            </div>
-          </div>
-        </div>
-        <div class="order-view__row || row">
-          <div class="column -size-6">
-            <div class="order-view__field">
-              <label class="order-view__label" for="postcode">Code postal</label>
-              <input class="order-view__input" id="postcode" type="text" name="postcode" v-model="form.billing.postcode">
-            </div>
-          </div>
-          <div class="column -size-6">
-            <div class="order-view__field">
-              <label class="order-view__label" for="country">Pays</label>
-              <select class="order-view__input" v-model="form.billing.country">
-                <option disabled value="">Sélectionner un pays</option>
-                <option value="DE">Allemagne</option>
-                <option value="BE">Belgique</option>
-                <option value="IT">Italie</option>
-                <option value="ES">Espagne</option>
-                <option value="CH">Suisse</option>
-                <option value="FR">France</option>
-              </select>
+                <MyInput label="Complément d'adresse" type="text" v-model="form.billing.address_2" />
             </div>
           </div>
         </div>
         <div class="order-view__row || row">
           <div class="column -size-6">
             <div class="order-view__field">
-              <label class="order-view__label" for="email">Email</label>
-              <input class="order-view__input" id="email" type="email" name="email" v-model="form.billing.email">
+              <MyInput label="Ville" type="text" v-model="form.billing.city" />
             </div>
           </div>
           <div class="column -size-6">
             <div class="order-view__field">
-              <label class="order-view__label" for="phone">Téléphone</label>
-              <input class="order-view__input" id="phone" type="text" name="phone" v-model="form.billing.phone">
+                <MyInput label="Etat/région" type="text" v-model="form.billing.state" />
+            </div>
+          </div>
+        </div>
+        <div class="order-view__row || row">
+          <div class="column -size-6">
+            <div class="order-view__field">
+                <MyInput label="Code postal" type="text" v-model="form.billing.postcode" />
+            </div>
+          </div>
+        </div>
+        <div class="order-view__row || row">
+          <div class="column -size-6">
+            <div class="order-view__field">
+                <MyInput label="Email" type="email" v-model="form.billing.email" />
+            </div>
+          </div>
+          <div class="column -size-6">
+            <div class="order-view__field">
+             <MyInput label="Téléphone" type="email" v-model="form.billing.phone" />
             </div>
           </div>
         </div>
@@ -96,71 +73,50 @@
           <div class="order-view__row || row">
             <div class="column -size-6">
               <div class="order-view__field">
-                <label class="order-view__label" for="firstname">Prénom</label>
-                <input class="order-view__input" id="firstname" type="text" name="first_name" v-model="form.shipping.first_name">
+                <MyInput label="Prénom" type="text" v-model="form.shipping.first_name"/>
               </div>
             </div>
             <div class="column -size-6">
               <div class="order-view__field">
-                <label class="order-view__label" for="lastname">Nom</label>
-                <input class="order-view__input" id="lastname" type="text" name="last_name" v-model="form.shipping.last_name">
+                <MyInput label="Nom" type="text" v-model="form.shipping.last_name"/>
+                </div>
+            </div>
+          </div>
+          <div class="order-view__row || row">
+            <div class="column -size-6">
+              <div class="order-view__field">
+                <MyInput label="Adresse" type="text" v-model="form.shipping.address_1" />
+               </div>
+            </div>
+            <div class="column -size-6">
+              <div class="order-view__field">
+                <MyInput label="Complément d'adresse" type="text" v-model="form.shipping.address_2" />
               </div>
             </div>
           </div>
           <div class="order-view__row || row">
             <div class="column -size-6">
               <div class="order-view__field">
-                <label class="order-view__label" for="address">Adresse</label>
-                <input class="order-view__input" id="address" type="text" name="address_1" v-model="form.shipping.address_1">
+                <MyInput label="Ville" type="text" v-model="form.shipping.city" />
               </div>
             </div>
             <div class="column -size-6">
               <div class="order-view__field">
-                <label class="order-view__label" for="extra-address">Complément d'adresse</label>
-                <input class="order-view__input" id="extra-address" type="text" name="address_2" v-model="form.shipping.address_2">
-              </div>
-            </div>
-          </div>
-          <div class="order-view__row || row">
-            <div class="column -size-6">
-              <div class="order-view__field">
-                <label class="order-view__label" for="city">Ville</label>
-                <input class="order-view__input" id="city" type="text" name="city" v-model="form.shipping.city">
-              </div>
-            </div>
-            <div class="column -size-6">
-              <div class="order-view__field">
-                <label class="order-view__label" for="state">État/région</label>
-                <input class="order-view__input" id="state" type="text" name="state" v-model="form.shipping.state">
+                <MyInput label="Etat/région" type="text" v-model="form.shipping.state" />
               </div>
             </div>
           </div>
           <div class="order-view__row || row">
             <div class="column -size-6">
               <div class="order-view__field">
-                <label class="order-view__label" for="postcode">Code postal</label>
-                <input class="order-view__input" id="postcode" type="text" name="postcode" v-model="form.shipping.postcode">
-              </div>
-            </div>
-            <div class="column -size-6">
-              <div class="order-view__field">
-                <label class="order-view__label" for="country">Pays</label>
-                <select class="order-view__input" v-model="form.shipping.country">
-                  <option disabled value="">Sélectionner un pays</option>
-                  <option value="DE">Allemagne</option>
-                  <option value="BE">Belgique</option>
-                  <option value="IT">Italie</option>
-                  <option value="ES">Espagne</option>
-                  <option value="CH">Suisse</option>
-                  <option value="FR">France</option>
-                </select>
+                <MyInput label="Code postal" type="text" v-model="form.shipping.postcode" />
               </div>
             </div>
           </div>
         </div>
         <Loader v-if="loading" />
         <div v-else class="order-view__submit">
-          <Button :label="'Valider la commande'" @click="confirmOrder" />
+            <MyButton :label="'Valider la commande'" @click="confirmOrder"/>
         </div>
       </form>
       <div v-if="message.text" :class="['order-view__message', `-is-type-${message.type}`]">
@@ -175,11 +131,17 @@
 <script>
 import {client} from "@/outils/axios"
 import MyHeader from "@/components/MyHeader.vue";
-import MyFooter from "@/components/MyFooter.vue"
+import MyFooter from "@/components/MyFooter.vue";
+import MyButton from "@/components/MyButton.vue"
+import MyInput from "@/components/MyInput.vue";
+import MyTitle from "../components/MyTitle.vue";
 
 export default {
     components: { 
     MyHeader, 
+    MyInput,
+    MyButton,
+    MyTitle,
     MyFooter,
     },
     data () {
@@ -279,6 +241,9 @@ export default {
 </script>
   
 <style lang="scss">
+label {
+  @include bodyText();
+}
     .order-view {
   padding: 50px;
 
@@ -318,6 +283,16 @@ export default {
 
     &.-is-type-success {
       color: darkslategrey;
+    }
+    input[type="checkbox"]{
+        display: none;
+        + label {
+            width: 15px;
+            height: 15px;
+            border: 1px solid $bodyText;
+            cursor: pointer;
+            display: inline-block;
+        }
     }
   }
 
