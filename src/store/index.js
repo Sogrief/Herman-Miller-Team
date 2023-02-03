@@ -7,9 +7,8 @@ export default createStore({
   mutations: {
     add(state, product) {
       // Check if product is already in state.product
-      const stateProduct = state.products.find(
-        (item) => product.id === item.id
-      );
+  
+      const stateProduct = state.products.find(item => product.id === item.id);
       if (!stateProduct) {
         // List all product object keys and add quantity key
         state.products.push({ ...product, quantity: 1 });
@@ -26,12 +25,13 @@ export default createStore({
       );
       // Delete 1 item from index
       state.products.splice(indexToDelete, 1);
+      
       // Synchronize store & localStorage
       localStorage.setItem("cart", JSON.stringify(state.products));
     },
     updateQuantity(state, { id, quantity }) {
-      if (quantity <= 0) return;
-      const stateProduct = state.products.find((item) => id === item.id);
+      if (quantity <= 0) return
+      const stateProduct = state.products.find(item => id === item.id);
       if (stateProduct) {
         stateProduct.quantity = quantity;
       }

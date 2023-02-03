@@ -26,17 +26,30 @@ const router = createRouter({
       component: () => import('../views/AdviceView.vue')
     },
     {
-      path: '/products',
-      name: 'products',
+      path: '/contact',
+      name: 'contact',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ContactView.vue')
+    },
+    {
+      path: '/boutique',
+      name: 'boutique',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/ProductsView.vue')
     },
     {
-      path: '/products/:product',
+      path: '/boutique/:product',
       name: 'products-product',
       component: () => import('../views/ProductView.vue')
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: () => import('../views/CartView.vue')
     }
   ]
 })
