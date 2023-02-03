@@ -144,9 +144,12 @@ export default {
       this.showModal = true;
     },
 
-    buy(){
+   /* buy(){
       this.$store.commit('add', { product: this.displayedProduct, quantity: this.quantity })
-    },
+    },*/
+    buy(){
+      this.$store.commit('add', this.product,this.quantity)
+    }
 
   },
 };
