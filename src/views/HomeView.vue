@@ -24,17 +24,7 @@ export default {
   data(){
     return {
       front: {},
-      page:{}
     }
-  },
-
-  async created(){
-    const resp = await client.get(
-      import.meta.env.VITE_WP_API_URL +
-        "/wp/v2/pages?slug=accueil&_fields=id,title,content,date,excerpt"
-    );
-
-    this.page = resp.data;
   },
 
   async mounted() {
@@ -64,11 +54,11 @@ export default {
           <MyHeader />
         </template>
         <main>
+          <div v-if="front.content" v-html="front.content.rendered"></div>
           <MyTitle size="-enormous" label="Aeron" type="h1" />
           <MyButton label="Découvrir" />
           <MyInfo v-if="front.acf" :acf="front.acf" />
-
-          <div v-if="page.content" v-html="page.content.rendered"></div>
+          
         </main>
         <template v-slot:footer>
           <MyFooter />
