@@ -1,7 +1,7 @@
 <template>
 
     <MyHeader />
-    <div class="container">
+    <div class="cart_container">
         <div class="panier">
             <div class="panier__item" v-for="addedProducts in $store.state.products">
                 <div class="panier__item__product">
@@ -12,9 +12,9 @@
                             <img v-bind:src="addedProducts.images[0].src">
                         </div>
 
-                        <div v-else-if="addedProducts.product.images">
+                        <!-- <div v-else-if="addedProducts.product.images">
                             <img v-bind:src="addedProducts.product.images[0].src">
-                        </div>
+                        </div> -->
 
                         <div v-else></div>
                         
@@ -57,7 +57,10 @@
                 <div><img src="/assets/images/casesBiseaux.svg"> Livraison rapide</div>
             </div>
             <div class="panneauReduc__paiement">
-                <MyButton class="button -suivant" label="procéder au paiement " />
+                <RouterLink :to="`/payment`">
+                    <MyButton class="button -suivant" label="procéder au paiement " />
+                </RouterLink>
+                
                 <RouterLink :to="`/boutique`">
                     <MyButton class="button -precedent" label="continuer mes achats" />
                 </RouterLink>
@@ -113,7 +116,7 @@ export default {
   
 <style lang="scss">
 
-.container{
+.cart_container{
     display: flex;
     flex-wrap: wrap;
     row-gap: pxToRem(60);
@@ -221,7 +224,7 @@ export default {
 }
 
 @media screen and (max-width: map-get($breakpoints, "tablet-down")) {
-    .container{
+    .cart_container{
         flex-direction: column;
     }
 }

@@ -245,7 +245,7 @@ label {
   @include bodyText();
 }
     .order-view {
-  padding: 50px;
+      padding: 50px 200px;
 
   &__form {
     margin-top: 50px;
@@ -272,6 +272,8 @@ label {
 
   &__submit {
     margin-top: 30px;
+    display: flex;
+    justify-content: center;
   }
 
   &__message {
