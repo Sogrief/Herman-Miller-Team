@@ -9,7 +9,8 @@
                         <!--<div v-if="addedProducts.images[0].src">
                             <img v-bind:src="addedProducts.images[0].src">
                         </div>     -->        
-                        {{  addedProducts}}
+
+                        <div v-if="addedProducts && addedProducts.images && addedProducts.images[0].src">ééé</div>
                         
                         <div>
                             <MyButton class="button-quantite" label="-" @click="removeFromCart(addedProducts)"/>
