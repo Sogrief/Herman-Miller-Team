@@ -40,24 +40,13 @@ export default {
 </script>
 
 <template>
-  <!-- <MyTitle />
-    <MyTitle size="big" label="grand titre h1" />
-    <MyTitle size="tiny" type="h2" label="petit titre h2" />
-    <MyButton type="quantite" label="+" />
-    <MyButton type="precedent" label="+" />
-    <MyButton type="suivant" label="+" />
-    <MyButton label="+" />
-    <MyHeader />
-   <MyCheckbox />
-     <MyTitle size="-little" label="test" />
-     <MyText type="lien" label="blabla" size="body" />  -->
+
      <DefaultLayout>
         <template v-slot:header>
           <MyHeader />
         </template>
         <main>
           <HomeContent />
-          <MyInfo v-if="front.acf" :acf="front.acf" />
         </main>
         <template v-slot:footer>
           <MyFooter />

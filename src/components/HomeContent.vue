@@ -1,5 +1,8 @@
 <template>
-    <div v-if="page.content" v-html="page.content.rendered"></div>
+    <div class="home">
+        <div v-if="page.content" v-html="page.content.rendered"></div>
+
+    </div>
 </template>
 
 <script>
@@ -8,6 +11,7 @@ import { client } from "@/outils/axios";
 
 
 export default {
+
   data() {
     return {
       page: {},
@@ -26,7 +30,12 @@ export default {
 
 
 <style>
-.imgEntete>img{
-    width: 100%;
+.home{
+    min-height: 100vh;
+    margin: 0 50vh;
 }
+
+.imgEntete>img{
+        width:100%
+    }
 </style>
