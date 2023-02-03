@@ -23,12 +23,13 @@ h1, h2, h3{
     @include title();
 }
 
-.aProposText{
+.aProposText>div>p:first-child{
     font-family: $textFontFamily;
     font-weight : 700;
     text-transform: none;
     color : $mainColor;
     font-size: 20px;
+    margin:0;
   }
 
 .aProposBlock{

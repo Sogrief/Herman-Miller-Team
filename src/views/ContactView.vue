@@ -1,18 +1,20 @@
 <template>
   <DefaultLayout>
-  <template v-slot:header>
-  <MyHeader />
-  </template>
-  
-    <div class="contact">
-    </div>
-    <div class="container" v-if="page.content" v-html="page.content.rendered"></div>
-  
-  <template v-slot:footer>
+    <template v-slot:header>
+      <MyHeader />
+    </template>
+
+    <div class="contact"></div>
+    <div
+      class="container"
+      v-if="page.content"
+      v-html="page.content.rendered"
+    ></div>
+
+    <template v-slot:footer>
       <MyFooter />
-  </template>
+    </template>
   </DefaultLayout>
-  
 </template>
 
 <script>
@@ -28,10 +30,11 @@ export default {
     };
   },
 
-  components: { 
+  components: {
     MyHeader,
     MyFooter,
-    DefaultLayout},
+    DefaultLayout,
+  },
 
   async created() {
     const response = await client.get(
@@ -44,62 +47,63 @@ export default {
 </script>
 
 <style lang="scss">
-.wpcf7{
-  width:50vw;
+.wpcf7 {
+  width: 20vw;
 
-  input{
-    border:1px solid $mainColor;
+  input {
+    border: 1px solid $mainColor;
     background-color: $backgroundColor;
-    padding:pxToRem(7) pxToRem(10) pxToRem(7) pxToRem(10);
-    color:white;
-    
+    padding: pxToRem(7) pxToRem(10) pxToRem(7) pxToRem(10);
+    color: white;
   }
 
-  input:not(.wpcf7-submit), textarea
-  {
-    width:100%;
+  input:not(.wpcf7-submit),
+  textarea {
+    width: 100%;
   }
-  
 
-  textarea{
-    border:1px solid $mainColor;
+  textarea {
+    border: 1px solid $mainColor;
     background-color: $backgroundColor;
     resize: none;
   }
 
-  .wpcf7-submit
-  {
+  .wpcf7-submit {
     padding: pxToRem(5) pxToRem(30);
-    color:$mainColor;
+    color: $mainColor;
 
     &:hover {
       color: white;
-      cursor:pointer;
+      cursor: pointer;
     }
   }
 }
 
-.container{
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width:unset;
-  max-width:60vw;
-  margin-left:20vw;
+  width: unset;
+  max-width: 60vw;
+  margin-left: 20vw;
   margin-bottom: pxToRem(150);
-  margin-top:pxToRem(100);
+  margin-top: pxToRem(100);
 }
 
 @media screen and (max-width: map-get($breakpoints, "tablet-down")) {
-  .container{
-    width:80vw;
-    margin-left:10vw;
+  .container {
+    width: 80vw;
+    margin-left: 10vw;
   }
 
-  .wpcf7{
-    width:80vw;
-    margin-left:10vw;
+  .wpcf7 {
+    width: 80vw;
+    margin-left: 10vw;
   }
 }
 
+div.contact {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
 </style>
