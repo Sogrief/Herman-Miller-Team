@@ -1,177 +1,44 @@
-button {
-  color: #01E6B6;
-  border: 1px solid #01E6B6;
-}
-
-.bouton {
-  width: auto;
-  padding: 0.3571428571rem 2.1428571429rem;
-}
-.bouton:hover {
-  color: white;
-}
-.bouton.-suivant::after {
-  border-style: solid;
-  border-width: 0.12em 0.12em 0 0;
-  content: "";
-  display: inline-block;
-  height: 0.4285714286rem;
-  left: 0.2142857143rem;
-  position: relative;
-  transform: rotate(45deg);
-  vertical-align: center;
-  width: 0.4285714286rem;
-}
-.bouton.-precedent::before {
-  border-style: solid;
-  border-width: 0.12em 0.12em 0 0;
-  content: "";
-  display: inline-block;
-  height: 0.4285714286rem;
-  right: 0.2142857143rem;
-  position: relative;
-  transform: rotate(-135deg);
-  vertical-align: center;
-  width: 0.4285714286rem;
-}
-
-.check input[type=checkbox] {
-  display: none;
-}
-.check input[type=checkbox]:checked + label {
-  background-color: #01E6B6;
-  border-color: #01E6B6;
-}
-.check input[type=checkbox]:checked + label:after {
-  opacity: 1;
-}
-.check label {
-  border: 2px solid #C5C5C5;
-  cursor: pointer;
-  height: 20px;
-  width: 20px;
-  position: absolute;
-  display: flex;
-}
-.check label:after {
-  border: 2px solid #2b2b2b;
-  border-top: none;
-  border-right: none;
-  content: "";
-  height: 6px;
-  opacity: 0;
-  position: absolute;
-  top: 2px;
-  left: 1px;
-  transform: rotate(-45deg);
-  width: 12px;
-}
-
-.menu__list {
-  list-style: none;
-  display: flex;
-  align-items: center;
-}
-.menu__item {
-  margin: 0px 1.0714285714rem;
-}
-.menu__icone {
-  height: 1.4285714286rem;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-}
-.form__label {
-  color: #C5C5C5;
-  margin: 5px 0;
-}
-.form__input {
-  border: 2px solid #01E6B6;
-  width: 250px;
-  height: 25px;
-  outline: none;
-}
-.form__input:focus {
-  border-color: #C5C5C5;
-}
-.form__input.-error {
-  border-color: #FF6262;
-}
-
-@font-face {
-  font-family: supreme;
-  src: url("../../sources/fonts/SUPREME-REGULAR.OTF");
-}
-@font-face {
-  font-family: deserta;
-  src: url("../../sources/fonts/DESERTA.OTF");
-}
-@font-face {
-  font-family: anurati;
-  src: url("../../sources/fonts/ANURATI-REGULAR.OTF");
-}
-.textBody {
-  color: #C5C5C5;
-  font-size: 1rem;
-  font-family: supreme;
-}
-
-.labelForm {
-  color: #C5C5C5;
-  font-size: pxTorem(12);
-  font-family: supreme;
-}
-
-.title {
-  color: white;
-  font-family: deserta;
-  font-size: pxTorem(25);
-}
-.title.-big {
-  font-size: pxTorem(35);
-}
-.title.-little {
-  font-size: pxTorem(20);
-}
-.title.-menu {
-  font-style: pxTorem(16);
-  text-transform: uppercase;
-  padding-right: 22px;
-}
-.title.-icone {
-  padding-right: 20px;
-}
-
-.liens:hover {
-  color: #01E6B6;
-  text-decoration: underline;
-}
-
-.header {
-  height: 56px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 18px;
-}
-.header__row {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  justify-content: space-between;
-  align-items: center;
-}
-
 * {
   box-sizing: border-box;
-  background-color: #2b2b2b;
-  margin: 0;
+}
+
+body {
   padding: 0;
+  background-color: #2b2b2b;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+p {
+  color: #C5C5C5;
+  font-family: supreme;
+  font-size: 16px;
+}
+
+h1, h2, h3 {
+  color: white;
+  font-family: deserta;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.aProposText {
+  font-family: supreme;
+  font-weight: 700;
+  text-transform: none;
+  color: #01E6B6;
+  font-size: 20px;
+}
+
+.aProposBlock {
+  width: 40%;
+}
+
+blockquote > p {
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 30px;
 }/*# sourceMappingURL=main.css.map */
