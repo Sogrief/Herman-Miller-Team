@@ -6,11 +6,7 @@
             <div class="panier__item" v-for="addedProducts in $store.state.products">
                 <div class="panier__item__product">
                     <div class="panier__item__product__img">   
-                        <!--<div v-if="addedProducts.images[0].src">
-                            <img v-bind:src="addedProducts.images[0].src">
-                        </div>     -->        
-
-                        <div v-if="addedProducts && addedProducts.images && addedProducts.images[0].src">ééé</div>
+                        <img v-bind:src="addedProducts.product.images[0].src">
                         
                         <div>
                             <MyButton class="button-quantite" label="-" @click="removeFromCart(addedProducts)"/>
