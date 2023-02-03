@@ -156,11 +156,8 @@ export default {
       this.showModal = true;
     },
 
-   /* buy(){
-      this.$store.commit('add', { product: this.displayedProduct, quantity: this.quantity })
-    },*/
     buy(){
-      this.$store.commit('add', this.product,this.quantity)
+      this.$store.commit('add', this.displayedProduct,this.quantity)
     }
 
   },
