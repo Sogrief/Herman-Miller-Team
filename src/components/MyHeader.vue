@@ -99,7 +99,7 @@ methods: {
   justify-content: space-between;
   align-items: center;
   &__row {
-    padding: 20px;
+    padding-right: 20px;
     display: flex;
     flex-direction: row;
     list-style: none;

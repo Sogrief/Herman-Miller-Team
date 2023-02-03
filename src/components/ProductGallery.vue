@@ -87,7 +87,7 @@ export default {
     width: 100%;
   }
   &__active {
-    width: 100%;
+    width: 80%;
   }
 }
 </style>

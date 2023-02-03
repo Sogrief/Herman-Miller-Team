@@ -73,15 +73,20 @@ methods: {
     &_price{
         margin-left: 70px;
     }
-    &_checkbox{
-        display: none;
-        + label {
-            width: 15px;
-            height: 15px;
-            border: 1px solid $bodyText;
-            cursor: pointer;
-            display: inline-block;
-        }
+    input[type="checkbox"]{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        width: 15px;
+        content: '';
+        height: 15px;
+        border: 1px solid $bodyText;
+        cursor: pointer;
+        margin-right: 10px;
+    &:checked {
+     background-color: $bodyText;
+      position: relative;
     }
+  }
 }
 </style>

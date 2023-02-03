@@ -196,6 +196,7 @@ export default {
     flex-direction: column;
     align-items: end;
     width: 45%;
+    margin-top: 20px;
   }
   &_img {
     width: 45%;
