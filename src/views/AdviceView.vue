@@ -1,7 +1,5 @@
 <template>
-  <div class="conseils">
-    {{ page.title.rendered }}
-  </div>
+  <MyHeader />
   <div v-if="page.content" v-html="page.content.rendered"></div>
 </template>
 
