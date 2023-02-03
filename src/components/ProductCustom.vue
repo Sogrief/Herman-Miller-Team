@@ -1,22 +1,43 @@
 <script>
 export default {
-  props: {
-    variations: {
-      type: Array,
-      default: () => [],
-    },
-  },
+data() {
+return {
+  showModal: false,
+};
+},
 
-  data() {
-    return {
-      active: this.variations[0],
-    };
-  },
+methods: {
+openModal() {
+  this.showModal = true;
+},
+}
 };
 </script>
 
-<template>
-  {{ active }}
-</template>
+<style lang="scss">
+.custom{
+  position: relative;
+  &_points {
+    position: relative;
+    &_img{
+      position: absolute;
+      top: 180px;
+      left: 250px;
+    }
+}
+}
 
-<style lang="scss"></style>
+.modal-background {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  padding: 20px;
+  border: 1px $mainColor solid;
+}
+</style>
