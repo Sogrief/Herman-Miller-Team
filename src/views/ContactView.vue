@@ -6,7 +6,7 @@
 
     <div class="contact"></div>
     <div
-      class="container"
+      class="contact_container"
       v-if="page.content"
       v-html="page.content.rendered"
     ></div>
@@ -79,7 +79,7 @@ export default {
   }
 }
 
-.container {
+.contact_container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,7 +91,7 @@ export default {
 }
 
 @media screen and (max-width: map-get($breakpoints, "tablet-down")) {
-  .container {
+  .contact_container {
     width: 80vw;
     margin-left: 10vw;
   }
