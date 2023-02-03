@@ -5,8 +5,12 @@
         <div class="panier">
             <div class="panier__item" v-for="addedProducts in $store.state.products">
                 <div class="panier__item__product">
-                    <div class="panier__item__product__img">                
-                        <img v-bind:src="addedProducts.images[0].src">
+                    <div class="panier__item__product__img">   
+                        <!--<div v-if="addedProducts.images[0].src">
+                            <img v-bind:src="addedProducts.images[0].src">
+                        </div>     -->        
+                        {{  addedProducts}}
+                        
                         <div>
                             <MyButton class="button-quantite" label="-" @click="removeFromCart(addedProducts)"/>
                             {{addedProducts.quantity}}
@@ -21,7 +25,7 @@
                 </div>
 
                 <div class="panier__item__sideButtons">
-                    <RouterLink :to="`/products/${addedProducts.slug}`" target="_blank">
+                    <RouterLink :to="`/boutique/${addedProducts.slug}`" target="_blank">
                         <MyButton class="button" label="personnaliser" />
                     </RouterLink>
 
