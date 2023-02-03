@@ -39,11 +39,13 @@ async created() {
         <MyTitle type="h2" class="-title setup_title" label="Complétez votre set-up" />
         <div class="setup_container">
         <div v-for="product in setup" :key="setup.index" class="setup_card">
+          <RouterLink class="product__link__media__buy" :to="'/boutique/' + product.data.slug" >
             <ProductImage class="setup_img" v-if="product.data.images" :images="product.data.images"/>
             <div class="setup_info">
               <MyTitle type="h3" class="-default" :label="product.data.name" />
               <p class="setup_price">{{ product.data.price }}€</p>
             </div>
+          </RouterLink>
       </div>
     </div>
   </div>
