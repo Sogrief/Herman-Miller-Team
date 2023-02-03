@@ -90,18 +90,6 @@ export default {
   margin-top: pxToRem(100);
 }
 
-@media screen and (max-width: map-get($breakpoints, "tablet-down")) {
-  .contact_container {
-    width: 80vw;
-    margin-left: 10vw;
-  }
-
-  .wpcf7 {
-    width: 80vw;
-    margin-left: 10vw;
-  }
-}
-
 div.contact {
   display: grid;
   grid-template-columns: 50% 50%;
