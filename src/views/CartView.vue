@@ -1,6 +1,4 @@
 <template>
-  <DefaultLayout>
-  <template v-slot:header>
     <MyHeader />
     <div class="cart_container">
         <div class="panier">
@@ -69,10 +67,8 @@
         </div>
     </div>
 
-    <template v-slot:footer>
-      <MyFooter />
-    </template>
-  </DefaultLayout>
+    <MyFooter />
+
 </template>
 
 <script>
