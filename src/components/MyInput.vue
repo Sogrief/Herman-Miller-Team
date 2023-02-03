@@ -20,7 +20,7 @@ export default{
 <style lang="scss" scoped>
     label
     {
-      @include title;
+      @include bodyText();
     }
 
     input
@@ -28,6 +28,7 @@ export default{
       display:block;
       border:2px solid $mainColor;
       padding:pxToRem(5);
+      background-color: transparent;
     }
 </style>
   
