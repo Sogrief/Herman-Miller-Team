@@ -1,8 +1,10 @@
 <script>
 import MyTitle from './MyTitle.vue';
+import MyText from './MyText.vue';
 export default {
     components: {
         MyTitle,
+        MyText,
     },
     props: {
     acf: {
@@ -19,13 +21,9 @@ export default {
       <div class="specification-img">
         <img :src="acf.product_technique.technique_image.url" />
         <div class="specification-link">
-          <a href="">
-            <MyTitle
-              :label="acf.product_technique.technique_link_text"
-              type="h3"
-              class="-menu"
-            />
-            <svg
+            <RouterLink :to="`/conseils`" class="specification-link_a">
+              <MyText size="menu" type="lien" :label="acf.product_technique.technique_link_text" />
+              <svg
               width="22"
               height="32"
               viewBox="0 0 22 32"
@@ -37,7 +35,7 @@ export default {
                 fill="#01E6B6"
               />
             </svg>
-          </a>
+            </RouterLink>
         </div>
       </div>
       <div
@@ -55,7 +53,6 @@ export default {
             class="-default"
           />
           <p>
-            <!-- Voir pour faire sous forme de liste -->
             {{ item.specification_text }}
           </p>
         </div>
@@ -69,8 +66,9 @@ export default {
         v-for="item in acf.product_technique.product_materials"
         :key="item.id"
       >
+      
         <img :src="item.materials_image.url" />
-        <MyTitle :label="item.materials_title" type="h3" class="-default" />
+        <MyTitle :label="item.materials_title" type="h3" class="-default"/>
         <p>{{ item.materials_text }}</p>
       </div>
     </div>
@@ -82,6 +80,13 @@ export default {
   .specification {
     position: relative;
     display: flex;
+    &-link_a {
+        margin-top: 5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+      }
     &-img {
       display: flex;
       flex-direction: column;
@@ -90,13 +95,6 @@ export default {
         background-image: url("../../assets/images/grille_produit.png");
         background-size: 100% 100%;
         background-position: right top;
-      }
-      a {
-        margin-top: 5vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
       }
     }
     &-info {

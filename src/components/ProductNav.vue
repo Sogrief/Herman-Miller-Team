@@ -22,32 +22,6 @@ export default {
       defautl: () => []
     }
   },
-  data() {
-    return {
-      currentIndex: 0,
-      active: this.acf.product_ergonomy[0]
-    };
-  },
-  methods: {
-    prev() {
-      if (this.currentIndex === 0) {
-        this.active[currentIndex].style.display = "none";
-        this.active = this.acf.product_ergonomy[this.currentIndex]
-        this.active[currentIndex].style.display = "block";
-
-      } else {
-        this.currentIndex--;
-      }
-    },
-    next() {
-      if (this.currentIndex === this.acf.product_ergonomy.length - 1) {
-        this.currentIndex = 0;
-      } else {
-        this.currentIndex++;
-      }
-    },
-  },
-
   mounted() {
   var acc = document.querySelectorAll('.nav_title');
   var i;
@@ -59,7 +33,7 @@ export default {
       if (panel.style.display) {
         panel.style.display = null;
       } else {
-        panel.style.display = "block";
+        panel.style.display = "block"
       } 
     });
   }
@@ -72,7 +46,7 @@ export default {
   <div class="nav_advantage">
     <div class="nav_title">
       <MyTitle type="h2" class="-default" label="Points forts" />
-      <img src="../../assets/images/arrow_nav.svg" alt="">
+      <img class="nav_arrow" src="../../assets/images/arrow_nav.svg" alt="">
     </div>
     <div class="nav_text">
       <ProductAdvantage :acf="acf" />

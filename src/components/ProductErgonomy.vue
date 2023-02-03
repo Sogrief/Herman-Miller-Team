@@ -1,5 +1,6 @@
 <script>
 import MyTitle from './MyTitle.vue';
+import { RouterLink } from 'vue-router';
 export default {
   data() {
     return {
@@ -45,7 +46,6 @@ export default {
       >
         <MyTitle :label="item.ergonomy_title" type="h2" class="-default" />
         <img :src="item.ergonomy_image.url" />
-        <!-- A voir pour le carousel et l'importation des gifs -->
         <p class="caption">{{ item.ergonomy_text }}</p>
       </div>
     </div>

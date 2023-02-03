@@ -2,6 +2,7 @@
 import { client } from "@/outils/axios";
 import ProductImage from './ProductImage.vue';
 import MyTitle from './MyTitle.vue';
+import { RouterLink } from 'vue-router';
 export default{
     components: {
         ProductImage,
