@@ -1,12 +1,26 @@
 <template>
-  <MyHeader />
+  <DefaultLayout>
+  <template v-slot:header>
+    <MyHeader />
+  </template>
+
+  <div class="conseils">
+    {{ page.title.rendered }}
+  </div>
   <div v-if="page.content" v-html="page.content.rendered"></div>
+
+  <template v-slot:footer>
+      <MyFooter />
+    </template>
+  </DefaultLayout>
 </template>
 
 <script>
 import { client } from "@/outils/axios";
 import MyTitle from "@/components/MyTitle.vue";
 import MyHeader from "@/components/MyHeader.vue";
+import MyFooter from "@/components/MyFooter.vue";
+import DefaultLayout from "@/layout/DefaultLayout.vue";
 import MyText from "@/components/MyText.vue";
 
 export default {
@@ -14,6 +28,8 @@ export default {
     MyTitle,
     MyHeader,
     MyText,
+    MyFooter,
+    DefaultLayout
   },
   data() {
     return {
@@ -43,23 +59,23 @@ export default {
 .wp-block-gallery {
   display: grid;
   grid-template-columns: 21.3% 24% 24% 24%;
-  margin-bottom: 130px;
+  margin-bottom: 60px;
+}
+
+.wp-block-image:first-child {
+  margin-top: 17px;
 }
 
 .wp-block-image:nth-child(0n + 2) {
-  margin-top: -53px;
+  margin-top: -52px;
 }
 
 .wp-block-image:nth-child(0n + 3) {
-  margin-top: -10px;
+  margin-top: -51px;
 }
 
 .wp-block-image:nth-child(0n + 4) {
   margin-top: 34px;
-}
-
-.wp-block-image:nth-child(0n + 5) {
-  margin-top: -88px;
 }
 
 .titre {

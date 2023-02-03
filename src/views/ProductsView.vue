@@ -1,6 +1,8 @@
 <template>
-
-  <MyHeader />
+<DefaultLayout>
+        <template v-slot:header>
+          <MyHeader />
+        </template>
 
   <div class="categories">
     <MyButton v-for="filtre in filtres" type="filtre" :label="filtre.label" :class="{'actif': filtre.isChecked}" @click="filtreCategory(filtre)">{{filtre.label}}</MyButton>
@@ -11,6 +13,10 @@
       <Product v-bind="product" />
     </div>
   </div>
+      <template v-slot:footer>
+        <MyFooter />
+      </template>
+      </DefaultLayout>
 </template>
 
 <script>
@@ -18,12 +24,16 @@ import { client } from "@/outils/axios";
 import MyHeader from "@/components/MyHeader.vue";
 import Product from "@/components/Product.vue";
 import MyButton from "@/components/MyButton.vue";
+import MyFooter from "@/components/MyFooter.vue";
+import DefaultLayout from "@/layout/DefaultLayout.vue";
 
 export default {
   components: { 
     Product,
     MyHeader,
-    MyButton },
+    MyButton,
+    MyFooter,
+    DefaultLayout, },
 
   data() {
     return {

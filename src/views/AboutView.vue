@@ -1,9 +1,15 @@
 <template>
+  <DefaultLayout>
+  <template v-slot:header>
+    <MyHeader />
+  </template>
   
-  <MyHeader />
   <div class="about" v-if="page.content" v-html="page.content.rendered"></div>
 
-
+  <template v-slot:footer>
+      <MyFooter />
+    </template>
+  </DefaultLayout>
 </template>
 
 
@@ -11,6 +17,8 @@
 import { client } from "@/outils/axios";
 import MyTitle from "@/components/MyTitle.vue";
 import MyHeader from "@/components/MyHeader.vue";
+import MyFooter from "@/components/MyFooter.vue";
+import DefaultLayout from "@/layout/DefaultLayout.vue";
 import MyText from "@/components/MyText.vue";
 
 export default{
@@ -18,6 +26,8 @@ export default{
     MyTitle,
     MyHeader,
     MyText,
+    MyFooter,
+    DefaultLayout
   },
   data() {
     return{

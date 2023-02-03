@@ -1,6 +1,9 @@
 <template>
 
-    <MyHeader />
+<DefaultLayout>
+        <template v-slot:header>
+          <MyHeader />
+        </template>
 
     <div class="order-view">
     <div class="container">
@@ -124,7 +127,10 @@
     </div>
   </div>
 
-    <MyFooter />
+  <template v-slot:footer>
+          <MyFooter />
+        </template>
+      </DefaultLayout>
 </template>
 
 <script>
@@ -134,6 +140,7 @@ import MyFooter from "@/components/MyFooter.vue";
 import MyButton from "@/components/MyButton.vue"
 import MyInput from "@/components/MyInput.vue";
 import MyTitle from "../components/MyTitle.vue";
+import DefaultLayout from "@/layout/DefaultLayout.vue";
 
 export default {
     components: { 
@@ -142,6 +149,7 @@ export default {
     MyButton,
     MyTitle,
     MyFooter,
+    DefaultLayout,
     },
     data () {
     return {

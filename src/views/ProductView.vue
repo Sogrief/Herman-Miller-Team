@@ -1,5 +1,10 @@
 <template>
-  <MyHeader />
+  <DefaultLayout>
+    <template v-slot:header>
+      <MyHeader />
+    </template>
+
+
   <div class="product-view">
     <div class="product_container">
       <div class="product_img">
@@ -55,7 +60,12 @@
     <ProductSetUp v-if="product.cross_sell_ids" :cross_sell_ids="product.cross_sell_ids"/>
 
   </div>
-  <MyFooter />
+  
+
+  <template v-slot:footer>
+      <MyFooter />
+    </template>
+      </DefaultLayout>
 </template>
 
 <script>
@@ -72,6 +82,7 @@ import ProductNav from "@/components/ProductNav.vue";
 import ProductAccessories from '@/components/ProductAccessories.vue'
 import MyTitle from "../components/MyTitle.vue";
 import ProductSetUp from "@/components/ProductSetUp.vue";
+import DefaultLayout from "@/layout/DefaultLayout.vue";
 
 export default {
   components: {
@@ -86,7 +97,8 @@ export default {
     ProductGallery,
     ProductVideo,
     MyButton,
-    MyTitle
+    MyTitle,
+    DefaultLayout
 },
 
   data() {

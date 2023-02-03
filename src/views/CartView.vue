@@ -1,5 +1,6 @@
 <template>
-
+  <DefaultLayout>
+  <template v-slot:header>
     <MyHeader />
     <div class="cart_container">
         <div class="panier">
@@ -68,17 +69,25 @@
         </div>
     </div>
 
+    <template v-slot:footer>
+      <MyFooter />
+    </template>
+  </DefaultLayout>
 </template>
 
 <script>
 import MyHeader from "@/components/MyHeader.vue";
+import MyFooter from "@/components/MyFooter.vue";
+import DefaultLayout from "@/layout/DefaultLayout.vue";
 import MyButton from "@/components/MyButton.vue";
 import MyInput from "@/components/MyInput.vue";
 
 export default {
     components: { 
     MyHeader, 
-    MyButton
+    MyButton,
+    MyFooter,
+    DefaultLayout,
     },
 
     methods:{
