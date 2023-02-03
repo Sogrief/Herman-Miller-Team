@@ -1,6 +1,8 @@
 <template>
-
-  <MyHeader />
+<DefaultLayout>
+        <template v-slot:header>
+          <MyHeader />
+        </template>
 
   <div class="categories">
     <MyButton v-for="filtre in filtres" type="filtre" :label="filtre.label" :class="{'actif': filtre.isChecked}" @click="filtreCategory(filtre)">{{filtre.label}}</MyButton>
@@ -11,6 +13,11 @@
       <Product v-bind="product" />
     </div>
   </div>
+
+  <template v-slot:footer>
+          <MyFooter />
+        </template>
+      </DefaultLayout>
 </template>
 
 <script>
