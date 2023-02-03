@@ -1,9 +1,9 @@
 <template>
     <div class="product" v-on:mouseover="hover = true" v-on:mouseleave="hover = false">
-      <RouterLink :class="'product__link'" :to="`/products/${slug}`">
+      <RouterLink :class="'product__link'" :to="`/boutique/${slug}`">
         <div v-if="cover" class="product__link__media">
           <img :class="'product__link__media__image'" :src="cover.src" :alt="cover.alt">
-          <RouterLink class="product__link__media__buy" :to="`/products/${slug}`">
+          <RouterLink class="product__link__media__buy" :to="`/boutique/${slug}`">
             <MyButton v-if="hover" label="acheter"/>
           </RouterLink>
         </div>

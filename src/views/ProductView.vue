@@ -46,8 +46,6 @@
       </div>
     </div>
 
-    {{ this.$store.products }}
-
     <ProductVideo v-if="product.meta_data" :meta_data="product.meta_data" />
 
     <div class="product-view__description" v-html="product.description" />
@@ -148,7 +146,7 @@ export default {
 
     buy(){
       this.$store.commit('add', this.product,this.quantity)
-    }
+    },
 
   },
 };
